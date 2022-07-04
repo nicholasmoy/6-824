@@ -98,16 +98,38 @@ type Raft struct {
 
 	// Your data here (2A, 2B, 2C).
 	// 2A
-	currentTerm int        // Latest term server has seen
-	votedFor    int        // Who server voted for this Term
-	log         []LogEntry // Log entries
-	inElection  bool
-	lastMsgTime chan time.Time
-	commitIndex int
+	currentTerm           int        // Latest term server has seen
+	votedFor              int        // Who server voted for this Term
+	log                   []LogEntry // Log entries
+	inElection            bool
+	lastElectionResetTime time.Time // Latest timestamp at which election reset received
+	commitIndex           int
 
 	// Look at the paper's Figure 2 for a description of what
 	// state a Raft server must maintain.
 
+}
+
+//
+// Set lastElectionResetTime to time.Now
+func (rf *Raft) ResetElectionTimer() time.Duration {
+
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+	delay := rf.GenElectionTimeout()
+
+	rf.lastElectionResetTime = time.Now().Add(delay)
+	return delay
+}
+
+//
+// return timestamp of most recent message to reset election.
+func (rf *Raft) GetLatestElectionReset() time.Time {
+
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+
+	return rf.lastElectionResetTime
 }
 
 // return currentTerm and whether this server
@@ -260,7 +282,6 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	// Refuse vote if all conditions not met
 	if args.Term >= term && // candidate term at least as high
 		// candidate log is at least as up to date
-
 		args.LastLogTerm >= lastLogTerm &&
 		args.LastLogIndex >= lastLogIndex {
 
@@ -269,19 +290,16 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 
 		// If haven't already voted this term or voted for Candidate, grant vote
 		rf.mu.Lock()
-
+		fmt.Printf("[%d] Term and log up to date. Currently voted for %d\n", rf.me, rf.votedFor)
 		if (rf.votedFor == -1) || (rf.votedFor == args.CandidateId) {
 			rf.votedFor = args.CandidateId
 			vote = true
 		}
 		rf.mu.Unlock()
 		if vote {
-			fmt.Printf("[%d] I'm stuck here like a dumbass\n", rf.me)
-			rf.lastMsgTime <- time.Now()
-			fmt.Printf("[%d] Posted update\n", rf.me)
+			rf.ResetElectionTimer()
 			fmt.Printf("[%d] Vote granted for %d.\n", rf.me, args.CandidateId)
 		}
-
 	}
 	reply.Term = rf.currentTerm
 	reply.VoteGranted = vote
@@ -314,7 +332,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 
 		// If leader was ahead in term, or log updated, reset election timer
 		if updated || success {
-			rf.lastMsgTime <- time.Now()
+			rf.ResetElectionTimer()
 		}
 
 	}
@@ -412,8 +430,8 @@ func (rf *Raft) killed() bool {
 
 // The ticker go routine starts a new election if this peer hasn't received
 // heartsbeats recently.
-func (rf *Raft) ticker(lastMsgTime chan time.Time) {
-	lastTs := time.Now()
+func (rf *Raft) ticker() {
+	rf.ResetElectionTimer()
 	quitElectionCh := make(chan bool) // message election goRoutine to quit
 
 	for rf.killed() == false {
@@ -430,36 +448,31 @@ func (rf *Raft) ticker(lastMsgTime chan time.Time) {
 			// TODO: add check to not send heartbeat if you've sent a real AppendEntries request recently
 
 		} else {
-			select {
-			// If message received since last awake, reset timer
-			case lastTs = <-lastMsgTime:
-				fmt.Printf("[%d] [%s] Heartbeat [%s] received since last sleep. Resetting timer\n", rf.me, time.Now().Format("20060102150405.000"), lastTs.Format("20060102150405.000"))
+			if time.Now().Before(rf.GetLatestElectionReset()) {
+				fmt.Printf("[%d] [%s] Heartbeat [%s] received since last sleep. Resetting timer\n", rf.me, time.Now().Format("20060102150405.000"), rf.GetLatestElectionReset().Format("20060102150405.000"))
 
-				// Sleep for random amount of time between 0.2 and 0.5 seconds
-				timeWindow := rf.GenElectionTimeout()
-
-				fmt.Printf("[%d] Desired duration: [%s]\n", rf.me, timeWindow)
-				timeWindow = timeWindow - time.Now().Sub(lastTs)
-				fmt.Printf("[%d] Truncated duration: [%s]\n", rf.me, timeWindow)
+				// Go back to sleep until next new timer
+				sleepDuration := rf.GetLatestElectionReset().Sub(time.Now())
+				fmt.Println(sleepDuration)
 
 				// Negative timeWindow causes sleep to return immediately
-				time.Sleep(timeWindow)
-
-			// Otherwise, request an election
-			default:
+				time.Sleep(sleepDuration)
+			} else // Otherwise, request an election
+			{
 				fmt.Printf("[%d] [%s] Requesting Election\n", rf.me, time.Now().Format("20060102150405.000"))
 				// Kill timed out election thread and start again
-				{
-					rf.mu.Lock()
-					if rf.inElection {
-						fmt.Printf("[%d] Killing old Election thread\n", rf.me)
-						quitElectionCh <- true
-					}
-					rf.inElection = true
-					go RunElection(rf, rf.currentTerm+1, quitElectionCh)
-					rf.mu.Unlock()
+				rf.mu.Lock()
+				if rf.inElection {
+					fmt.Printf("[%d] Killing old Election thread\n", rf.me)
+					quitElectionCh <- true
 				}
-				time.Sleep(rf.GenElectionTimeout())
+				rf.inElection = true
+				go RunElection(rf, rf.currentTerm+1, quitElectionCh)
+				rf.mu.Unlock()
+
+				// Reset election timer and go back to sleep
+				sleepDuration := rf.ResetElectionTimer()
+				time.Sleep(sleepDuration)
 			}
 		}
 	}
@@ -487,7 +500,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	rf.currentTerm = 0
 	rf.votedFor = -1
 	rf.inElection = false
-	rf.lastMsgTime = make(chan time.Time)
+	rf.lastElectionResetTime = time.Now()
 	rf.commitIndex = -1
 	// fmt.Println("Starting Ticker")
 
@@ -496,8 +509,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 
 	// start ticker goroutine to start elections
 	fmt.Println(time.Now())
-	go rf.ticker(rf.lastMsgTime)
-	rf.lastMsgTime <- time.Now()
+	go rf.ticker()
 	fmt.Println("Starting Ticker")
 
 	return rf
@@ -561,19 +573,16 @@ func RunElection(rf *Raft, targetTerm int, quitElectionCh chan bool) {
 	voteReplyCh := make(chan RequestVoteReply)
 	voteTally := 0
 
-	{
-		rf.mu.Lock()
-		// If targetTerm is not the next one, we got updated term.
-		// Need to abandon election.
-		if (rf.currentTerm + 1) == targetTerm {
-			rf.currentTerm = rf.currentTerm + 1 // increment term
-			rf.votedFor = rf.me                 // vote for self
-			voteTally += 1
-		}
-		rf.mu.Unlock()
+	rf.mu.Lock()
+	// If targetTerm is not the next one, we got updated term.
+	// Need to abandon election.
+	if (rf.currentTerm + 1) == targetTerm {
+		rf.currentTerm = rf.currentTerm + 1 // increment term
+		rf.votedFor = rf.me                 // vote for self
+		voteTally += 1
 	}
+	rf.mu.Unlock()
 
-	// rf.lastMsgTime <- time.Now() // Reset election timer
 	lastLogTerm, lastLogIndex := rf.GetLastLogTerm()
 	// Set of Vote Request struct
 	request := RequestVoteArgs{
@@ -599,6 +608,7 @@ func RunElection(rf *Raft, targetTerm int, quitElectionCh chan bool) {
 				if ok {
 					fmt.Printf("[%d] Received reply from peer idx: %d\n", rf.me, idx)
 					voteReplyCh <- reply
+					fmt.Printf("[%d] Successfully pushed vote to channel\n", rf.me)
 				}
 			}(rf, i, voteReplyCh)
 		}
@@ -606,6 +616,7 @@ func RunElection(rf *Raft, targetTerm int, quitElectionCh chan bool) {
 
 	// Listen for quit election message or for replies to come in
 	for rf.killed() == false {
+		fmt.Printf("[%d] Vote listener thread is active and listening for more\n", rf.me)
 		select {
 
 		// Election timed out. Kill this routine and stop listening.
@@ -614,10 +625,11 @@ func RunElection(rf *Raft, targetTerm int, quitElectionCh chan bool) {
 			return
 		// Received Vote. Tally.
 		case vote := <-voteReplyCh:
-			fmt.Printf("[%d] Processing vote reply for term %d\n", rf.me, vote.Term)
+			fmt.Printf("[%d] Processing vote reply for term %v\n", rf.me, vote)
 			if vote.VoteGranted {
 				voteTally += 1
 				// If majority, now the leader. Update state and quit election.
+				fmt.Printf("[%d] Vote tally for term %d: %d\n", rf.me, vote.Term, voteTally)
 				if voteTally > len(rf.peers)/2 {
 					// Election now over.
 					fmt.Printf("[%d] Won election. Switching to leader\n", rf.me)
@@ -628,14 +640,12 @@ func RunElection(rf *Raft, targetTerm int, quitElectionCh chan bool) {
 				}
 			} else {
 				// Voter's term is higher than candidacy. Reset term and end election
-
-				rf.SafeUpdateTerm(vote.Term)
-				if vote.Term > rf.currentTerm {
+				updated := rf.SafeUpdateTerm(vote.Term)
+				if updated {
 					return
 				}
 				// Otherwise keep waiting for votes
 			}
-			return
 		}
 	}
 }
