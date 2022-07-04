@@ -19,13 +19,49 @@ package raft
 
 import (
 	//	"bytes"
+	"fmt"
 	"sync"
 	"sync/atomic"
+	"time"
 
 	//	"6.824/labgob"
 	"6.824/labrpc"
+
+	"math"
+	"math/rand"
 )
 
+const HEARTBEAT_FREQUENCY = time.Duration(150) * time.Millisecond
+
+//
+// A Go object implementing a single log entry.
+//
+type LogEntry struct {
+	command string
+	term    int
+}
+
+//
+// Struct to contain configuration commands for AppendEntries RPC
+//
+type AppendEntriesArgs struct {
+	Term     int // Current term
+	LeaderId int // Id of term leader
+
+	PrevLogIndex int
+	PrevLogTerm  int
+	LeaderCommit int // Index of last commit
+
+	Entries []LogEntry // entries to append
+}
+
+//
+// Struct to contain configuration commands for AppendEntries RPC
+//
+type AppendEntriesReply struct {
+	Term    int  // Current term
+	Success bool // Id of term leader
+}
 
 //
 // as each Raft peer becomes aware that successive log entries are
@@ -61,6 +97,14 @@ type Raft struct {
 	dead      int32               // set by Kill()
 
 	// Your data here (2A, 2B, 2C).
+	// 2A
+	currentTerm int        // Latest term server has seen
+	votedFor    int        // Who server voted for this Term
+	log         []LogEntry // Log entries
+	inElection  bool
+	lastMsgTime chan time.Time
+	commitIndex int
+
 	// Look at the paper's Figure 2 for a description of what
 	// state a Raft server must maintain.
 
@@ -72,7 +116,11 @@ func (rf *Raft) GetState() (int, bool) {
 
 	var term int
 	var isleader bool
+
 	// Your code here (2A).
+	term = rf.currentTerm
+	isleader = (rf.votedFor == rf.me) && !rf.inElection
+
 	return term, isleader
 }
 
@@ -92,6 +140,15 @@ func (rf *Raft) persist() {
 	// rf.persister.SaveRaftState(data)
 }
 
+func (rf *Raft) GetLastLogTerm() int {
+	var logTerm int
+	if len(rf.log) == 0 {
+		logTerm = 0
+	} else {
+		logTerm = rf.log[len(rf.log)-1].term
+	}
+	return logTerm
+}
 
 //
 // restore previously persisted state.
@@ -115,7 +172,6 @@ func (rf *Raft) readPersist(data []byte) {
 	// }
 }
 
-
 //
 // A service wants to switch to snapshot.  Only do so if Raft hasn't
 // have more recent info since it communicate the snapshot on applyCh.
@@ -136,13 +192,16 @@ func (rf *Raft) Snapshot(index int, snapshot []byte) {
 
 }
 
-
 //
 // example RequestVote RPC arguments structure.
 // field names must start with capital letters!
 //
 type RequestVoteArgs struct {
 	// Your data here (2A, 2B).
+	Term         int // Requester's current term
+	CandidateId  int // Requester's Id
+	LastLogIndex int
+	LastLogTerm  int
 }
 
 //
@@ -151,6 +210,8 @@ type RequestVoteArgs struct {
 //
 type RequestVoteReply struct {
 	// Your data here (2A).
+	Term        int  // Respondent's term
+	VoteGranted bool // Respondent's vote for
 }
 
 //
@@ -158,6 +219,59 @@ type RequestVoteReply struct {
 //
 func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	// Your code here (2A, 2B).
+	fmt.Printf("[%d] Vote request for term %d, candidate %d received. Starting.\n", rf.me, args.Term, args.CandidateId)
+	vote := false
+
+	// Refuse vote if all conditions not met
+	if args.Term >= rf.currentTerm && // candidate term at least as high
+		// candidate log is at least as up to date
+		args.LastLogTerm >= rf.GetLastLogTerm() &&
+		args.LastLogIndex >= (len(rf.log)-1) {
+
+		if rf.currentTerm < args.Term {
+			rf.currentTerm = args.Term // Update term to latest
+			rf.votedFor = -1           // Reset votedFor
+		}
+
+		// If haven't already voted this term or voted for Candidate, grant vote
+		if (rf.votedFor == -1) || (rf.votedFor == args.CandidateId) {
+			rf.votedFor = args.CandidateId
+			vote = true
+		}
+		fmt.Printf("[%d] Vote granted for %d.\n", rf.me, args.CandidateId)
+	}
+	reply.Term = rf.currentTerm
+	reply.VoteGranted = vote
+	return
+}
+
+//
+// example AppendEntries RPC handler.
+//
+func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply) {
+	success := false
+
+	//  RPC comes in with greater term, then we can process. Otherwise it's definitely rejected.
+	if rf.currentTerm <= args.Term {
+		rf.currentTerm = args.Term
+		// If in an election, kill election
+		if rf.inElection && rf.currentTerm < args.Term {
+			rf.lastMsgTime <- time.Now()
+			rf.votedFor = -1
+			rf.inElection = false
+			rf.currentTerm = args.Term
+		}
+		// If candidate log is at least as up to date, append logs and return success.
+		if args.PrevLogTerm == rf.log[args.PrevLogIndex].term {
+			rf.log = append(rf.log[:args.PrevLogIndex], args.Entries...)
+			rf.commitIndex = int(math.Min(float64(args.LeaderCommit), float64(len(rf.log)-1)))
+			success = true
+		}
+	}
+
+	reply.Term = rf.currentTerm
+	reply.Success = success
+	return
 }
 
 //
@@ -194,6 +308,13 @@ func (rf *Raft) sendRequestVote(server int, args *RequestVoteArgs, reply *Reques
 	return ok
 }
 
+//
+// send a AppendEntries RPC to a server.
+
+func (rf *Raft) SendAppendEntries(server int, args *AppendEntriesArgs, reply *AppendEntriesReply) bool {
+	ok := rf.peers[server].Call("Raft.AppendEntries", args, reply)
+	return ok
+}
 
 //
 // the service using Raft (e.g. a k/v server) wants to start
@@ -212,12 +333,10 @@ func (rf *Raft) sendRequestVote(server int, args *RequestVoteArgs, reply *Reques
 func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	index := -1
 	term := -1
-	isLeader := true
 
 	// Your code here (2B).
 
-
-	return index, term, isLeader
+	return index, term, rf.votedFor == rf.me
 }
 
 //
@@ -243,13 +362,45 @@ func (rf *Raft) killed() bool {
 
 // The ticker go routine starts a new election if this peer hasn't received
 // heartsbeats recently.
-func (rf *Raft) ticker() {
-	for rf.killed() == false {
+func (rf *Raft) ticker(lastMsgTime chan time.Time) {
+	lastTs := time.Now()
+	quitElectionCh := make(chan bool) // message election goRoutine to quit
 
+	for rf.killed() == false {
 		// Your code here to check if a leader election should
 		// be started and to randomize sleeping time using
-		// time.Sleep().
+		_, is_leader := rf.GetState()
+		if is_leader {
+			fmt.Println("Leader Sleep")
+			time.Sleep(HEARTBEAT_FREQUENCY)
+			// TODO: Update
 
+		} else {
+			select {
+			// If message received since last awake, reset timer
+			case lastTs = <-lastMsgTime:
+				fmt.Println("Heartbeat received since last sleep. Resetting timer")
+
+				// Sleep for random amount of time between 0.2 and 0.5 seconds
+				timeWindow := time.Duration(200+rand.Intn(1000)) * time.Millisecond
+				timeWindow = timeWindow - time.Now().Sub(lastTs)*time.Millisecond
+
+				// Negative timeWindow causes sleep to return immediately
+				time.Sleep(timeWindow)
+
+			// Otherwise, request an election
+			default:
+				fmt.Printf("[%d] Requesting Election\n", rf.me)
+				// Kill timed out election thread and start again
+				if rf.inElection {
+					fmt.Printf("[%d] Killing old Election thread\n", rf.me)
+					quitElectionCh <- true
+				}
+				go RunElection(rf, quitElectionCh)
+				rf.inElection = true
+				time.Sleep(time.Duration(200+rand.Intn(1000)) * time.Millisecond)
+			}
+		}
 	}
 }
 
@@ -272,13 +423,170 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	rf.me = me
 
 	// Your initialization code here (2A, 2B, 2C).
+	rf.currentTerm = 0
+	rf.votedFor = -1
+	rf.inElection = false
+	rf.lastMsgTime = make(chan time.Time)
+	rf.commitIndex = -1
+	// fmt.Println("Starting Ticker")
 
 	// initialize from state persisted before a crash
-	rf.readPersist(persister.ReadRaftState())
+	// rf.readPersist(persister.ReadRaftState())
 
 	// start ticker goroutine to start elections
-	go rf.ticker()
-
+	fmt.Println(time.Now())
+	go rf.ticker(rf.lastMsgTime)
+	rf.lastMsgTime <- time.Now()
+	fmt.Println("Starting Ticker")
 
 	return rf
+}
+
+//
+// timeout is triggered so server wants to start an election
+// increments term, votes for itself, resets timer, and requests votes
+//
+// Waits for votes to return and if so becomes leader
+func RunAppendEntries(rf *Raft) {
+
+	appendReplyCh := make(chan AppendEntriesReply)
+	// voteReplies = []RequestVoteReply
+
+	rf.lastMsgTime <- time.Now() // Reset election timer
+
+	prevLogIndex := len(rf.log) - 1
+
+	// Set of Vote Request struct
+	request := AppendEntriesArgs{
+		rf.currentTerm,            // Current term
+		rf.me,                     // Id of term leader
+		prevLogIndex,              // Index of last log entry leader believes follower should have
+		rf.log[prevLogIndex].term, // Term of last log entry
+		rf.commitIndex,            // CommitIndex of Leader
+
+		[]LogEntry{}} // Entries to append
+
+	// Spawn AppendEntries manager thread for each other server
+	for i := 0; i < len(rf.peers); i++ {
+		if i == rf.me {
+			continue
+		} else {
+			go func(rf *Raft, appendReplyCh chan AppendEntriesReply) {
+				var reply AppendEntriesReply
+				ok := rf.SendAppendEntries(rf.me, &request, &reply)
+
+				// TODO: Implement retry logic that steps back nextIndex
+
+				// If response OK, send reply to vote aggregation channel for main thread
+				if ok {
+					appendReplyCh <- reply
+				}
+			}(rf, appendReplyCh)
+		}
+	}
+
+	// // TODO Wait for responses to know what to commit.
+	// for rf.killed() == false {
+	// 	select {
+
+	// 	case reply := <-voteReplyCh:
+	// 		if vote.voteGranted {
+	// 			voteTally += 1
+	// 			// If majority, now the leader. Update state and quit election.
+	// 			if voteTally > len(rf.peers)/2 {
+	// 				// Election now over.
+	// 				rf.inElection = false
+	// 				return
+	// 			}
+	// 		} else {
+	// 			// Voter's term is higher than candidacy. Reset term and end election
+	// 			if vote.term > rf.currentTerm {
+	// 				rf.currentTerm = vote.term
+	// 				rf.votedFor = -1 // No longer voting for yourself
+	// 				rf.inElection = false
+	// 				return
+	// 			}
+	// 			// Otherwise keep waiting for votes
+	// 		}
+	// 		return
+	// 	}
+	// }
+}
+
+//
+// timeout is triggered so server wants to start an election
+// increments term, votes for itself, resets timer, and requests votes
+//
+// Waits for votes to return and if so becomes leader
+func RunElection(rf *Raft, quitElectionCh chan bool) {
+	fmt.Println("Running Election now")
+	voteReplyCh := make(chan RequestVoteReply)
+	// voteReplies = []RequestVoteReply
+	rf.currentTerm = rf.currentTerm + 1 // increment term
+	rf.votedFor = rf.me                 // vote for self
+	voteTally := 1
+
+	// rf.lastMsgTime <- time.Now() // Reset election timer
+	logTerm := rf.GetLastLogTerm()
+	// Set of Vote Request struct
+	request := RequestVoteArgs{
+		rf.currentTerm, // incremented term
+		rf.me,          // Server's server ID
+		len(rf.log),    // Last log index
+		logTerm}        // Last log Term
+
+	fmt.Printf("[%d] Starting thread to request: %v\n", rf.me, request)
+
+	// Spawn vote requester for each other server
+	for i := 0; i < len(rf.peers); i++ {
+		if i == rf.me {
+			fmt.Printf("[%d]It me. skipping vote.\n", i)
+			continue
+		} else {
+			go func(rf *Raft, idx int, voteReplyCh chan RequestVoteReply) {
+				fmt.Printf("[%d] Starting thread to request vote for term %d to peer idx: %d\n", rf.me, request.Term, idx)
+				var reply RequestVoteReply
+				ok := rf.sendRequestVote(idx, &request, &reply)
+
+				// If response OK, send reply to vote aggregation channel for main thread
+				if ok {
+					fmt.Printf("[%d] Received reply from peer idx: %d\n", rf.me, idx)
+					voteReplyCh <- reply
+				}
+			}(rf, i, voteReplyCh)
+		}
+	}
+
+	// Listen for quit election message or for replies to come in
+	for rf.killed() == false {
+		select {
+
+		// Election timed out. Kill this routine and stop listening.
+		case <-quitElectionCh:
+			fmt.Printf("[%d] Received signal to kill current election\n", rf.me)
+			return
+		// Received Vote. Tally.
+		case vote := <-voteReplyCh:
+			fmt.Printf("[%d] Processing vote reply for term %d\n", rf.me, vote.Term)
+			if vote.VoteGranted {
+				voteTally += 1
+				// If majority, now the leader. Update state and quit election.
+				if voteTally > len(rf.peers)/2 {
+					// Election now over.
+					rf.inElection = false
+					return
+				}
+			} else {
+				// Voter's term is higher than candidacy. Reset term and end election
+				if vote.Term > rf.currentTerm {
+					rf.currentTerm = vote.Term
+					rf.votedFor = -1 // No longer voting for yourself
+					rf.inElection = false
+					return
+				}
+				// Otherwise keep waiting for votes
+			}
+			return
+		}
+	}
 }
