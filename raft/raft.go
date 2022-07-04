@@ -20,6 +20,7 @@ package raft
 import (
 	//	"bytes"
 	"fmt"
+	"math/rand"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -28,7 +29,6 @@ import (
 	"6.824/labrpc"
 
 	"math"
-	"math/rand"
 )
 
 const HEARTBEAT_FREQUENCY = time.Duration(150) * time.Millisecond
@@ -37,8 +37,8 @@ const HEARTBEAT_FREQUENCY = time.Duration(150) * time.Millisecond
 // A Go object implementing a single log entry.
 //
 type LogEntry struct {
-	command string
-	term    int
+	Command string
+	Term    int
 }
 
 //
@@ -117,11 +117,41 @@ func (rf *Raft) GetState() (int, bool) {
 	var term int
 	var isleader bool
 
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+
 	// Your code here (2A).
 	term = rf.currentTerm
 	isleader = (rf.votedFor == rf.me) && !rf.inElection
 
 	return term, isleader
+}
+
+//
+// Check if target term is higher, and if so, update term
+// and reset votedFor / election status
+// Return true if update was applied, false if ignored
+//
+func (rf *Raft) SafeUpdateTerm(newTerm int) bool {
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+
+	if rf.currentTerm < newTerm {
+		rf.currentTerm = newTerm
+		rf.votedFor = -1 // No longer voting for yourself
+		rf.inElection = false
+		return true
+	} else {
+		return false
+	}
+
+}
+
+//
+// Generate a random wait period before starting new election
+
+func (rf *Raft) GenElectionTimeout() time.Duration {
+	return time.Duration(500+rand.Intn(1000)) * time.Millisecond
 }
 
 //
@@ -140,14 +170,17 @@ func (rf *Raft) persist() {
 	// rf.persister.SaveRaftState(data)
 }
 
-func (rf *Raft) GetLastLogTerm() int {
+func (rf *Raft) GetLastLogTerm() (int, int) {
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+
 	var logTerm int
 	if len(rf.log) == 0 {
 		logTerm = 0
 	} else {
-		logTerm = rf.log[len(rf.log)-1].term
+		logTerm = rf.log[len(rf.log)-1].Term
 	}
-	return logTerm
+	return logTerm, len(rf.log)
 }
 
 //
@@ -222,23 +255,33 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	fmt.Printf("[%d] Vote request for term %d, candidate %d received. Starting.\n", rf.me, args.Term, args.CandidateId)
 	vote := false
 
+	term, _ := rf.GetState()
+	lastLogTerm, lastLogIndex := rf.GetLastLogTerm()
 	// Refuse vote if all conditions not met
-	if args.Term >= rf.currentTerm && // candidate term at least as high
+	if args.Term >= term && // candidate term at least as high
 		// candidate log is at least as up to date
-		args.LastLogTerm >= rf.GetLastLogTerm() &&
-		args.LastLogIndex >= (len(rf.log)-1) {
 
-		if rf.currentTerm < args.Term {
-			rf.currentTerm = args.Term // Update term to latest
-			rf.votedFor = -1           // Reset votedFor
-		}
+		args.LastLogTerm >= lastLogTerm &&
+		args.LastLogIndex >= lastLogIndex {
+
+		// Update if args.Term > currentTerm
+		rf.SafeUpdateTerm(args.Term)
 
 		// If haven't already voted this term or voted for Candidate, grant vote
+		rf.mu.Lock()
+
 		if (rf.votedFor == -1) || (rf.votedFor == args.CandidateId) {
 			rf.votedFor = args.CandidateId
 			vote = true
 		}
-		fmt.Printf("[%d] Vote granted for %d.\n", rf.me, args.CandidateId)
+		rf.mu.Unlock()
+		if vote {
+			fmt.Printf("[%d] I'm stuck here like a dumbass\n", rf.me)
+			rf.lastMsgTime <- time.Now()
+			fmt.Printf("[%d] Posted update\n", rf.me)
+			fmt.Printf("[%d] Vote granted for %d.\n", rf.me, args.CandidateId)
+		}
+
 	}
 	reply.Term = rf.currentTerm
 	reply.VoteGranted = vote
@@ -250,23 +293,30 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 //
 func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply) {
 	success := false
-
+	fmt.Printf("[%d] AppendEntries request for term %d, Leader %d received. Starting.\n", rf.me, args.Term, args.LeaderId)
 	//  RPC comes in with greater term, then we can process. Otherwise it's definitely rejected.
-	if rf.currentTerm <= args.Term {
-		rf.currentTerm = args.Term
-		// If in an election, kill election
-		if rf.inElection && rf.currentTerm < args.Term {
-			rf.lastMsgTime <- time.Now()
-			rf.votedFor = -1
-			rf.inElection = false
-			rf.currentTerm = args.Term
-		}
+
+	term, _ := rf.GetState()
+
+	if term <= args.Term {
+		// If higher term received than my election, kill my election
+		updated := rf.SafeUpdateTerm(args.Term)
+
 		// If candidate log is at least as up to date, append logs and return success.
-		if args.PrevLogTerm == rf.log[args.PrevLogIndex].term {
+		lastLogTerm, _ := rf.GetLastLogTerm()
+		if args.PrevLogTerm == lastLogTerm {
+			rf.mu.Lock()
 			rf.log = append(rf.log[:args.PrevLogIndex], args.Entries...)
 			rf.commitIndex = int(math.Min(float64(args.LeaderCommit), float64(len(rf.log)-1)))
+			rf.mu.Unlock()
 			success = true
 		}
+
+		// If leader was ahead in term, or log updated, reset election timer
+		if updated || success {
+			rf.lastMsgTime <- time.Now()
+		}
+
 	}
 
 	reply.Term = rf.currentTerm
@@ -371,34 +421,45 @@ func (rf *Raft) ticker(lastMsgTime chan time.Time) {
 		// be started and to randomize sleeping time using
 		_, is_leader := rf.GetState()
 		if is_leader {
-			fmt.Println("Leader Sleep")
+			fmt.Printf("[%d] Leader Sending Heartbeat RPC\n", rf.me)
+			// Heartbeat request is an empty list of messages
+			lastLogTerm, lastLogIndex := rf.GetLastLogTerm()
+			go RunAppendEntries(rf, lastLogIndex, lastLogTerm, &[]LogEntry{})
+
 			time.Sleep(HEARTBEAT_FREQUENCY)
-			// TODO: Update
+			// TODO: add check to not send heartbeat if you've sent a real AppendEntries request recently
 
 		} else {
 			select {
 			// If message received since last awake, reset timer
 			case lastTs = <-lastMsgTime:
-				fmt.Println("Heartbeat received since last sleep. Resetting timer")
+				fmt.Printf("[%d] [%s] Heartbeat [%s] received since last sleep. Resetting timer\n", rf.me, time.Now().Format("20060102150405.000"), lastTs.Format("20060102150405.000"))
 
 				// Sleep for random amount of time between 0.2 and 0.5 seconds
-				timeWindow := time.Duration(200+rand.Intn(1000)) * time.Millisecond
-				timeWindow = timeWindow - time.Now().Sub(lastTs)*time.Millisecond
+				timeWindow := rf.GenElectionTimeout()
+
+				fmt.Printf("[%d] Desired duration: [%s]\n", rf.me, timeWindow)
+				timeWindow = timeWindow - time.Now().Sub(lastTs)
+				fmt.Printf("[%d] Truncated duration: [%s]\n", rf.me, timeWindow)
 
 				// Negative timeWindow causes sleep to return immediately
 				time.Sleep(timeWindow)
 
 			// Otherwise, request an election
 			default:
-				fmt.Printf("[%d] Requesting Election\n", rf.me)
+				fmt.Printf("[%d] [%s] Requesting Election\n", rf.me, time.Now().Format("20060102150405.000"))
 				// Kill timed out election thread and start again
-				if rf.inElection {
-					fmt.Printf("[%d] Killing old Election thread\n", rf.me)
-					quitElectionCh <- true
+				{
+					rf.mu.Lock()
+					if rf.inElection {
+						fmt.Printf("[%d] Killing old Election thread\n", rf.me)
+						quitElectionCh <- true
+					}
+					rf.inElection = true
+					go RunElection(rf, rf.currentTerm+1, quitElectionCh)
+					rf.mu.Unlock()
 				}
-				go RunElection(rf, quitElectionCh)
-				rf.inElection = true
-				time.Sleep(time.Duration(200+rand.Intn(1000)) * time.Millisecond)
+				time.Sleep(rf.GenElectionTimeout())
 			}
 		}
 	}
@@ -447,33 +508,29 @@ func Make(peers []*labrpc.ClientEnd, me int,
 // increments term, votes for itself, resets timer, and requests votes
 //
 // Waits for votes to return and if so becomes leader
-func RunAppendEntries(rf *Raft) {
-
+func RunAppendEntries(rf *Raft, prevLogIndex, prevLogTerm int, logEntries *[]LogEntry) {
+	fmt.Println("Running append entries process")
 	appendReplyCh := make(chan AppendEntriesReply)
-	// voteReplies = []RequestVoteReply
-
-	rf.lastMsgTime <- time.Now() // Reset election timer
-
-	prevLogIndex := len(rf.log) - 1
 
 	// Set of Vote Request struct
 	request := AppendEntriesArgs{
-		rf.currentTerm,            // Current term
-		rf.me,                     // Id of term leader
-		prevLogIndex,              // Index of last log entry leader believes follower should have
-		rf.log[prevLogIndex].term, // Term of last log entry
-		rf.commitIndex,            // CommitIndex of Leader
-
-		[]LogEntry{}} // Entries to append
+		rf.currentTerm, // Current term
+		rf.me,          // Id of term leader
+		prevLogIndex,   // Index of last log entry leader believes follower should have
+		prevLogTerm,    // Term of last log entry
+		rf.commitIndex, // CommitIndex of Leader
+		*logEntries}    // Entries to append
 
 	// Spawn AppendEntries manager thread for each other server
 	for i := 0; i < len(rf.peers); i++ {
 		if i == rf.me {
+			fmt.Printf("[%d] it me. skipping append entry\n", rf.me)
 			continue
 		} else {
-			go func(rf *Raft, appendReplyCh chan AppendEntriesReply) {
+			go func(rf *Raft, idx int, appendReplyCh chan AppendEntriesReply) {
+				fmt.Printf("[%d] Sending AppendEntries %v to peer %d\n", rf.me, request, idx)
 				var reply AppendEntriesReply
-				ok := rf.SendAppendEntries(rf.me, &request, &reply)
+				ok := rf.SendAppendEntries(idx, &request, &reply)
 
 				// TODO: Implement retry logic that steps back nextIndex
 
@@ -481,36 +538,17 @@ func RunAppendEntries(rf *Raft) {
 				if ok {
 					appendReplyCh <- reply
 				}
-			}(rf, appendReplyCh)
+			}(rf, i, appendReplyCh)
 		}
 	}
 
-	// // TODO Wait for responses to know what to commit.
-	// for rf.killed() == false {
-	// 	select {
-
-	// 	case reply := <-voteReplyCh:
-	// 		if vote.voteGranted {
-	// 			voteTally += 1
-	// 			// If majority, now the leader. Update state and quit election.
-	// 			if voteTally > len(rf.peers)/2 {
-	// 				// Election now over.
-	// 				rf.inElection = false
-	// 				return
-	// 			}
-	// 		} else {
-	// 			// Voter's term is higher than candidacy. Reset term and end election
-	// 			if vote.term > rf.currentTerm {
-	// 				rf.currentTerm = vote.term
-	// 				rf.votedFor = -1 // No longer voting for yourself
-	// 				rf.inElection = false
-	// 				return
-	// 			}
-	// 			// Otherwise keep waiting for votes
-	// 		}
-	// 		return
-	// 	}
-	// }
+	// TODO Wait for responses to know what to commit.
+	for rf.killed() == false {
+		select {
+		case reply := <-appendReplyCh:
+			fmt.Printf("[%d] Received AppendEntries reply %v\n", rf.me, reply)
+		}
+	}
 }
 
 //
@@ -518,22 +556,31 @@ func RunAppendEntries(rf *Raft) {
 // increments term, votes for itself, resets timer, and requests votes
 //
 // Waits for votes to return and if so becomes leader
-func RunElection(rf *Raft, quitElectionCh chan bool) {
+func RunElection(rf *Raft, targetTerm int, quitElectionCh chan bool) {
 	fmt.Println("Running Election now")
 	voteReplyCh := make(chan RequestVoteReply)
-	// voteReplies = []RequestVoteReply
-	rf.currentTerm = rf.currentTerm + 1 // increment term
-	rf.votedFor = rf.me                 // vote for self
-	voteTally := 1
+	voteTally := 0
+
+	{
+		rf.mu.Lock()
+		// If targetTerm is not the next one, we got updated term.
+		// Need to abandon election.
+		if (rf.currentTerm + 1) == targetTerm {
+			rf.currentTerm = rf.currentTerm + 1 // increment term
+			rf.votedFor = rf.me                 // vote for self
+			voteTally += 1
+		}
+		rf.mu.Unlock()
+	}
 
 	// rf.lastMsgTime <- time.Now() // Reset election timer
-	logTerm := rf.GetLastLogTerm()
+	lastLogTerm, lastLogIndex := rf.GetLastLogTerm()
 	// Set of Vote Request struct
 	request := RequestVoteArgs{
 		rf.currentTerm, // incremented term
 		rf.me,          // Server's server ID
-		len(rf.log),    // Last log index
-		logTerm}        // Last log Term
+		lastLogIndex,   // Last log index
+		lastLogTerm}    // Last log Term
 
 	fmt.Printf("[%d] Starting thread to request: %v\n", rf.me, request)
 
@@ -573,15 +620,17 @@ func RunElection(rf *Raft, quitElectionCh chan bool) {
 				// If majority, now the leader. Update state and quit election.
 				if voteTally > len(rf.peers)/2 {
 					// Election now over.
+					fmt.Printf("[%d] Won election. Switching to leader\n", rf.me)
 					rf.inElection = false
+					fmt.Printf("[%d]", rf.me)
+					fmt.Println(rf.GetState())
 					return
 				}
 			} else {
 				// Voter's term is higher than candidacy. Reset term and end election
+
+				rf.SafeUpdateTerm(vote.Term)
 				if vote.Term > rf.currentTerm {
-					rf.currentTerm = vote.Term
-					rf.votedFor = -1 // No longer voting for yourself
-					rf.inElection = false
 					return
 				}
 				// Otherwise keep waiting for votes

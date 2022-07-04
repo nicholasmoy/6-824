@@ -1,0 +1,496 @@
+2022-07-04 13:28:20.792881 -0700 PDT m=+0.002213626
+[0] [20220704132820.793] Heartbeat [20220704132820.793] received since last sleep. Resetting timer
+Starting Ticker
+[0] Desired duration: [1.001s]
+[0] Truncated duration: [1.000934375s]
+2022-07-04 13:28:20.793568 -0700 PDT m=+0.002901042
+[1] [20220704132820.793] Heartbeat [20220704132820.793] received since last sleep. Resetting timer
+[1] Desired duration: [1.423s]
+[1] Truncated duration: [1.42296675s]
+Starting Ticker
+2022-07-04 13:28:20.793817 -0700 PDT m=+0.003150126
+[2] [20220704132820.793] Heartbeat [20220704132820.793] received since last sleep. Resetting timer
+[2] Desired duration: [545ms]
+[2] Truncated duration: [544.9705ms]
+Starting Ticker
+Test (2A): initial election ...
+[2] [20220704132821.339] Requesting Election
+Running Election now
+[2] Starting thread to request: {1 2 0 0}
+[2] Starting thread to request vote for term 1 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 1 to peer idx: 1
+[1] Vote request for term 1, candidate 2 received. Starting.
+[0] Vote request for term 1, candidate 2 received. Starting.
+[2] [20220704132822.808] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {2 2 0 0}
+[2] Starting thread to request vote for term 2 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 2 to peer idx: 1
+[0] Vote request for term 2, candidate 2 received. Starting.
+[1] Vote request for term 2, candidate 2 received. Starting.
+[2] [20220704132824.125] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {3 2 0 0}
+[2] Starting thread to request vote for term 3 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 3 to peer idx: 1
+[0] Vote request for term 3, candidate 2 received. Starting.
+[1] Vote request for term 3, candidate 2 received. Starting.
+[2] [20220704132824.875] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {4 2 0 0}
+[2] Starting thread to request vote for term 4 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 4 to peer idx: 1
+[0] Vote request for term 4, candidate 2 received. Starting.
+[1] Vote request for term 4, candidate 2 received. Starting.
+[2] [20220704132825.987] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {5 2 0 0}
+[2] Starting thread to request vote for term 5 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 5 to peer idx: 1
+[1] Vote request for term 5, candidate 2 received. Starting.
+[0] Vote request for term 5, candidate 2 received. Starting.
+[2] [20220704132826.634] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {6 2 0 0}
+[2] Starting thread to request vote for term 6 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 6 to peer idx: 1
+[1] Vote request for term 6, candidate 2 received. Starting.
+[0] Vote request for term 6, candidate 2 received. Starting.
+[2] [20220704132827.593] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {7 2 0 0}
+[2] Starting thread to request vote for term 7 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 7 to peer idx: 1
+[0] Vote request for term 7, candidate 2 received. Starting.
+[1] Vote request for term 7, candidate 2 received. Starting.
+[2] [20220704132828.661] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {8 2 0 0}
+[2] Starting thread to request vote for term 8 to peer idx: 0
+[2] Starting thread to request vote for term 8 to peer idx: 1
+[2]It me. skipping vote.
+[1] Vote request for term 8, candidate 2 received. Starting.
+[0] Vote request for term 8, candidate 2 received. Starting.
+[2] [20220704132829.839] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {9 2 0 0}
+[2] Starting thread to request vote for term 9 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 9 to peer idx: 1
+[0] Vote request for term 9, candidate 2 received. Starting.
+[1] Vote request for term 9, candidate 2 received. Starting.
+[2] [20220704132831.199] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {10 2 0 0}
+[2] Starting thread to request vote for term 10 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 10 to peer idx: 1
+[0] Vote request for term 10, candidate 2 received. Starting.
+[1] Vote request for term 10, candidate 2 received. Starting.
+[2] [20220704132832.467] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {11 2 0 0}
+[2] Starting thread to request vote for term 11 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 11 to peer idx: 1
+[0] Vote request for term 11, candidate 2 received. Starting.
+[1] Vote request for term 11, candidate 2 received. Starting.
+[2] [20220704132833.785] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {12 2 0 0}
+[2] Starting thread to request vote for term 12 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 12 to peer idx: 1
+[0] Vote request for term 12, candidate 2 received. Starting.
+[1] Vote request for term 12, candidate 2 received. Starting.
+[2] [20220704132834.910] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {13 2 0 0}
+[2] Starting thread to request vote for term 13 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 13 to peer idx: 1
+[0] Vote request for term 13, candidate 2 received. Starting.
+[1] Vote request for term 13, candidate 2 received. Starting.
+[2] [20220704132836.166] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {14 2 0 0}
+[2] Starting thread to request vote for term 14 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 14 to peer idx: 1
+[0] Vote request for term 14, candidate 2 received. Starting.
+[1] Vote request for term 14, candidate 2 received. Starting.
+[2] [20220704132837.593] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {15 2 0 0}
+[2] Starting thread to request vote for term 15 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 15 to peer idx: 1
+[0] Vote request for term 15, candidate 2 received. Starting.
+[1] Vote request for term 15, candidate 2 received. Starting.
+[2] [20220704132838.814] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {16 2 0 0}
+[2] Starting thread to request vote for term 16 to peer idx: 0
+[2] Starting thread to request vote for term 16 to peer idx: 1
+[2]It me. skipping vote.
+[0] Vote request for term 16, candidate 2 received. Starting.
+[1] Vote request for term 16, candidate 2 received. Starting.
+[2] [20220704132839.904] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {17 2 0 0}
+[2] Starting thread to request vote for term 17 to peer idx: 0
+[2] Starting thread to request vote for term 17 to peer idx: 1
+[2]It me. skipping vote.
+[0] Vote request for term 17, candidate 2 received. Starting.
+[1] Vote request for term 17, candidate 2 received. Starting.
+[2] [20220704132841.379] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {18 2 0 0}
+[2] Starting thread to request vote for term 18 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 18 to peer idx: 1
+[1] Vote request for term 18, candidate 2 received. Starting.
+[0] Vote request for term 18, candidate 2 received. Starting.
+[2] [20220704132842.145] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {19 2 0 0}
+[2] Starting thread to request vote for term 19 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 19 to peer idx: 1
+[1] Vote request for term 19, candidate 2 received. Starting.
+[0] Vote request for term 19, candidate 2 received. Starting.
+[2] [20220704132843.451] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {20 2 0 0}
+[2] Starting thread to request vote for term 20 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 20 to peer idx: 1
+[0] Vote request for term 20, candidate 2 received. Starting.
+[1] Vote request for term 20, candidate 2 received. Starting.
+[2] [20220704132844.352] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {21 2 0 0}
+[2] Starting thread to request vote for term 21 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 21 to peer idx: 1
+[1] Vote request for term 21, candidate 2 received. Starting.
+[0] Vote request for term 21, candidate 2 received. Starting.
+[2] [20220704132844.953] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {22 2 0 0}
+[2] Starting thread to request vote for term 22 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 22 to peer idx: 1
+[0] Vote request for term 22, candidate 2 received. Starting.
+[1] Vote request for term 22, candidate 2 received. Starting.
+[2] [20220704132845.467] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {23 2 0 0}
+[2] Starting thread to request vote for term 23 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 23 to peer idx: 1
+[0] Vote request for term 23, candidate 2 received. Starting.
+[1] Vote request for term 23, candidate 2 received. Starting.
+[2] [20220704132846.813] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {24 2 0 0}
+[2] Starting thread to request vote for term 24 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 24 to peer idx: 1
+[0] Vote request for term 24, candidate 2 received. Starting.
+[1] Vote request for term 24, candidate 2 received. Starting.
+[2] [20220704132847.639] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {25 2 0 0}
+[2] Starting thread to request vote for term 25 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 25 to peer idx: 1
+[1] Vote request for term 25, candidate 2 received. Starting.
+[0] Vote request for term 25, candidate 2 received. Starting.
+[2] [20220704132849.065] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {26 2 0 0}
+[2] Starting thread to request vote for term 26 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 26 to peer idx: 1
+[0] Vote request for term 26, candidate 2 received. Starting.
+[1] Vote request for term 26, candidate 2 received. Starting.
+[2] [20220704132850.405] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {27 2 0 0}
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 27 to peer idx: 0
+[2] Starting thread to request vote for term 27 to peer idx: 1
+[0] Vote request for term 27, candidate 2 received. Starting.
+[1] Vote request for term 27, candidate 2 received. Starting.
+[2] [20220704132851.341] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {28 2 0 0}
+[2] Starting thread to request vote for term 28 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 28 to peer idx: 1
+[0] Vote request for term 28, candidate 2 received. Starting.
+[1] Vote request for term 28, candidate 2 received. Starting.
+[2] [20220704132852.024] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {29 2 0 0}
+[2] Starting thread to request vote for term 29 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 29 to peer idx: 1
+[1] Vote request for term 29, candidate 2 received. Starting.
+[0] Vote request for term 29, candidate 2 received. Starting.
+[2] [20220704132852.842] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {30 2 0 0}
+[2] Starting thread to request vote for term 30 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 30 to peer idx: 1
+[0] Vote request for term 30, candidate 2 received. Starting.
+[1] Vote request for term 30, candidate 2 received. Starting.
+[2] [20220704132853.970] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {31 2 0 0}
+[2] Starting thread to request vote for term 31 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 31 to peer idx: 1
+[0] Vote request for term 31, candidate 2 received. Starting.
+[1] Vote request for term 31, candidate 2 received. Starting.
+[2] [20220704132855.285] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {32 2 0 0}
+[2] Starting thread to request vote for term 32 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 32 to peer idx: 1
+[0] Vote request for term 32, candidate 2 received. Starting.
+[1] Vote request for term 32, candidate 2 received. Starting.
+[2] [20220704132856.188] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {33 2 0 0}
+[2] Starting thread to request vote for term 33 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 33 to peer idx: 1
+[1] Vote request for term 33, candidate 2 received. Starting.
+[0] Vote request for term 33, candidate 2 received. Starting.
+[2] [20220704132857.004] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {34 2 0 0}
+[2] Starting thread to request vote for term 34 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 34 to peer idx: 1
+[0] Vote request for term 34, candidate 2 received. Starting.
+[1] Vote request for term 34, candidate 2 received. Starting.
+[2] [20220704132858.453] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {35 2 0 0}
+[2] Starting thread to request vote for term 35 to peer idx: 0
+[2] Starting thread to request vote for term 35 to peer idx: 1
+[2]It me. skipping vote.
+[0] Vote request for term 35, candidate 2 received. Starting.
+[1] Vote request for term 35, candidate 2 received. Starting.
+[2] [20220704132859.873] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {36 2 0 0}
+[2] Starting thread to request vote for term 36 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 36 to peer idx: 1
+[1] Vote request for term 36, candidate 2 received. Starting.
+[0] Vote request for term 36, candidate 2 received. Starting.
+[2] [20220704132901.186] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {37 2 0 0}
+[2] Starting thread to request vote for term 37 to peer idx: 0
+[2] Starting thread to request vote for term 37 to peer idx: 1
+[2]It me. skipping vote.
+[0] Vote request for term 37, candidate 2 received. Starting.
+[1] Vote request for term 37, candidate 2 received. Starting.
+[2] [20220704132902.105] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {38 2 0 0}
+[2] Starting thread to request vote for term 38 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 38 to peer idx: 1
+[0] Vote request for term 38, candidate 2 received. Starting.
+[1] Vote request for term 38, candidate 2 received. Starting.
+[2] [20220704132903.379] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {39 2 0 0}
+[2] Starting thread to request vote for term 39 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 39 to peer idx: 1
+[1] Vote request for term 39, candidate 2 received. Starting.
+[0] Vote request for term 39, candidate 2 received. Starting.
+[2] [20220704132903.945] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {40 2 0 0}
+[2] Starting thread to request vote for term 40 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 40 to peer idx: 1
+[0] Vote request for term 40, candidate 2 received. Starting.
+[1] Vote request for term 40, candidate 2 received. Starting.
+[2] [20220704132905.331] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {41 2 0 0}
+[2] Starting thread to request vote for term 41 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 41 to peer idx: 1
+[0] Vote request for term 41, candidate 2 received. Starting.
+[1] Vote request for term 41, candidate 2 received. Starting.
+[2] [20220704132906.198] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {42 2 0 0}
+[2] Starting thread to request vote for term 42 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 42 to peer idx: 1
+[1] Vote request for term 42, candidate 2 received. Starting.
+[0] Vote request for term 42, candidate 2 received. Starting.
+[2] [20220704132906.881] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {43 2 0 0}
+[2] Starting thread to request vote for term 43 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 43 to peer idx: 1
+[0] Vote request for term 43, candidate 2 received. Starting.
+[1] Vote request for term 43, candidate 2 received. Starting.
+[2] [20220704132908.239] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {44 2 0 0}
+[2] Starting thread to request vote for term 44 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 44 to peer idx: 1
+[0] Vote request for term 44, candidate 2 received. Starting.
+[1] Vote request for term 44, candidate 2 received. Starting.
+[2] [20220704132909.720] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {45 2 0 0}
+[2] Starting thread to request vote for term 45 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 45 to peer idx: 1
+[0] Vote request for term 45, candidate 2 received. Starting.
+[1] Vote request for term 45, candidate 2 received. Starting.
+[2] [20220704132910.786] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {46 2 0 0}
+[2] Starting thread to request vote for term 46 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 46 to peer idx: 1
+[0] Vote request for term 46, candidate 2 received. Starting.
+[1] Vote request for term 46, candidate 2 received. Starting.
+[2] [20220704132912.223] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {47 2 0 0}
+[2] Starting thread to request vote for term 47 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 47 to peer idx: 1
+[0] Vote request for term 47, candidate 2 received. Starting.
+[1] Vote request for term 47, candidate 2 received. Starting.
+[2] [20220704132913.038] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
+Running Election now
+[2] Starting thread to request: {48 2 0 0}
+[2] Starting thread to request vote for term 48 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 48 to peer idx: 1
+[0] Vote request for term 48, candidate 2 received. Starting.
+[1] Vote request for term 48, candidate 2 received. Starting.
+signal: interrupt
+FAIL	6.824/raft	52.769s
