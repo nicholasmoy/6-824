@@ -110,6 +110,15 @@ type Raft struct {
 
 }
 
+const VERBOSE = true
+
+// Print log messages if VERBOSE == True
+func (rf *Raft) LogMessage(message string) {
+	if VERBOSE {
+		fmt.Println(fmt.Sprintf("[%d] ", rf.me), message)
+	}
+}
+
 //
 // Set lastElectionResetTime to time.Now
 func (rf *Raft) ResetElectionTimer() time.Duration {
@@ -616,9 +625,8 @@ func RunElection(rf *Raft, targetTerm int, quitElectionCh chan bool) {
 
 	// Listen for quit election message or for replies to come in
 	for rf.killed() == false {
-		fmt.Printf("[%d] Vote listener thread is active and listening for more\n", rf.me)
+		rf.LogMessage(fmt.Sprintf("Vote listener thread is active and listening for more"))
 		select {
-
 		// Election timed out. Kill this routine and stop listening.
 		case <-quitElectionCh:
 			fmt.Printf("[%d] Received signal to kill current election\n", rf.me)

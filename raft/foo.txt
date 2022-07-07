@@ -1,1064 +1,1079 @@
-2022-07-04 14:28:55.69474 -0700 PDT m=+0.002016459
+2022-07-07 09:07:40.55177 -0700 PDT m=+0.003333334
 Starting Ticker
-[0] [20220704142855.695] Heartbeat [20220704142857.031] received since last sleep. Resetting timer
-1.33595275s
-2022-07-04 14:28:55.695307 -0700 PDT m=+0.002583084
+[0] [20220707090740.552] Heartbeat [20220707090741.975] received since last sleep. Resetting timer
+1.422876916s
+2022-07-07 09:07:40.553327 -0700 PDT m=+0.004891042
 Starting Ticker
-[1] [20220704142855.695] Heartbeat [20220704142856.198] received since last sleep. Resetting timer
-502.976584ms
-2022-07-04 14:28:55.695478 -0700 PDT m=+0.002754792
+[1] [20220707090740.553] Heartbeat [20220707090741.966] received since last sleep. Resetting timer
+1.412896291s
+2022-07-07 09:07:40.553759 -0700 PDT m=+0.005322626
 Starting Ticker
-[2] [20220704142855.695] Heartbeat [20220704142857.192] received since last sleep. Resetting timer
-1.4969535s
+[2] [20220707090740.553] Heartbeat [20220707090741.199] received since last sleep. Resetting timer
+645.908625ms
 Test (2A): initial election ...
-[1] [20220704142856.199] Requesting Election
+[2] [20220707090741.201] Requesting Election
 Running Election now
-[1] Starting thread to request: {1 1 0 0}
-[1]It me. skipping vote.
-[1] Vote listener thread is active and listening for more
-[1] Starting thread to request vote for term 1 to peer idx: 0
-[1] Starting thread to request vote for term 1 to peer idx: 2
-[2] Vote request for term 1, candidate 1 received. Starting.
-[2] Term and log up to date. Currently voted for -1
-[0] Vote request for term 1, candidate 1 received. Starting.
-[2] Vote granted for 1.
+[2] Starting thread to request: {1 2 0 0}
+[2] Starting thread to request vote for term 1 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 1 to peer idx: 1
+[2]  Vote listener thread is active and listening for more
+[0] Vote request for term 1, candidate 2 received. Starting.
+[1] Vote request for term 1, candidate 2 received. Starting.
+[1] Term and log up to date. Currently voted for -1
+[1] Vote granted for 2.
 [0] Term and log up to date. Currently voted for -1
-[0] Vote granted for 1.
-[1] Received reply from peer idx: 2
-[1] Successfully pushed vote to channel
-[1] Processing vote reply for term {1 true}
-[1] Received reply from peer idx: 0
-[1] Vote tally for term 1: 2
-[1] Won election. Switching to leader
-[1]1 true
-[0] [20220704142857.032] Requesting Election
+[0] Vote granted for 2.
+[2] Received reply from peer idx: 0
+[2] Successfully pushed vote to channel
+[2] Received reply from peer idx: 1
+[2] Processing vote reply for term {1 true}
+[2] Vote tally for term 1: 2
+[2] Won election. Switching to leader
+[2]1 true
+[1] [20220707090741.967] Heartbeat [20220707090742.319] received since last sleep. Resetting timer
+351.629083ms
+[0] [20220707090741.976] Heartbeat [20220707090742.026] received since last sleep. Resetting timer
+49.566792ms
+[0] [20220707090742.027] Requesting Election
 Running Election now
 [0] Starting thread to request: {2 0 0 0}
 [0]It me. skipping vote.
 [0] Starting thread to request vote for term 2 to peer idx: 1
+[0]  Vote listener thread is active and listening for more
 [0] Starting thread to request vote for term 2 to peer idx: 2
-[0] Vote listener thread is active and listening for more
-[2] Vote request for term 2, candidate 0 received. Starting.
-[2] Term and log up to date. Currently voted for -1
-[2] Vote granted for 0.
 [1] Vote request for term 2, candidate 0 received. Starting.
 [1] Term and log up to date. Currently voted for -1
 [1] Vote granted for 0.
+[2] Vote request for term 2, candidate 0 received. Starting.
+[2] Term and log up to date. Currently voted for -1
+[2] Vote granted for 0.
 [0] Received reply from peer idx: 1
+[0] Successfully pushed vote to channel
+[0] Processing vote reply for term {2 true}
+[0] Received reply from peer idx: 2
+[0] Vote tally for term 2: 2
+[0] Won election. Switching to leader
+[0]2 true
+[1] [20220707090742.320] Heartbeat [20220707090742.915] received since last sleep. Resetting timer
+595.101958ms
+[2] [20220707090742.434] Heartbeat [20220707090742.856] received since last sleep. Resetting timer
+421.61175ms
+[2] [20220707090742.857] Requesting Election
+Running Election now
+[2] Starting thread to request: {3 2 0 0}
+[2] Starting thread to request vote for term 3 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 3 to peer idx: 1
+[2]  Vote listener thread is active and listening for more
+[1] Vote request for term 3, candidate 2 received. Starting.
+[0] Vote request for term 3, candidate 2 received. Starting.
+[0] Term and log up to date. Currently voted for -1
+[1] Term and log up to date. Currently voted for -1
+[0] Vote granted for 2.
+[1] Vote granted for 2.
+[2] Received reply from peer idx: 0
+[2] Received reply from peer idx: 1
+[2] Processing vote reply for term {3 true}
+[2] Vote tally for term 3: 2
+[2] Won election. Switching to leader
+[2]3 true
+[2] Successfully pushed vote to channel
+[1] [20220707090742.917] Heartbeat [20220707090743.730] received since last sleep. Resetting timer
+813.468417ms
+[2] Leader Sending Heartbeat RPC
+Running append entries process
+[2] it me. skipping append entry
+[2] Sending AppendEntries {3 2 0 0 -1 []} to peer 0
+[2] Sending AppendEntries {3 2 0 0 -1 []} to peer 1
+[1] AppendEntries request for term 3, Leader 2 received. Starting.
+[0] AppendEntries request for term 3, Leader 2 received. Starting.
+[2] Received AppendEntries reply {3 true}
+[2] Received AppendEntries reply {3 true}
+[0] [20220707090743.487] Heartbeat [20220707090744.594] received since last sleep. Resetting timer
+1.106472666s
+[2] Leader Sending Heartbeat RPC
+Running append entries process
+[2] Sending AppendEntries {3 2 0 0 -1 []} to peer 0
+[2] it me. skipping append entry
+[2] Sending AppendEntries {3 2 0 0 -1 []} to peer 1
+warning: term changed even though there were no failures[0] AppendEntries request for term 3, Leader 2 received. Starting.
+[1] AppendEntries request for term 3, Leader 2 received. Starting.
+[2] Received AppendEntries reply {3 true}
+[2] Received AppendEntries reply {3 true}
+[1] [20220707090743.732] Heartbeat [20220707090744.777] received since last sleep. Resetting timer
+1.044722334s
+[2] Leader Sending Heartbeat RPC
+Running append entries process
+[2] Sending AppendEntries {3 2 0 0 -1 []} to peer 0
+[2] it me. skipping append entry
+[2] Sending AppendEntries {3 2 0 0 -1 []} to peer 1
+[0] AppendEntries request for term 3, Leader 2 received. Starting.
+[1] AppendEntries request for term 3, Leader 2 received. Starting.
+[2] Received AppendEntries reply {3 true}
+[2] Received AppendEntries reply {3 true}
+[2] Leader Sending Heartbeat RPC
+Running append entries process
+[2] it me. skipping append entry
+[2] Sending AppendEntries {3 2 0 0 -1 []} to peer 0
+[2] Sending AppendEntries {3 2 0 0 -1 []} to peer 1
+[1] AppendEntries request for term 3, Leader 2 received. Starting.
+[0] AppendEntries request for term 3, Leader 2 received. Starting.
+[2] Received AppendEntries reply {3 true}
+[2] Received AppendEntries reply {3 true}
+[2] Leader Sending Heartbeat RPC
+Running append entries process
+[2] Sending AppendEntries {3 2 0 0 -1 []} to peer 0
+[2] it me. skipping append entry
+[2] Sending AppendEntries {3 2 0 0 -1 []} to peer 1
+[0] AppendEntries request for term 3, Leader 2 received. Starting.
+[1] AppendEntries request for term 3, Leader 2 received. Starting.
+[2] Received AppendEntries reply {3 true}
+[2] Received AppendEntries reply {3 true}
+  ... Passed --   3.6  3   16    3596    0
+2022-07-07 09:07:44.120225 -0700 PDT m=+3.571681542
+Starting Ticker
+[0] [20220707090744.120] Heartbeat [20220707090745.528] received since last sleep. Resetting timer
+1.407864s
+2022-07-07 09:07:44.121111 -0700 PDT m=+3.572568209
+Starting Ticker
+[1] [20220707090744.121] Heartbeat [20220707090744.872] received since last sleep. Resetting timer
+750.887416ms
+2022-07-07 09:07:44.121836 -0700 PDT m=+3.573293209
+Starting Ticker
+[2] [20220707090744.122] Heartbeat [20220707090745.537] received since last sleep. Resetting timer
+1.414870042s
+Test (2A): election after network failure ...
+[1] [20220707090744.873] Requesting Election
+Running Election now
+[1] Starting thread to request: {1 1 0 0}
+[1]It me. skipping vote.
+[1] Starting thread to request vote for term 1 to peer idx: 0
+[1]  Vote listener thread is active and listening for more
+[1] Starting thread to request vote for term 1 to peer idx: 2
+[0] Vote request for term 1, candidate 1 received. Starting.
+[2] Vote request for term 1, candidate 1 received. Starting.
+[0] Term and log up to date. Currently voted for -1
+[2] Term and log up to date. Currently voted for -1
+[0] Vote granted for 1.
+[2] Vote granted for 1.
+[1] Received reply from peer idx: 0
+[1] Received reply from peer idx: 2
+[1] Processing vote reply for term {1 true}
+[1] Vote tally for term 1: 2
+[1] Won election. Switching to leader
+[1] Successfully pushed vote to channel
+[1]1 true
+[0] [20220707090745.529] Requesting Election
+Running Election now
+[0] Starting thread to request: {2 0 0 0}
+[0]It me. skipping vote.
+[0] Starting thread to request vote for term 2 to peer idx: 1
+[0]  Vote listener thread is active and listening for more
+[0] Starting thread to request vote for term 2 to peer idx: 2
+[2] Vote request for term 2, candidate 0 received. Starting.
+[2] Term and log up to date. Currently voted for -1
+[2] Vote granted for 0.
+[0] Received reply from peer idx: 2
 [0] Successfully pushed vote to channel
 [0] Processing vote reply for term {2 true}
 [0] Vote tally for term 2: 2
 [0] Won election. Switching to leader
 [0]2 true
-[0] Received reply from peer idx: 2
-[2] [20220704142857.193] Heartbeat [20220704142858.170] received since last sleep. Resetting timer
-976.654125ms
-[1] [20220704142857.210] Heartbeat [20220704142857.921] received since last sleep. Resetting timer
-710.85175ms
+[2] [20220707090745.537] Heartbeat [20220707090747.012] received since last sleep. Resetting timer
+1.474765791s
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
+[2] AppendEntries request for term 1, Leader 1 received. Starting.
+[0] AppendEntries request for term 1, Leader 1 received. Starting.
+[1] Received AppendEntries reply {2 false}
+[1] Received AppendEntries reply {2 false}
 [0] Leader Sending Heartbeat RPC
 Running append entries process
 [0] it me. skipping append entry
 [0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
 [0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
-[2] AppendEntries request for term 2, Leader 0 received. Starting.
-[1] AppendEntries request for term 2, Leader 0 received. Starting.
-[0] Received AppendEntries reply {2 true}
-[0] Received AppendEntries reply {2 true}
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
 [0] Leader Sending Heartbeat RPC
 Running append entries process
 [0] it me. skipping append entry
 [0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
 [0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
-[1] AppendEntries request for term 2, Leader 0 received. Starting.
-[2] AppendEntries request for term 2, Leader 0 received. Starting.
-[0] Received AppendEntries reply {2 true}
-[0] Received AppendEntries reply {2 true}
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
 [0] Leader Sending Heartbeat RPC
 Running append entries process
 [0] it me. skipping append entry
 [0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
 [0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
-[1] AppendEntries request for term 2, Leader 0 received. Starting.
-[2] AppendEntries request for term 2, Leader 0 received. Starting.
-[0] Received AppendEntries reply {2 true}
-[0] Received AppendEntries reply {2 true}
-[1] [20220704142857.922] Heartbeat [20220704142858.511] received since last sleep. Resetting timer
-588.211958ms
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
 [0] Leader Sending Heartbeat RPC
 Running append entries process
 [0] it me. skipping append entry
 [0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
 [0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
-[2] AppendEntries request for term 2, Leader 0 received. Starting.
-[1] AppendEntries request for term 2, Leader 0 received. Starting.
-[0] Received AppendEntries reply {2 true}
-[0] Received AppendEntries reply {2 true}
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
 [0] Leader Sending Heartbeat RPC
 Running append entries process
 [0] it me. skipping append entry
 [0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
 [0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
-[1] AppendEntries request for term 2, Leader 0 received. Starting.
-[2] AppendEntries request for term 2, Leader 0 received. Starting.
-[0] Received AppendEntries reply {2 true}
-[0] Received AppendEntries reply {2 true}
-[2] [20220704142858.171] Heartbeat [20220704142859.048] received since last sleep. Resetting timer
-876.2905ms
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
 [0] Leader Sending Heartbeat RPC
 Running append entries process
 [0] it me. skipping append entry
 [0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
 [0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
-[1] AppendEntries request for term 2, Leader 0 received. Starting.
-[2] AppendEntries request for term 2, Leader 0 received. Starting.
-[0] Received AppendEntries reply {2 true}
-[0] Received AppendEntries reply {2 true}
-[0] Leader Sending Heartbeat RPC
+[1] Leader Sending Heartbeat RPC
 Running append entries process
-[0] it me. skipping append entry
-[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
-[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
-[1] AppendEntries request for term 2, Leader 0 received. Starting.
-[2] AppendEntries request for term 2, Leader 0 received. Starting.
-[0] Received AppendEntries reply {2 true}
-[0] Received AppendEntries reply {2 true}
-[1] [20220704142858.512] Heartbeat [20220704142858.958] received since last sleep. Resetting timer
-446.426917ms
-[0] Leader Sending Heartbeat RPC
-Running append entries process
-[0] it me. skipping append entry
-[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
-[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
-[1] AppendEntries request for term 2, Leader 0 received. Starting.
-[2] AppendEntries request for term 2, Leader 0 received. Starting.
-[0] Received AppendEntries reply {2 true}
-[0] Received AppendEntries reply {2 true}
-warning: term changed even though there were no failures[0] Leader Sending Heartbeat RPC
-Running append entries process
-[0] it me. skipping append entry
-[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
-[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
-[1] AppendEntries request for term 2, Leader 0 received. Starting.
-[2] AppendEntries request for term 2, Leader 0 received. Starting.
-[0] Received AppendEntries reply {2 true}
-[0] Received AppendEntries reply {2 true}
-[0] Leader Sending Heartbeat RPC
-Running append entries process
-[0] it me. skipping append entry
-[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
-[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
-[1] AppendEntries request for term 2, Leader 0 received. Starting.
-[2] AppendEntries request for term 2, Leader 0 received. Starting.
-[0] Received AppendEntries reply {2 true}
-[0] Received AppendEntries reply {2 true}
-[1] [20220704142858.959] Heartbeat [20220704142900.253] received since last sleep. Resetting timer
-1.293505167s
-[2] [20220704142859.049] Heartbeat [20220704142859.947] received since last sleep. Resetting timer
-898.202708ms
-[0] Leader Sending Heartbeat RPC
-Running append entries process
-[0] it me. skipping append entry
-[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
-[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
-[1] AppendEntries request for term 2, Leader 0 received. Starting.
-[2] AppendEntries request for term 2, Leader 0 received. Starting.
-[0] Received AppendEntries reply {2 true}
-[0] Received AppendEntries reply {2 true}
-[0] Leader Sending Heartbeat RPC
-Running append entries process
-[0] it me. skipping append entry
-[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
-[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
-[1] AppendEntries request for term 2, Leader 0 received. Starting.
-[2] AppendEntries request for term 2, Leader 0 received. Starting.
-[0] Received AppendEntries reply {2 true}
-[0] Received AppendEntries reply {2 true}
-  ... Passed --   3.6  3   28    6924    0
-2022-07-04 14:28:59.263318 -0700 PDT m=+3.570644417
-Starting Ticker
-[0] [20220704142859.263] Heartbeat [20220704142900.618] received since last sleep. Resetting timer
-1.354876041s
-2022-07-04 14:28:59.263876 -0700 PDT m=+3.571202751
-Starting Ticker
-[1] [20220704142859.264] Heartbeat [20220704142900.397] received since last sleep. Resetting timer
-1.132930041s
-2022-07-04 14:28:59.264283 -0700 PDT m=+3.571609584
-Starting Ticker
-[2] [20220704142859.264] Heartbeat [20220704142900.025] received since last sleep. Resetting timer
-760.915583ms
-Test (2A): election after network failure ...
-[2] [20220704142900.026] Requesting Election
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
+[2] [20220707090747.013] Requesting Election
 Running Election now
-[2] Starting thread to request: {1 2 0 0}
-[2] Starting thread to request vote for term 1 to peer idx: 0
+[2] Starting thread to request: {3 2 0 0}
+[2] Starting thread to request vote for term 3 to peer idx: 0
 [2]It me. skipping vote.
-[2] Vote listener thread is active and listening for more
-[2] Starting thread to request vote for term 1 to peer idx: 1
-[1] Vote request for term 1, candidate 2 received. Starting.
-[1] Term and log up to date. Currently voted for -1
-[1] Vote granted for 2.
-[0] Vote request for term 1, candidate 2 received. Starting.
-[0] Term and log up to date. Currently voted for -1
-[0] Vote granted for 2.
-[2] Received reply from peer idx: 1
-[2] Received reply from peer idx: 0
-[2] Successfully pushed vote to channel
-[2] Processing vote reply for term {1 true}
-[2] Vote tally for term 1: 2
-[2] Won election. Switching to leader
-[2]1 true
-[1] [20220704142900.398] Heartbeat [20220704142900.542] received since last sleep. Resetting timer
-143.811084ms
-[1] [20220704142900.543] Requesting Election
+[2] Starting thread to request vote for term 3 to peer idx: 1
+[2]  Vote listener thread is active and listening for more
+[0] Leader Sending Heartbeat RPC
+Running append entries process
+[0] it me. skipping append entry
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
+[0] Leader Sending Heartbeat RPC
+Running append entries process
+[0] it me. skipping append entry
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
+[0] Leader Sending Heartbeat RPC
+Running append entries process
+[0] it me. skipping append entry
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
+[0] Leader Sending Heartbeat RPC
+Running append entries process
+[0] it me. skipping append entry
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
+[0] Leader Sending Heartbeat RPC
+Running append entries process
+[0] it me. skipping append entry
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
+[0] Leader Sending Heartbeat RPC
+Running append entries process
+[0] it me. skipping append entry
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
+[0] Leader Sending Heartbeat RPC
+Running append entries process
+[0] it me. skipping append entry
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
+[2] [20220707090748.030] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
 Running Election now
-[1] Starting thread to request: {2 1 0 0}
+[2] Starting thread to request: {4 2 0 0}
+[2] Starting thread to request vote for term 4 to peer idx: 0
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 4 to peer idx: 1
+[2]  Vote listener thread is active and listening for more
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
+[0] Leader Sending Heartbeat RPC
+Running append entries process
+[0] it me. skipping append entry
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
+[2] AppendEntries request for term 1, Leader 1 received. Starting.
+[1] Received AppendEntries reply {4 false}
+[0] Leader Sending Heartbeat RPC
+Running append entries process
+[0] it me. skipping append entry
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
+[2] AppendEntries request for term 1, Leader 1 received. Starting.
+[1] Received AppendEntries reply {4 false}
+[0] Leader Sending Heartbeat RPC
+Running append entries process
+[0] it me. skipping append entry
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
+[2] AppendEntries request for term 1, Leader 1 received. Starting.
+[1] Received AppendEntries reply {4 false}
+[0] Leader Sending Heartbeat RPC
+Running append entries process
+[0] it me. skipping append entry
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {1 1 0 0 -1 []} to peer 2
+[2] AppendEntries request for term 1, Leader 1 received. Starting.
+[1] Received AppendEntries reply {4 false}
+[0] Leader Sending Heartbeat RPC
+Running append entries process
+[0] it me. skipping append entry
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
+[2] AppendEntries request for term 2, Leader 0 received. Starting.
+[1] AppendEntries request for term 2, Leader 0 received. Starting.
+[0] Received AppendEntries reply {2 true}
+[0] Received AppendEntries reply {4 false}
+[1] [20220707090748.799] Heartbeat [20220707090749.439] received since last sleep. Resetting timer
+639.472209ms
+[0] Leader Sending Heartbeat RPC
+Running append entries process
+[0] it me. skipping append entry
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
+[2] AppendEntries request for term 2, Leader 0 received. Starting.
+[1] AppendEntries request for term 2, Leader 0 received. Starting.
+[0] Received AppendEntries reply {4 false}
+[0] Received AppendEntries reply {2 true}
+[0] Leader Sending Heartbeat RPC
+Running append entries process
+[0] it me. skipping append entry
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 1
+[0] Sending AppendEntries {2 0 0 0 -1 []} to peer 2
+[1] AppendEntries request for term 2, Leader 0 received. Starting.
+[2] AppendEntries request for term 2, Leader 0 received. Starting.
+[0] Received AppendEntries reply {2 true}
+[0] Received AppendEntries reply {4 false}
+  ... Passed --   5.0  3   84   16954    0
+2022-07-07 09:07:49.132016 -0700 PDT m=+8.583322626
+Starting Ticker
+[0] [20220707090749.132] Heartbeat [20220707090749.805] received since last sleep. Resetting timer
+672.87375ms
+2022-07-07 09:07:49.133035 -0700 PDT m=+8.584341709
+Starting Ticker
+[1] [20220707090749.133] Heartbeat [20220707090749.637] received since last sleep. Resetting timer
+503.847833ms
+2022-07-07 09:07:49.133864 -0700 PDT m=+8.585170459
+Starting Ticker
+[2] [20220707090749.134] Heartbeat [20220707090749.684] received since last sleep. Resetting timer
+549.905125ms
+2022-07-07 09:07:49.134554 -0700 PDT m=+8.585860667
+Starting Ticker
+[3] [20220707090749.134] Heartbeat [20220707090749.634] received since last sleep. Resetting timer
+499.921709ms
+2022-07-07 09:07:49.13514 -0700 PDT m=+8.586446417
+Starting Ticker
+[4] [20220707090749.135] Heartbeat [20220707090750.227] received since last sleep. Resetting timer
+1.09190225s
+2022-07-07 09:07:49.135712 -0700 PDT m=+8.587018334
+Starting Ticker
+[5] [20220707090749.135] Heartbeat [20220707090750.162] received since last sleep. Resetting timer
+1.026914s
+2022-07-07 09:07:49.136356 -0700 PDT m=+8.587662209
+Starting Ticker
+[6] [20220707090749.136] Heartbeat [20220707090750.139] received since last sleep. Resetting timer
+1.002919084s
+Test (2A): multiple elections ...
+[3] [20220707090749.635] Requesting Election
+Running Election now
+[3] Starting thread to request: {1 3 0 0}
+[3] Starting thread to request vote for term 1 to peer idx: 0
+[3] Starting thread to request vote for term 1 to peer idx: 1
+[3]It me. skipping vote.
+[3] Starting thread to request vote for term 1 to peer idx: 2
+[3] Starting thread to request vote for term 1 to peer idx: 5
+[3]  Vote listener thread is active and listening for more
+[3] Starting thread to request vote for term 1 to peer idx: 4
+[1] [20220707090749.637] Requesting Election
+[3] Starting thread to request vote for term 1 to peer idx: 6
+Running Election now
+[1] Starting thread to request: {1 1 0 0}
 [1]It me. skipping vote.
-[1] Starting thread to request vote for term 2 to peer idx: 0
-[1] Vote listener thread is active and listening for more
-[1] Starting thread to request vote for term 2 to peer idx: 2
-[0] Vote request for term 2, candidate 1 received. Starting.
+[0] Vote request for term 1, candidate 3 received. Starting.
 [0] Term and log up to date. Currently voted for -1
-[0] Vote granted for 1.
+[0] Vote granted for 3.
+[1] Vote request for term 1, candidate 3 received. Starting.
+[1] Term and log up to date. Currently voted for 1
+[1]  Vote listener thread is active and listening for more
+[1] Starting thread to request vote for term 1 to peer idx: 6
+[3] Received reply from peer idx: 1
+[1] Starting thread to request vote for term 1 to peer idx: 4
+[3] Processing vote reply for term {1 false}
+[3]  Vote listener thread is active and listening for more
+[3] Received reply from peer idx: 0
+[3] Successfully pushed vote to channel
+[4] Vote request for term 1, candidate 3 received. Starting.
+[3] Processing vote reply for term {1 true}
+[3] Vote tally for term 1: 2
+[3]  Vote listener thread is active and listening for more
+[1] Starting thread to request vote for term 1 to peer idx: 5
+[1] Starting thread to request vote for term 1 to peer idx: 3
+[4] Term and log up to date. Currently voted for -1
+[4] Vote granted for 3.
+[4] Vote request for term 1, candidate 1 received. Starting.
+[4] Term and log up to date. Currently voted for 3
+[6] Vote request for term 1, candidate 3 received. Starting.
+[1] Starting thread to request vote for term 1 to peer idx: 2
+[3] Successfully pushed vote to channel
+[1] Starting thread to request vote for term 1 to peer idx: 0
+[3] Received reply from peer idx: 4
+[3] Successfully pushed vote to channel
+[6] Term and log up to date. Currently voted for -1
+[6] Vote granted for 3.
+[1] Received reply from peer idx: 4
+[1] Successfully pushed vote to channel
+[6] Vote request for term 1, candidate 1 received. Starting.
+[6] Term and log up to date. Currently voted for 3
+[1] Received reply from peer idx: 6
+[1] Processing vote reply for term {1 false}
+[5] Vote request for term 1, candidate 3 received. Starting.
+[5] Term and log up to date. Currently voted for -1
+[3] Vote request for term 1, candidate 1 received. Starting.
+[5] Vote granted for 3.
+[3] Received reply from peer idx: 6
+[3] Processing vote reply for term {1 true}
+[3] Vote tally for term 1: 3
+[3]  Vote listener thread is active and listening for more
+[3] Processing vote reply for term {1 true}
+[3] Vote tally for term 1: 4
+[3] Won election. Switching to leader
+[3][2] Vote request for term 1, candidate 3 received. Starting.
+[2] Term and log up to date. Currently voted for -1
+[2] Vote granted for 3.
+[0] Vote request for term 1, candidate 1 received. Starting.
+[3] Successfully pushed vote to channel
+[0] Term and log up to date. Currently voted for 3
+[1]  Vote listener thread is active and listening for more
+[1] Processing vote reply for term {1 false}
+[3] Received reply from peer idx: 5
+[1]  Vote listener thread is active and listening for more
+[3] Term and log up to date. Currently voted for 3
+[1] Successfully pushed vote to channel
+1 true
+[2] Vote request for term 1, candidate 1 received. Starting.
+[5] Vote request for term 1, candidate 1 received. Starting.
+[5] Term and log up to date. Currently voted for 3
+[3] Received reply from peer idx: 2
+[2] Term and log up to date. Currently voted for 3
 [1] Received reply from peer idx: 0
 [1] Successfully pushed vote to channel
-[1] Processing vote reply for term {2 true}
-[1] Vote tally for term 2: 2
-[1] Won election. Switching to leader
-[1]2 true
-[0] [20220704142900.619] Heartbeat [20220704142901.875] received since last sleep. Resetting timer
-1.255623667s
-[2] Leader Sending Heartbeat RPC
-Running append entries process
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 0
-[2] it me. skipping append entry
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 1
-[2] Leader Sending Heartbeat RPC
-Running append entries process
-[2] it me. skipping append entry
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 1
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 0
-[2] Leader Sending Heartbeat RPC
-Running append entries process
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 0
-[2] it me. skipping append entry
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 1
-[1] Leader Sending Heartbeat RPC
-Running append entries process
-[1] it me. skipping append entry
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 0
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 2
-[2] Leader Sending Heartbeat RPC
-Running append entries process
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 0
-[2] it me. skipping append entry
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 1
-[1] Leader Sending Heartbeat RPC
-Running append entries process
-[1] it me. skipping append entry
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 0
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 2
-[0] [20220704142901.876] Requesting Election
+[1] Processing vote reply for term {1 false}
+[1]  Vote listener thread is active and listening for more
+[1] Received reply from peer idx: 3
+[1] Successfully pushed vote to channel
+[1] Received reply from peer idx: 5
+[1] Processing vote reply for term {1 false}
+[1]  Vote listener thread is active and listening for more
+[1] Received reply from peer idx: 2
+[1] Successfully pushed vote to channel
+[1] Processing vote reply for term {1 false}
+[1]  Vote listener thread is active and listening for more
+[1] Processing vote reply for term {1 false}
+[1] Successfully pushed vote to channel
+[1]  Vote listener thread is active and listening for more
+[2] [20220707090749.685] Heartbeat [20220707090750.464] received since last sleep. Resetting timer
+778.697542ms
+[0] [20220707090749.805] Heartbeat [20220707090750.669] received since last sleep. Resetting timer
+863.327833ms
+[6] [20220707090750.139] Heartbeat [20220707090750.278] received since last sleep. Resetting timer
+138.756667ms
+[5] [20220707090750.163] Heartbeat [20220707090750.884] received since last sleep. Resetting timer
+720.55175ms
+[4] [20220707090750.227] Heartbeat [20220707090750.269] received since last sleep. Resetting timer
+41.03825ms
+[4] [20220707090750.270] Requesting Election
 Running Election now
-[0] Starting thread to request: {3 0 0 0}
-[0]It me. skipping vote.
-[0] Starting thread to request vote for term 3 to peer idx: 1
-[0] Vote listener thread is active and listening for more
-[0] Starting thread to request vote for term 3 to peer idx: 2
-[2] Leader Sending Heartbeat RPC
-Running append entries process
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 0
-[2] it me. skipping append entry
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 1
-[1] Leader Sending Heartbeat RPC
-Running append entries process
-[1] it me. skipping append entry
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 0
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 2
-[2] Leader Sending Heartbeat RPC
-Running append entries process
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 0
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 1
-[2] it me. skipping append entry
-[1] Leader Sending Heartbeat RPC
-Running append entries process
-[1] it me. skipping append entry
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 0
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 2
-[2] Leader Sending Heartbeat RPC
-Running append entries process
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 0
-[2] it me. skipping append entry
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 1
-[1] Leader Sending Heartbeat RPC
-Running append entries process
-[1] it me. skipping append entry
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 0
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 2
-[2] Leader Sending Heartbeat RPC
-Running append entries process
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 0
-[2] it me. skipping append entry
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 1
-[1] Leader Sending Heartbeat RPC
-Running append entries process
-[1] it me. skipping append entry
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 0
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 2
-[2] Leader Sending Heartbeat RPC
-Running append entries process
-[2] it me. skipping append entry
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 0
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 1
-[1] Leader Sending Heartbeat RPC
-Running append entries process
-[1] it me. skipping append entry
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 0
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 2
-[2] Leader Sending Heartbeat RPC
-Running append entries process
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 0
-[2] it me. skipping append entry
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 1
-[1] Leader Sending Heartbeat RPC
-Running append entries process
-[1] it me. skipping append entry
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 0
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 2
-[2] Leader Sending Heartbeat RPC
-Running append entries process
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 0
-[2] it me. skipping append entry
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 1
-[1] Leader Sending Heartbeat RPC
-Running append entries process
-[1] it me. skipping append entry
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 0
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 2
-[2] Leader Sending Heartbeat RPC
-Running append entries process
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 0
-[2] it me. skipping append entry
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 1
-[0] [20220704142903.034] Requesting Election
-[0] Killing old Election thread
-[0] Received signal to kill current election
-Running Election now
-[0] Starting thread to request: {4 0 0 0}
-[0]It me. skipping vote.
-[0] Starting thread to request vote for term 4 to peer idx: 1
-[0] Vote listener thread is active and listening for more
-[0] Starting thread to request vote for term 4 to peer idx: 2
-[1] Leader Sending Heartbeat RPC
-Running append entries process
-[1] it me. skipping append entry
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 0
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 2
-[2] Leader Sending Heartbeat RPC
-Running append entries process
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 0
-[2] it me. skipping append entry
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 1
-[1] Leader Sending Heartbeat RPC
-Running append entries process
-[1] it me. skipping append entry
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 0
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 2
-[2] Leader Sending Heartbeat RPC
-Running append entries process
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 0
-[2] it me. skipping append entry
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 1
-[0] AppendEntries request for term 1, Leader 2 received. Starting.
-[2] Received AppendEntries reply {4 false}
-[1] Leader Sending Heartbeat RPC
-Running append entries process
-[1] it me. skipping append entry
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 0
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 2
-[2] Leader Sending Heartbeat RPC
-Running append entries process
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 0
-[2] it me. skipping append entry
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 1
-[0] AppendEntries request for term 1, Leader 2 received. Starting.
-[2] Received AppendEntries reply {4 false}
-[1] Leader Sending Heartbeat RPC
-Running append entries process
-[1] it me. skipping append entry
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 0
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 2
-[2] Leader Sending Heartbeat RPC
-Running append entries process
-[2] it me. skipping append entry
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 0
-[2] Sending AppendEntries {1 2 0 0 -1 []} to peer 1
-[0] AppendEntries request for term 1, Leader 2 received. Starting.
-[2] Received AppendEntries reply {4 false}
-[1] Leader Sending Heartbeat RPC
-Running append entries process
-[1] it me. skipping append entry
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 0
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 2
-[0] AppendEntries request for term 2, Leader 1 received. Starting.
-[2] AppendEntries request for term 2, Leader 1 received. Starting.
-[1] Received AppendEntries reply {4 false}
-[1] Received AppendEntries reply {2 true}
-[2] [20220704142903.723] Heartbeat [20220704142905.040] received since last sleep. Resetting timer
-1.316743625s
-[1] Leader Sending Heartbeat RPC
-Running append entries process
-[0] [20220704142903.815] Requesting Election
-[0] Killing old Election thread
-[1] it me. skipping append entry
-[0] Received signal to kill current election
-Running Election now
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 2
-[1] Sending AppendEntries {2 1 0 0 -1 []} to peer 0
-[0] Starting thread to request: {5 0 0 0}
-[0]It me. skipping vote.
-[0] Vote listener thread is active and listening for more
-[0] Starting thread to request vote for term 5 to peer idx: 2
-[0] Starting thread to request vote for term 5 to peer idx: 1
-[2] Vote request for term 5, candidate 0 received. Starting.
-[2] Term and log up to date. Currently voted for -1
-[2] Vote granted for 0.
-[0] AppendEntries request for term 2, Leader 1 received. Starting.
-[2] AppendEntries request for term 2, Leader 1 received. Starting.
-[1] Received AppendEntries reply {5 false}
-[0] Received reply from peer idx: 2
-[0] Successfully pushed vote to channel
-[1] Received AppendEntries reply {5 false}
-[0] Processing vote reply for term {5 true}
-[0] Vote tally for term 5: 2
-[0] Won election. Switching to leader
-[0]5 true
-[1] Vote request for term 5, candidate 0 received. Starting.
-[1] Term and log up to date. Currently voted for -1
-[1] Vote granted for 0.
-[0] Received reply from peer idx: 1
-[1] [20220704142903.966] Heartbeat [20220704142904.881] received since last sleep. Resetting timer
-914.606041ms
-  ... Passed --   4.9  3   72   14214    0
-2022-07-04 14:29:04.148312 -0700 PDT m=+8.455706584
-Starting Ticker
-[0] [20220704142904.148] Heartbeat [20220704142905.291] received since last sleep. Resetting timer
-1.142931792s
-2022-07-04 14:29:04.148745 -0700 PDT m=+8.456139584
-Starting Ticker
-[1] [20220704142904.148] Heartbeat [20220704142905.120] received since last sleep. Resetting timer
-971.94575ms
-2022-07-04 14:29:04.149104 -0700 PDT m=+8.456498584
-Starting Ticker
-[2] [20220704142904.149] Heartbeat [20220704142905.066] received since last sleep. Resetting timer
-916.923125ms
-2022-07-04 14:29:04.149466 -0700 PDT m=+8.456860792
-Starting Ticker
-[3] [20220704142904.149] Heartbeat [20220704142904.907] received since last sleep. Resetting timer
-757.94475ms
-2022-07-04 14:29:04.149821 -0700 PDT m=+8.457215917
-Starting Ticker
-[4] [20220704142904.149] Heartbeat [20220704142904.722] received since last sleep. Resetting timer
-572.947375ms
-2022-07-04 14:29:04.150166 -0700 PDT m=+8.457561126
-Starting Ticker
-[5] [20220704142904.150] Heartbeat [20220704142905.071] received since last sleep. Resetting timer
-920.950875ms
-2022-07-04 14:29:04.150537 -0700 PDT m=+8.457931626
-Starting Ticker
-[6] [20220704142904.150] Heartbeat [20220704142905.066] received since last sleep. Resetting timer
-915.909375ms
-Test (2A): multiple elections ...
-[4] [20220704142904.724] Requesting Election
-Running Election now
-[4] Starting thread to request: {1 4 0 0}
-[4] Starting thread to request vote for term 1 to peer idx: 0
-[4] Starting thread to request vote for term 1 to peer idx: 1
-[4] Starting thread to request vote for term 1 to peer idx: 2
+[4] Starting thread to request: {2 4 0 0}
+[4] Starting thread to request vote for term 2 to peer idx: 0
+[4] Starting thread to request vote for term 2 to peer idx: 1
 [4]It me. skipping vote.
-[4] Vote listener thread is active and listening for more
-[4] Starting thread to request vote for term 1 to peer idx: 6
-[4] Starting thread to request vote for term 1 to peer idx: 3
-[4] Starting thread to request vote for term 1 to peer idx: 5
-[0] Vote request for term 1, candidate 4 received. Starting.
-[0] Term and log up to date. Currently voted for -1
-[0] Vote granted for 4.
-[2] Vote request for term 1, candidate 4 received. Starting.
-[2] Term and log up to date. Currently voted for -1
-[2] Vote granted for 4.
-[4] Received reply from peer idx: 0
-[4] Successfully pushed vote to channel
-[4] Processing vote reply for term {1 true}
-[6] Vote request for term 1, candidate 4 received. Starting.
-[4] Vote tally for term 1: 2
-[4] Vote listener thread is active and listening for more
-[6] Term and log up to date. Currently voted for -1
-[6] Vote granted for 4.
-[5] Vote request for term 1, candidate 4 received. Starting.
-[5] Term and log up to date. Currently voted for -1
-[5] Vote granted for 4.
-[3] Vote request for term 1, candidate 4 received. Starting.
-[3] Term and log up to date. Currently voted for -1
-[3] Vote granted for 4.
-[4] Received reply from peer idx: 2
-[1] Vote request for term 1, candidate 4 received. Starting.
-[4] Processing vote reply for term {1 true}
-[4] Vote tally for term 1: 3
-[4] Received reply from peer idx: 5
-[4] Vote listener thread is active and listening for more
-[4] Processing vote reply for term {1 true}
-[4] Vote tally for term 1: 4
-[4] Won election. Switching to leader
-[4]1 true
-[4] Successfully pushed vote to channel
-[4] Successfully pushed vote to channel
+[4] Starting thread to request vote for term 2 to peer idx: 2
+[4]  Vote listener thread is active and listening for more
+[4] Starting thread to request vote for term 2 to peer idx: 3
+[4] Starting thread to request vote for term 2 to peer idx: 5
+[4] Starting thread to request vote for term 2 to peer idx: 6
+[6] [20220707090750.279] Requesting Election
+Running Election now
+[6] Starting thread to request: {2 6 0 0}
+[6] Starting thread to request vote for term 2 to peer idx: 0
+[6] Starting thread to request vote for term 2 to peer idx: 1
+[6] Starting thread to request vote for term 2 to peer idx: 2
+[6] Starting thread to request vote for term 2 to peer idx: 3
+[6]It me. skipping vote.
+[6]  Vote listener thread is active and listening for more
+[6] Starting thread to request vote for term 2 to peer idx: 5
+[6] Starting thread to request vote for term 2 to peer idx: 4
+[2] [20220707090750.464] Requesting Election
+Running Election now
+[2] Starting thread to request: {2 2 0 0}
+[2] Starting thread to request vote for term 2 to peer idx: 0
+[2] Starting thread to request vote for term 2 to peer idx: 1
+[2]It me. skipping vote.
+[2] Starting thread to request vote for term 2 to peer idx: 3
+[2] Starting thread to request vote for term 2 to peer idx: 4
+[2]  Vote listener thread is active and listening for more
+[2] Starting thread to request vote for term 2 to peer idx: 5
+[2] Starting thread to request vote for term 2 to peer idx: 6
+[1] Vote request for term 2, candidate 2 received. Starting.
 [1] Term and log up to date. Currently voted for -1
-[1] Vote granted for 4.
-[4] Received reply from peer idx: 6
-[4] Received reply from peer idx: 3
-[4] Received reply from peer idx: 1
-[3] [20220704142904.908] Heartbeat [20220704142906.187] received since last sleep. Resetting timer
-1.278427542s
-[6] [20220704142905.067] Heartbeat [20220704142905.915] received since last sleep. Resetting timer
-840.034417ms
-[5] [20220704142905.071] Heartbeat [20220704142905.862] received since last sleep. Resetting timer
-787.080833ms
-[2] [20220704142905.067] Heartbeat [20220704142906.128] received since last sleep. Resetting timer
-1.05308475s
-[1] [20220704142905.121] Heartbeat [20220704142905.947] received since last sleep. Resetting timer
-809.235666ms
-[0] [20220704142905.292] Heartbeat [20220704142905.444] received since last sleep. Resetting timer
-151.723375ms
-[0] [20220704142905.463] Requesting Election
+[1] Vote granted for 2.
+[3] Vote request for term 2, candidate 2 received. Starting.
+[3] Term and log up to date. Currently voted for -1
+[3] Vote granted for 2.
+[5] Vote request for term 2, candidate 2 received. Starting.
+[5] Term and log up to date. Currently voted for -1
+[5] Vote granted for 2.
+[2] Received reply from peer idx: 1
+[2] Successfully pushed vote to channel
+[2] Processing vote reply for term {2 true}
+[2] Vote tally for term 2: 2
+[2] Received reply from peer idx: 3
+[2]  Vote listener thread is active and listening for more
+[2] Processing vote reply for term {2 true}
+[2] Received reply from peer idx: 5
+[2] Vote tally for term 2: 3
+[2] Successfully pushed vote to channel
+[2]  Vote listener thread is active and listening for more
+[2] Processing vote reply for term {2 true}
+[2] Vote tally for term 2: 4
+[2] Won election. Switching to leader
+[2][2] Successfully pushed vote to channel
+2 true
+[0] [20220707090750.670] Requesting Election
 Running Election now
 [0] Starting thread to request: {2 0 0 0}
 [0]It me. skipping vote.
 [0] Starting thread to request vote for term 2 to peer idx: 1
 [0] Starting thread to request vote for term 2 to peer idx: 2
 [0] Starting thread to request vote for term 2 to peer idx: 3
-[0] Vote listener thread is active and listening for more
-[0] Starting thread to request vote for term 2 to peer idx: 6
+[0]  Vote listener thread is active and listening for more
 [0] Starting thread to request vote for term 2 to peer idx: 5
+[0] Starting thread to request vote for term 2 to peer idx: 6
 [0] Starting thread to request vote for term 2 to peer idx: 4
-[4] Leader Sending Heartbeat RPC
-Running append entries process
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 0
-[4] it me. skipping append entry
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 3
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 1
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 2
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 5
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 6
-[3] AppendEntries request for term 1, Leader 4 received. Starting.
-[1] AppendEntries request for term 1, Leader 4 received. Starting.
-[6] AppendEntries request for term 1, Leader 4 received. Starting.
-[4] Received AppendEntries reply {1 true}
-[4] Received AppendEntries reply {1 true}
-[4] Received AppendEntries reply {1 true}
-[2] AppendEntries request for term 1, Leader 4 received. Starting.
-[4] Received AppendEntries reply {1 true}
-[4] Leader Sending Heartbeat RPC
-Running append entries process
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 0
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 1
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 2
-[4] it me. skipping append entry
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 6
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 5
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 3
-[2] AppendEntries request for term 1, Leader 4 received. Starting.
-[1] AppendEntries request for term 1, Leader 4 received. Starting.
-[4] Received AppendEntries reply {1 true}
-[4] Received AppendEntries reply {1 true}
-[6] AppendEntries request for term 1, Leader 4 received. Starting.
-[4] Received AppendEntries reply {1 true}
-[5] [20220704142905.863] Requesting Election
+[3] Vote request for term 2, candidate 0 received. Starting.
+[3] Term and log up to date. Currently voted for 2
+[6] Vote request for term 2, candidate 0 received. Starting.
+[2] Vote request for term 2, candidate 0 received. Starting.
+[2] Term and log up to date. Currently voted for 2
+[6] Term and log up to date. Currently voted for 6
+[1] Vote request for term 2, candidate 0 received. Starting.
+[1] Term and log up to date. Currently voted for 2
+[0] Received reply from peer idx: 3
+[0] Successfully pushed vote to channel
+[0] Received reply from peer idx: 2
+[0] Processing vote reply for term {2 false}
+[0] Received reply from peer idx: 6
+[0]  Vote listener thread is active and listening for more
+[0] Successfully pushed vote to channel
+[0] Processing vote reply for term {2 false}
+[0]  Vote listener thread is active and listening for more
+[0] Processing vote reply for term {2 false}
+[0] Successfully pushed vote to channel
+[0]  Vote listener thread is active and listening for more
+[0] Received reply from peer idx: 1
+[0] Successfully pushed vote to channel
+[0] Processing vote reply for term {2 false}
+[0]  Vote listener thread is active and listening for more
+[3] [20220707090750.678] Heartbeat [20220707090751.508] received since last sleep. Resetting timer
+829.627959ms
+[1] [20220707090750.824] Heartbeat [20220707090751.002] received since last sleep. Resetting timer
+176.974208ms
+[5] [20220707090750.885] Heartbeat [20220707090751.733] received since last sleep. Resetting timer
+847.330375ms
+[1] [20220707090751.003] Requesting Election
 Running Election now
-[5] Starting thread to request: {2 5 0 0}
-[5] Starting thread to request vote for term 2 to peer idx: 0
-[5] Starting thread to request vote for term 2 to peer idx: 1
-[5] Starting thread to request vote for term 2 to peer idx: 2
-[5]It me. skipping vote.
-[5] Starting thread to request vote for term 2 to peer idx: 4
-[5] Vote listener thread is active and listening for more
-[5] Starting thread to request vote for term 2 to peer idx: 6
-[5] Starting thread to request vote for term 2 to peer idx: 3
-[4] Leader Sending Heartbeat RPC
-Running append entries process
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 0
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 1
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 2
-[4] it me. skipping append entry
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 3
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 6
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 5
-[2] AppendEntries request for term 1, Leader 4 received. Starting.
-[1] AppendEntries request for term 1, Leader 4 received. Starting.
-[6] AppendEntries request for term 1, Leader 4 received. Starting.
-[4] Received AppendEntries reply {1 true}
-[4] Received AppendEntries reply {1 true}
-[4] Received AppendEntries reply {1 true}
-[6] [20220704142905.915] Heartbeat [20220704142906.809] received since last sleep. Resetting timer
-879.684125ms
-[1] [20220704142905.948] Heartbeat [20220704142907.297] received since last sleep. Resetting timer
-1.348375791s
-[4] Leader Sending Heartbeat RPC
-Running append entries process
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 0
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 1
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 2
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 3
-[4] it me. skipping append entry
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 5
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 6
-[1] AppendEntries request for term 1, Leader 4 received. Starting.
-[2] AppendEntries request for term 1, Leader 4 received. Starting.
-[6] AppendEntries request for term 1, Leader 4 received. Starting.
-[4] Received AppendEntries reply {1 true}
-[4] Received AppendEntries reply {1 true}
-[4] Received AppendEntries reply {1 true}
-[2] [20220704142906.129] Heartbeat [20220704142907.009] received since last sleep. Resetting timer
-879.969417ms
-[4] Leader Sending Heartbeat RPC
-Running append entries process
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 0
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 1
-[4] it me. skipping append entry
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 3
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 5
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 2
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 6
-[3] [20220704142906.187] Heartbeat [20220704142907.051] received since last sleep. Resetting timer
-864.127667ms
-[2] AppendEntries request for term 1, Leader 4 received. Starting.
-[1] AppendEntries request for term 1, Leader 4 received. Starting.
-[6] AppendEntries request for term 1, Leader 4 received. Starting.
-[4] Received AppendEntries reply {1 true}
-[4] Leader Sending Heartbeat RPC
-Running append entries process
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 0
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 1
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 2
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 3
-[4] it me. skipping append entry
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 5
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 6
-[4] Leader Sending Heartbeat RPC
-Running append entries process
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 0
-[4] it me. skipping append entry
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 1
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 2
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 3
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 5
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 6
-[0] [20220704142906.558] Requesting Election
-[0] Killing old Election thread
-[0] Received signal to kill current election
-Running Election now
-[0] Starting thread to request: {3 0 0 0}
-[0]It me. skipping vote.
-[0] Starting thread to request vote for term 3 to peer idx: 1
-[0] Starting thread to request vote for term 3 to peer idx: 2
-[0] Starting thread to request vote for term 3 to peer idx: 4
-[0] Vote listener thread is active and listening for more
-[0] Starting thread to request vote for term 3 to peer idx: 3
-[0] Starting thread to request vote for term 3 to peer idx: 5
-[0] Starting thread to request vote for term 3 to peer idx: 6
-[2] Vote request for term 3, candidate 0 received. Starting.
+[1] Starting thread to request: {3 1 0 0}
+[1]It me. skipping vote.
+[1] Starting thread to request vote for term 3 to peer idx: 0
+[1]  Vote listener thread is active and listening for more
+[1] Starting thread to request vote for term 3 to peer idx: 2
+[1] Starting thread to request vote for term 3 to peer idx: 5
+[1] Starting thread to request vote for term 3 to peer idx: 4
+[1] Starting thread to request vote for term 3 to peer idx: 3
+[1] Starting thread to request vote for term 3 to peer idx: 6
+[2] Vote request for term 3, candidate 1 received. Starting.
 [2] Term and log up to date. Currently voted for -1
-[1] Vote request for term 3, candidate 0 received. Starting.
-[2] Vote granted for 0.
-[1] Term and log up to date. Currently voted for -1
-[6] Vote request for term 3, candidate 0 received. Starting.
-[1] Vote granted for 0.
+[2] Vote granted for 1.
+[3] Vote request for term 3, candidate 1 received. Starting.
+[3] Term and log up to date. Currently voted for -1
+[3] Vote granted for 1.
+[0] Vote request for term 3, candidate 1 received. Starting.
+[6] Vote request for term 3, candidate 1 received. Starting.
+[0] Term and log up to date. Currently voted for -1
+[6] Term and log up to date. Currently voted for -1
+[1] Received reply from peer idx: 2
+[1] Successfully pushed vote to channel
+[1] Processing vote reply for term {3 true}
+[1] Vote tally for term 3: 2
+[1]  Vote listener thread is active and listening for more
+[0] Vote granted for 1.
+[6] Vote granted for 1.
+[1] Received reply from peer idx: 3
+[1] Successfully pushed vote to channel
+[1] Processing vote reply for term {3 true}
+[1] Vote tally for term 3: 3
+[1]  Vote listener thread is active and listening for more
+[1] Received reply from peer idx: 6
+[1] Successfully pushed vote to channel
+[1] Received reply from peer idx: 0
+[1] Processing vote reply for term {3 true}
+[1] Vote tally for term 3: 4
+[1] Won election. Switching to leader
+[1]3 true
+[6] [20220707090751.237] Heartbeat [20220707090752.359] received since last sleep. Resetting timer
+1.1215135s
+[3] [20220707090751.509] Heartbeat [20220707090752.212] received since last sleep. Resetting timer
+703.129292ms
+[4] [20220707090751.515] Requesting Election
+[4] Killing old Election thread
+[4] Received signal to kill current election
+Running Election now
+[4] Starting thread to request: {3 4 0 0}
+[4] Starting thread to request vote for term 3 to peer idx: 0
+[4] Starting thread to request vote for term 3 to peer idx: 1
+[4] Starting thread to request vote for term 3 to peer idx: 2
+[4]It me. skipping vote.
+[4] Starting thread to request vote for term 3 to peer idx: 3
+[4]  Vote listener thread is active and listening for more
+[4] Starting thread to request vote for term 3 to peer idx: 5
+[4] Starting thread to request vote for term 3 to peer idx: 6
+[1] Vote request for term 3, candidate 4 received. Starting.
+[1] Term and log up to date. Currently voted for 1
+[2] Vote request for term 3, candidate 4 received. Starting.
+[2] Term and log up to date. Currently voted for 1
+[6] Vote request for term 3, candidate 4 received. Starting.
+[6] Term and log up to date. Currently voted for 1
+[4] Received reply from peer idx: 2
+[4] Received reply from peer idx: 1
+[4] Successfully pushed vote to channel
+[4] Processing vote reply for term {3 false}
+[4]  Vote listener thread is active and listening for more
+[4] Processing vote reply for term {3 false}
+[4] Successfully pushed vote to channel
+[4]  Vote listener thread is active and listening for more
+[4] Received reply from peer idx: 6
+[4] Successfully pushed vote to channel
+[4] Processing vote reply for term {3 false}
+[4]  Vote listener thread is active and listening for more
+[0] [20220707090751.690] Requesting Election
+Running Election now
+[0] Starting thread to request: {4 0 0 0}
+[0]It me. skipping vote.
+[0] Starting thread to request vote for term 4 to peer idx: 1
+[0] Starting thread to request vote for term 4 to peer idx: 2
+[0] Starting thread to request vote for term 4 to peer idx: 3
+[0] Starting thread to request vote for term 4 to peer idx: 4
+[0]  Vote listener thread is active and listening for more
+[0] Starting thread to request vote for term 4 to peer idx: 5
+[0] Starting thread to request vote for term 4 to peer idx: 6
+[3] Vote request for term 4, candidate 0 received. Starting.
+[3] Term and log up to date. Currently voted for -1
+[3] Vote granted for 0.
+[5] Vote request for term 4, candidate 0 received. Starting.
+[5] Term and log up to date. Currently voted for -1
+[2] Vote request for term 4, candidate 0 received. Starting.
+[2] Term and log up to date. Currently voted for -1
+[5] Vote granted for 0.
+[6] Vote request for term 4, candidate 0 received. Starting.
 [6] Term and log up to date. Currently voted for -1
 [6] Vote granted for 0.
-[0] Received reply from peer idx: 2
+[2] Vote granted for 0.
+[0] Received reply from peer idx: 3
 [0] Successfully pushed vote to channel
-[0] Received reply from peer idx: 1
-[0] Processing vote reply for term {3 true}
-[0] Vote tally for term 3: 2
+[0] Processing vote reply for term {4 true}
+[0] Vote tally for term 4: 2
+[0]  Vote listener thread is active and listening for more
+[0] Received reply from peer idx: 5
+[0] Successfully pushed vote to channel
+[0] Processing vote reply for term {4 true}
+[0] Vote tally for term 4: 3
+[0]  Vote listener thread is active and listening for more
 [0] Received reply from peer idx: 6
-[0] Vote listener thread is active and listening for more
-[0] Processing vote reply for term {3 true}
-[0] Vote tally for term 3: 3
 [0] Successfully pushed vote to channel
-[0] Vote listener thread is active and listening for more
-[0] Processing vote reply for term {3 true}
-[0] Vote tally for term 3: 4
+[0] Processing vote reply for term {4 true}
+[0] Vote tally for term 4: 4
 [0] Won election. Switching to leader
-[0] Successfully pushed vote to channel
-[0]3 true
-[4] Leader Sending Heartbeat RPC
+[0][0] Received reply from peer idx: 2
+4 true
+[5] [20220707090751.734] Heartbeat [20220707090752.736] received since last sleep. Resetting timer
+1.002114167s
+[1] Leader Sending Heartbeat RPC
 Running append entries process
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 0
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 1
-[4] it me. skipping append entry
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 3
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 5
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 2
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 6
-[4] Leader Sending Heartbeat RPC
+[1] it me. skipping append entry
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 2
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 3
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 5
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 4
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 6
+[2] [20220707090751.947] Heartbeat [20220707090753.164] received since last sleep. Resetting timer
+1.217395417s
+[1] Leader Sending Heartbeat RPC
 Running append entries process
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 0
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 1
-[4] it me. skipping append entry
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 3
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 2
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 5
-[4] Sending AppendEntries {1 4 0 0 -1 []} to peer 6
-[2] AppendEntries request for term 1, Leader 4 received. Starting.
-[6] AppendEntries request for term 1, Leader 4 received. Starting.
-[5] AppendEntries request for term 1, Leader 4 received. Starting.
-[4] Received AppendEntries reply {3 false}
-[3] AppendEntries request for term 1, Leader 4 received. Starting.
-[4] Received AppendEntries reply {3 false}
-[4] Received AppendEntries reply {2 false}
-[4] Received AppendEntries reply {1 true}
-[5] [20220704142906.806] Requesting Election
-[5] Killing old Election thread
-[5] Received signal to kill current election
+[1] it me. skipping append entry
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 2
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 5
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 4
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 6
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 3
+[3] [20220707090752.213] Heartbeat [20220707090752.642] received since last sleep. Resetting timer
+428.465667ms
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 2
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 3
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 5
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 4
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 6
+[6] [20220707090752.359] Requesting Election
 Running Election now
-[5] Starting thread to request: {3 5 0 0}
-[5] Starting thread to request vote for term 3 to peer idx: 0
-[5] Starting thread to request vote for term 3 to peer idx: 1
-[5] Starting thread to request vote for term 3 to peer idx: 2
-[5]It me. skipping vote.
-[5] Starting thread to request vote for term 3 to peer idx: 4
-[5] Vote listener thread is active and listening for more
-[5] Starting thread to request vote for term 3 to peer idx: 6
-[5] Starting thread to request vote for term 3 to peer idx: 3
-[2] Vote request for term 3, candidate 5 received. Starting.
-[2] Term and log up to date. Currently voted for 0
-[4] Vote request for term 3, candidate 5 received. Starting.
-[4] Term and log up to date. Currently voted for -1
-[4] Vote granted for 5.
-[6] Vote request for term 3, candidate 5 received. Starting.
-[6] Term and log up to date. Currently voted for 0
-[3] Vote request for term 3, candidate 5 received. Starting.
-[3] Term and log up to date. Currently voted for -1
-[3] Vote granted for 5.
-[5] Received reply from peer idx: 4
-[5] Successfully pushed vote to channel
-[5] Received reply from peer idx: 2
-[5] Processing vote reply for term {3 true}
-[5] Vote tally for term 3: 2
-[5] Vote listener thread is active and listening for more
-[5] Received reply from peer idx: 6
-[5] Processing vote reply for term {3 false}
-[5] Vote listener thread is active and listening for more
-[5] Successfully pushed vote to channel
-[5] Processing vote reply for term {3 false}
-[5] Vote listener thread is active and listening for more
-[5] Successfully pushed vote to channel
-[5] Received reply from peer idx: 3
-[6] [20220704142906.809] Heartbeat [20220704142907.241] received since last sleep. Resetting timer
-[5] Processing vote reply for term {3 true}
-[5] Successfully pushed vote to channel
-432.404375ms
-[5] Vote tally for term 3: 3
-[5] Vote listener thread is active and listening for more
-[4] [20220704142906.941] Heartbeat [20220704142907.410] received since last sleep. Resetting timer
-468.918541ms
-[2] [20220704142907.010] Heartbeat [20220704142907.431] received since last sleep. Resetting timer
-420.348542ms
-[3] [20220704142907.052] Heartbeat [20220704142907.740] received since last sleep. Resetting timer
-688.08075ms
-[6] [20220704142907.242] Requesting Election
-Running Election now
-[6] Starting thread to request: {4 6 0 0}
-[6] Starting thread to request vote for term 4 to peer idx: 0
+[6] Starting thread to request: {5 6 0 0}
+[6] Starting thread to request vote for term 5 to peer idx: 0
+[6] Starting thread to request vote for term 5 to peer idx: 1
+[6] Starting thread to request vote for term 5 to peer idx: 2
 [6]It me. skipping vote.
-[6] Vote listener thread is active and listening for more
-[6] Starting thread to request vote for term 4 to peer idx: 5
-[6] Starting thread to request vote for term 4 to peer idx: 3
-[6] Starting thread to request vote for term 4 to peer idx: 2
-[6] Starting thread to request vote for term 4 to peer idx: 4
-[6] Starting thread to request vote for term 4 to peer idx: 1
-[5] Vote request for term 4, candidate 6 received. Starting.
+[6] Starting thread to request vote for term 5 to peer idx: 3
+[6] Starting thread to request vote for term 5 to peer idx: 4
+[6] Starting thread to request vote for term 5 to peer idx: 5
+[6]  Vote listener thread is active and listening for more
+[0] Vote request for term 5, candidate 6 received. Starting.
+[0] Term and log up to date. Currently voted for -1
+[0] Vote granted for 6.
+[3] Vote request for term 5, candidate 6 received. Starting.
+[5] Vote request for term 5, candidate 6 received. Starting.
 [5] Term and log up to date. Currently voted for -1
-[5] Vote granted for 6.
-[3] Vote request for term 4, candidate 6 received. Starting.
 [3] Term and log up to date. Currently voted for -1
+[5] Vote granted for 6.
 [3] Vote granted for 6.
-[4] Vote request for term 4, candidate 6 received. Starting.
-[4] Term and log up to date. Currently voted for -1
-[4] Vote granted for 6.
-[2] Vote request for term 4, candidate 6 received. Starting.
-[2] Term and log up to date. Currently voted for -1
-[2] Vote granted for 6.
+[6] Received reply from peer idx: 0
+[6] Successfully pushed vote to channel
+[6] Processing vote reply for term {5 true}
+[6] Vote tally for term 5: 2
+[6]  Vote listener thread is active and listening for more
 [6] Received reply from peer idx: 5
 [6] Successfully pushed vote to channel
+[6] Processing vote reply for term {5 true}
+[6] Vote tally for term 5: 3
 [6] Received reply from peer idx: 3
-[6] Processing vote reply for term {4 true}
-[6] Vote tally for term 4: 2
-[6] Vote listener thread is active and listening for more
-[6] Processing vote reply for term {4 true}
-[6] Vote tally for term 4: 3
-[6] Vote listener thread is active and listening for more
+[6]  Vote listener thread is active and listening for more
+[6] Processing vote reply for term {5 true}
 [6] Successfully pushed vote to channel
-[6] Received reply from peer idx: 4
-[6] Received reply from peer idx: 2
-[6] Successfully pushed vote to channel
-[6] Processing vote reply for term {4 true}
-[6] Vote tally for term 4: 4
+[6] Vote tally for term 5: 4
 [6] Won election. Switching to leader
-[6]4 true
-[1] [20220704142907.298] Heartbeat [20220704142907.448] received since last sleep. Resetting timer
-150.146833ms
-[4] [20220704142907.411] Heartbeat [20220704142908.305] received since last sleep. Resetting timer
-893.965584ms
-[2] [20220704142907.432] Heartbeat [20220704142908.614] received since last sleep. Resetting timer
-1.181838666s
-[1] [20220704142907.448] Requesting Election
+[6]5 true
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 2
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 3
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 6
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 5
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 4
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 2
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 3
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 6
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 4
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 5
+[3] [20220707090752.643] Heartbeat [20220707090753.647] received since last sleep. Resetting timer
+1.003825125s
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 2
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 3
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 4
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 5
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 6
+[5] [20220707090752.737] Heartbeat [20220707090752.983] received since last sleep. Resetting timer
+245.658458ms
+[0] [20220707090752.816] Heartbeat [20220707090753.757] received since last sleep. Resetting timer
+940.504583ms
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 2
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 3
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 6
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 4
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 5
+[4] [20220707090752.907] Requesting Election
+[4] Killing old Election thread
+[4] Received signal to kill current election
 Running Election now
-[1] Starting thread to request: {4 1 0 0}
-[1]It me. skipping vote.
-[1] Starting thread to request vote for term 4 to peer idx: 0
-[1] Starting thread to request vote for term 4 to peer idx: 2
-[1] Vote listener thread is active and listening for more
-[1] Starting thread to request vote for term 4 to peer idx: 6
-[1] Starting thread to request vote for term 4 to peer idx: 5
-[1] Starting thread to request vote for term 4 to peer idx: 3
-[1] Starting thread to request vote for term 4 to peer idx: 4
-[0] Leader Sending Heartbeat RPC
+[4] Starting thread to request: {4 4 0 0}
+[4] Starting thread to request vote for term 4 to peer idx: 0
+[4] Starting thread to request vote for term 4 to peer idx: 1
+[4] Starting thread to request vote for term 4 to peer idx: 2
+[4]It me. skipping vote.
+[4] Starting thread to request vote for term 4 to peer idx: 3
+[4] Starting thread to request vote for term 4 to peer idx: 5
+[4]  Vote listener thread is active and listening for more
+[4] Starting thread to request vote for term 4 to peer idx: 6
+[0] Vote request for term 4, candidate 4 received. Starting.
+[3] Vote request for term 4, candidate 4 received. Starting.
+[5] Vote request for term 4, candidate 4 received. Starting.
+[6] Vote request for term 4, candidate 4 received. Starting.
+[4] Received reply from peer idx: 0
+[4] Successfully pushed vote to channel
+[4] Processing vote reply for term {5 false}
+[4] Received reply from peer idx: 3
+[4] Received reply from peer idx: 5
+[4] Received reply from peer idx: 6
+[1] Leader Sending Heartbeat RPC
 Running append entries process
-[0] it me. skipping append entry
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 1
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 2
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 6
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 5
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 4
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 3
-[5] [20220704142907.677] Heartbeat [20220704142908.253] received since last sleep. Resetting timer
-575.563083ms
-[3] [20220704142907.740] Heartbeat [20220704142908.703] received since last sleep. Resetting timer
-962.144042ms
-[0] Leader Sending Heartbeat RPC
-Running append entries process
-[0] it me. skipping append entry
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 1
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 2
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 3
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 5
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 6
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 4
-[3] AppendEntries request for term 3, Leader 0 received. Starting.
-[5] AppendEntries request for term 3, Leader 0 received. Starting.
-[6] AppendEntries request for term 3, Leader 0 received. Starting.
-[4] AppendEntries request for term 3, Leader 0 received. Starting.
-[0] Received AppendEntries reply {4 false}
-[0] Received AppendEntries reply {4 false}
-[0] Received AppendEntries reply {4 false}
-[0] Received AppendEntries reply {4 false}
-[0] Leader Sending Heartbeat RPC
-Running append entries process
-[0] it me. skipping append entry
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 1
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 2
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 3
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 5
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 4
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 6
-[3] AppendEntries request for term 3, Leader 0 received. Starting.
-[5] AppendEntries request for term 3, Leader 0 received. Starting.
-[4] AppendEntries request for term 3, Leader 0 received. Starting.
-[0] Received AppendEntries reply {4 false}
-[6] AppendEntries request for term 3, Leader 0 received. Starting.
-[0] Received AppendEntries reply {4 false}
-[0] Received AppendEntries reply {4 false}
-[0] Received AppendEntries reply {4 false}
-[0] Leader Sending Heartbeat RPC
-Running append entries process
-[0] it me. skipping append entry
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 1
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 2
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 3
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 6
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 4
-[0] Sending AppendEntries {3 0 0 0 -1 []} to peer 5
-[3] AppendEntries request for term 3, Leader 0 received. Starting.
-[4] AppendEntries request for term 3, Leader 0 received. Starting.
-[6] AppendEntries request for term 3, Leader 0 received. Starting.
-[0] Received AppendEntries reply {4 false}
-[0] Received AppendEntries reply {4 false}
-[0] Received AppendEntries reply {4 false}
-[5] AppendEntries request for term 3, Leader 0 received. Starting.
-[0] Received AppendEntries reply {4 false}
-[1] [20220704142908.138] Requesting Election
-[1] Killing old Election thread
-[1] Received signal to kill current election
+[1] it me. skipping append entry
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 2
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 3
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 6
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 4
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 5
+[5] [20220707090752.984] Requesting Election
 Running Election now
-[1] Starting thread to request: {5 1 0 0}
-[1]It me. skipping vote.
-[1] Starting thread to request vote for term 5 to peer idx: 0
-[1] Starting thread to request vote for term 5 to peer idx: 2
-[1] Starting thread to request vote for term 5 to peer idx: 3
-[1] Vote listener thread is active and listening for more
-[1] Starting thread to request vote for term 5 to peer idx: 4
-[1] Starting thread to request vote for term 5 to peer idx: 5
-[1] Starting thread to request vote for term 5 to peer idx: 6
-[5] [20220704142908.253] Requesting Election
-Running Election now
-[5] Starting thread to request: {5 5 0 0}
-[5] Starting thread to request vote for term 5 to peer idx: 0
-[5] Starting thread to request vote for term 5 to peer idx: 1
+[5] Starting thread to request: {6 5 0 0}
+[5] Starting thread to request vote for term 6 to peer idx: 0
+[5] Starting thread to request vote for term 6 to peer idx: 1
+[5] Starting thread to request vote for term 6 to peer idx: 2
+[5] Starting thread to request vote for term 6 to peer idx: 3
 [5]It me. skipping vote.
-[5] Starting thread to request vote for term 5 to peer idx: 3
-[5] Vote listener thread is active and listening for more
-[5] Starting thread to request vote for term 5 to peer idx: 6
-[5] Starting thread to request vote for term 5 to peer idx: 4
-[5] Starting thread to request vote for term 5 to peer idx: 2
-[3] Vote request for term 5, candidate 5 received. Starting.
+[5] Starting thread to request vote for term 6 to peer idx: 4
+[5]  Vote listener thread is active and listening for more
+[5] Starting thread to request vote for term 6 to peer idx: 6
+[0] Vote request for term 6, candidate 5 received. Starting.
+[0] Term and log up to date. Currently voted for -1
+[3] Vote request for term 6, candidate 5 received. Starting.
+[0] Vote granted for 5.
 [3] Term and log up to date. Currently voted for -1
+[4] Vote request for term 6, candidate 5 received. Starting.
+[4] Term and log up to date. Currently voted for -1
+[4] Vote granted for 5.
 [3] Vote granted for 5.
-[6] Vote request for term 5, candidate 5 received. Starting.
+[6] Vote request for term 6, candidate 5 received. Starting.
 [6] Term and log up to date. Currently voted for -1
 [6] Vote granted for 5.
-[0] Vote request for term 5, candidate 5 received. Starting.
-[0] Term and log up to date. Currently voted for -1
-[0] Vote granted for 5.
-[5] Received reply from peer idx: 3
-[5] Successfully pushed vote to channel
-[5] Processing vote reply for term {5 true}
-[5] Vote tally for term 5: 2
-[5] Vote listener thread is active and listening for more
-[5] Received reply from peer idx: 6
-[5] Successfully pushed vote to channel
-[5] Processing vote reply for term {5 true}
-[5] Vote tally for term 5: 3
-[5] Vote listener thread is active and listening for more
 [5] Received reply from peer idx: 0
 [5] Successfully pushed vote to channel
-[5] Processing vote reply for term {5 true}
-[5] Vote tally for term 5: 4
+[5] Processing vote reply for term {6 true}
+[5] Vote tally for term 6: 2
+[5]  Vote listener thread is active and listening for more
+[5] Received reply from peer idx: 4
+[5] Successfully pushed vote to channel
+[5] Received reply from peer idx: 3
+[5] Processing vote reply for term {6 true}
+[5] Vote tally for term 6: 3
+[5] Received reply from peer idx: 6
+[5]  Vote listener thread is active and listening for more
+[5] Processing vote reply for term {6 true}
+[5] Successfully pushed vote to channel
+[5] Vote tally for term 6: 4
 [5] Won election. Switching to leader
-[5]5 true
-[0] [20220704142908.258] Heartbeat [20220704142909.591] received since last sleep. Resetting timer
-1.332685666s
-[4] [20220704142908.306] Requesting Election
-Running Election now
-[4] Starting thread to request: {5 4 0 0}
-[4] Starting thread to request vote for term 5 to peer idx: 0
-[4] Starting thread to request vote for term 5 to peer idx: 1
-[4] Starting thread to request vote for term 5 to peer idx: 2
-[4] Starting thread to request vote for term 5 to peer idx: 3
-[4]It me. skipping vote.
-[4] Starting thread to request vote for term 5 to peer idx: 5
-[4] Vote listener thread is active and listening for more
-[4] Starting thread to request vote for term 5 to peer idx: 6
-[6] [20220704142908.371] Heartbeat [20220704142909.022] received since last sleep. Resetting timer
-650.1925ms
-[2] [20220704142908.615] Requesting Election
+[5]6 true
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 2
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 4
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 5
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 6
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 3
+[0] AppendEntries request for term 3, Leader 1 received. Starting.
+[4] AppendEntries request for term 3, Leader 1 received. Starting.
+[5] AppendEntries request for term 3, Leader 1 received. Starting.
+[1] Received AppendEntries reply {6 false}
+[1] Received AppendEntries reply {6 false}
+[1] Received AppendEntries reply {6 false}
+[6] AppendEntries request for term 3, Leader 1 received. Starting.
+[1] Received AppendEntries reply {6 false}
+[2] [20220707090753.165] Requesting Election
 Running Election now
 [2] Starting thread to request: {5 2 0 0}
 [2] Starting thread to request vote for term 5 to peer idx: 0
 [2]It me. skipping vote.
 [2] Starting thread to request vote for term 5 to peer idx: 1
 [2] Starting thread to request vote for term 5 to peer idx: 3
-[2] Vote listener thread is active and listening for more
-[2] Starting thread to request vote for term 5 to peer idx: 4
+[2]  Vote listener thread is active and listening for more
 [2] Starting thread to request vote for term 5 to peer idx: 6
 [2] Starting thread to request vote for term 5 to peer idx: 5
-[3] [20220704142908.703] Heartbeat [20220704142909.616] received since last sleep. Resetting timer
-912.604708ms
-[6] [20220704142909.023] Requesting Election
+[2] Starting thread to request vote for term 5 to peer idx: 4
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 2
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 3
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 5
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 4
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 6
+[0] AppendEntries request for term 3, Leader 1 received. Starting.
+[5] AppendEntries request for term 3, Leader 1 received. Starting.
+[4] AppendEntries request for term 3, Leader 1 received. Starting.
+[6] AppendEntries request for term 3, Leader 1 received. Starting.
+[1] Received AppendEntries reply {6 false}
+[1] Received AppendEntries reply {6 false}
+[1] Received AppendEntries reply {6 false}
+[1] Received AppendEntries reply {6 false}
+[1] Leader Sending Heartbeat RPC
+Running append entries process
+[1] it me. skipping append entry
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 0
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 3
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 4
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 5
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 2
+[1] Sending AppendEntries {3 1 0 0 -1 []} to peer 6
+[0] AppendEntries request for term 3, Leader 1 received. Starting.
+[4] AppendEntries request for term 3, Leader 1 received. Starting.
+[1] Received AppendEntries reply {6 false}
+[5] AppendEntries request for term 3, Leader 1 received. Starting.
+[6] AppendEntries request for term 3, Leader 1 received. Starting.
+[1] Received AppendEntries reply {6 false}
+[1] Received AppendEntries reply {6 false}
+[1] Received AppendEntries reply {6 false}
+[6] [20220707090753.548] Heartbeat [20220707090753.566] received since last sleep. Resetting timer
+18.279042ms
+[6] [20220707090753.567] Requesting Election
 Running Election now
-[6] Starting thread to request: {6 6 0 0}
-[6] Starting thread to request vote for term 6 to peer idx: 0
-[6] Starting thread to request vote for term 6 to peer idx: 1
-[6] Starting thread to request vote for term 6 to peer idx: 2
-[6] Starting thread to request vote for term 6 to peer idx: 4
-[6] Starting thread to request vote for term 6 to peer idx: 5
+[6] Starting thread to request: {7 6 0 0}
+[6] Starting thread to request vote for term 7 to peer idx: 0
+[6] Starting thread to request vote for term 7 to peer idx: 1
+[6] Starting thread to request vote for term 7 to peer idx: 2
 [6]It me. skipping vote.
-[6] Vote listener thread is active and listening for more
-[6] Starting thread to request vote for term 6 to peer idx: 3
-[2] Vote request for term 6, candidate 6 received. Starting.
-[5] Vote request for term 6, candidate 6 received. Starting.
-[2] Term and log up to date. Currently voted for -1
+[6] Starting thread to request vote for term 7 to peer idx: 4
+[6] Starting thread to request vote for term 7 to peer idx: 5
+[6] Starting thread to request vote for term 7 to peer idx: 3
+[6]  Vote listener thread is active and listening for more
+[0] Vote request for term 7, candidate 6 received. Starting.
+[0] Term and log up to date. Currently voted for -1
+[0] Vote granted for 6.
+[1] Vote request for term 7, candidate 6 received. Starting.
+[1] Term and log up to date. Currently voted for -1
+[1] Vote granted for 6.
+[5] Vote request for term 7, candidate 6 received. Starting.
+[4] Vote request for term 7, candidate 6 received. Starting.
 [5] Term and log up to date. Currently voted for -1
-[2] Vote granted for 6.
+[4] Term and log up to date. Currently voted for -1
 [5] Vote granted for 6.
-[3] Vote request for term 6, candidate 6 received. Starting.
-[3] Term and log up to date. Currently voted for -1
-[3] Vote granted for 6.
-[6] Received reply from peer idx: 2
+[4] Vote granted for 6.
+[6] Received reply from peer idx: 0
+[6] Received reply from peer idx: 1
+[6] Successfully pushed vote to channel
+[6] Processing vote reply for term {7 true}
+[6] Vote tally for term 7: 2
+[6]  Vote listener thread is active and listening for more
+[6] Processing vote reply for term {7 true}
 [6] Successfully pushed vote to channel
 [6] Received reply from peer idx: 5
-[6] Processing vote reply for term {6 true}
-[6] Vote tally for term 6: 2
-[6] Vote listener thread is active and listening for more
-[6] Received reply from peer idx: 3
-[6] Processing vote reply for term {6 true}
-[6] Vote tally for term 6: 3
-[6] Vote listener thread is active and listening for more
+[6] Vote tally for term 7: 3
+[6]  Vote listener thread is active and listening for more
+[6] Received reply from peer idx: 4
+[6] Processing vote reply for term {7 true}
 [6] Successfully pushed vote to channel
-[6] Processing vote reply for term {6 true}
-[6] Successfully pushed vote to channel
-[6] Vote tally for term 6: 4
+[6] Vote tally for term 7: 4
 [6] Won election. Switching to leader
-[6]6 true
-[4] [20220704142909.482] Requesting Election
-[4] Killing old Election thread
-[4] Received signal to kill current election
+[6]7 true
+[1] [20220707090753.573] Heartbeat [20220707090754.806] received since last sleep. Resetting timer
+1.232961917s
+[5] [20220707090753.584] Heartbeat [20220707090754.580] received since last sleep. Resetting timer
+996.08825ms
+[3] [20220707090753.648] Heartbeat [20220707090754.019] received since last sleep. Resetting timer
+370.353583ms
+[0] [20220707090753.758] Heartbeat [20220707090754.966] received since last sleep. Resetting timer
+1.207119625s
+[2] [20220707090753.810] Requesting Election
+[2] Killing old Election thread
+[2] Received signal to kill current election
 Running Election now
-[4] Starting thread to request: {6 4 0 0}
-[4] Starting thread to request vote for term 6 to peer idx: 0
-[4] Starting thread to request vote for term 6 to peer idx: 1
-[4] Starting thread to request vote for term 6 to peer idx: 2
-[4] Starting thread to request vote for term 6 to peer idx: 3
-[4]It me. skipping vote.
-[4] Vote listener thread is active and listening for more
-[4] Starting thread to request vote for term 6 to peer idx: 6
-[4] Starting thread to request vote for term 6 to peer idx: 5
-[0] Vote request for term 6, candidate 4 received. Starting.
-[0] Term and log up to date. Currently voted for -1
-[0] Vote granted for 4.
-[2] Vote request for term 6, candidate 4 received. Starting.
-[2] Term and log up to date. Currently voted for 6
-[6] Vote request for term 6, candidate 4 received. Starting.
-[6] Term and log up to date. Currently voted for 6
-[5] Vote request for term 6, candidate 4 received. Starting.
-[5] Term and log up to date. Currently voted for 6
-[4] Received reply from peer idx: 0
-[4] Successfully pushed vote to channel
-[4] Processing vote reply for term {6 true}
-[4] Vote tally for term 6: 2
-[4] Vote listener thread is active and listening for more
-[4] Received reply from peer idx: 6
-[4] Successfully pushed vote to channel
-[4] Processing vote reply for term {6 false}
-[4] Vote listener thread is active and listening for more
-[4] Received reply from peer idx: 2
-[4] Successfully pushed vote to channel
-[4] Processing vote reply for term {6 false}
-[4] Vote listener thread is active and listening for more
-[4] Received reply from peer idx: 5
-[4] Successfully pushed vote to channel
-[4] Processing vote reply for term {6 false}
-[4] Vote listener thread is active and listening for more
-[5] [20220704142909.494] Heartbeat [20220704142910.184] received since last sleep. Resetting timer
-690.345666ms
-[1] [20220704142909.508] Requesting Election
-[1] Killing old Election thread
-[1] Received signal to kill current election
-Running Election now
-[1] Starting thread to request: {6 1 0 0}
-[1]It me. skipping vote.
-[1] Starting thread to request vote for term 6 to peer idx: 0
-[1] Starting thread to request vote for term 6 to peer idx: 2
-[1] Starting thread to request vote for term 6 to peer idx: 3
-[1] Starting thread to request vote for term 6 to peer idx: 4
-[1] Vote listener thread is active and listening for more
-[1] Starting thread to request vote for term 6 to peer idx: 6
-[1] Starting thread to request vote for term 6 to peer idx: 5
-[2] [20220704142909.581] Heartbeat [20220704142909.938] received since last sleep. Resetting timer
-356.985291ms
-[0] [20220704142909.591] Heartbeat [20220704142910.388] received since last sleep. Resetting timer
-796.664375ms
-[3] [20220704142909.617] Heartbeat [20220704142909.622] received since last sleep. Resetting timer
-4.613291ms
-[3] [20220704142909.623] Requesting Election
+[2] Starting thread to request: {6 2 0 0}
+[2] Starting thread to request vote for term 6 to peer idx: 0
+[2]It me. skipping vote.
+[2]  Vote listener thread is active and listening for more
+[2] Starting thread to request vote for term 6 to peer idx: 4
+[2] Starting thread to request vote for term 6 to peer idx: 3
+[2] Starting thread to request vote for term 6 to peer idx: 5
+[2] Starting thread to request vote for term 6 to peer idx: 6
+[2] Starting thread to request vote for term 6 to peer idx: 1
+[3] [20220707090754.020] Requesting Election
 Running Election now
 [3] Starting thread to request: {7 3 0 0}
 [3] Starting thread to request vote for term 7 to peer idx: 0
@@ -1066,137 +1081,150 @@ Running Election now
 [3]It me. skipping vote.
 [3] Starting thread to request vote for term 7 to peer idx: 2
 [3] Starting thread to request vote for term 7 to peer idx: 4
-[3] Vote listener thread is active and listening for more
-[3] Starting thread to request vote for term 7 to peer idx: 5
 [3] Starting thread to request vote for term 7 to peer idx: 6
-[0] Vote request for term 7, candidate 3 received. Starting.
-[0] Term and log up to date. Currently voted for -1
-[0] Vote granted for 3.
-[2] Vote request for term 7, candidate 3 received. Starting.
-[2] Term and log up to date. Currently voted for -1
-[2] Vote granted for 3.
+[3] Starting thread to request vote for term 7 to peer idx: 5
+[3]  Vote listener thread is active and listening for more
 [1] Vote request for term 7, candidate 3 received. Starting.
-[1] Term and log up to date. Currently voted for -1
-[1] Vote granted for 3.
-[3] Received reply from peer idx: 0
-[3] Successfully pushed vote to channel
-[3] Received reply from peer idx: 2
-[3] Processing vote reply for term {7 true}
-[3] Vote tally for term 7: 2
-[3] Vote listener thread is active and listening for more
-[3] Processing vote reply for term {7 true}
-[3] Successfully pushed vote to channel
-[3] Vote tally for term 7: 3
-[3] Vote listener thread is active and listening for more
+[0] Vote request for term 7, candidate 3 received. Starting.
+[1] Term and log up to date. Currently voted for 6
+[5] Vote request for term 7, candidate 3 received. Starting.
+[6] Vote request for term 7, candidate 3 received. Starting.
+[0] Term and log up to date. Currently voted for 6
+[5] Term and log up to date. Currently voted for 6
+[6] Term and log up to date. Currently voted for 6
 [3] Received reply from peer idx: 1
 [3] Successfully pushed vote to channel
-[3] Processing vote reply for term {7 true}
-[3] Vote tally for term 7: 4
-[3] Won election. Switching to leader
-[3]7 true
-[2] [20220704142909.938] Heartbeat [20220704142910.378] received since last sleep. Resetting timer
-439.713542ms
-[5] [20220704142910.185] Requesting Election
+[3] Processing vote reply for term {7 false}
+[3]  Vote listener thread is active and listening for more
+[3] Received reply from peer idx: 5
+[3] Received reply from peer idx: 6
+[3] Processing vote reply for term {7 false}
+[3] Successfully pushed vote to channel
+[3] Received reply from peer idx: 0
+[3]  Vote listener thread is active and listening for more
+[3] Processing vote reply for term {7 false}
+[3] Successfully pushed vote to channel
+[3]  Vote listener thread is active and listening for more
+[3] Processing vote reply for term {7 false}
+[3] Successfully pushed vote to channel
+[3]  Vote listener thread is active and listening for more
+[4] [20220707090754.233] Requesting Election
 Running Election now
-[5] Starting thread to request: {7 5 0 0}
-[5] Starting thread to request vote for term 7 to peer idx: 0
-[5] Starting thread to request vote for term 7 to peer idx: 1
+[4] Starting thread to request: {8 4 0 0}
+[4] Starting thread to request vote for term 8 to peer idx: 0
+[4] Starting thread to request vote for term 8 to peer idx: 1
+[4] Starting thread to request vote for term 8 to peer idx: 2
+[4]It me. skipping vote.
+[4] Starting thread to request vote for term 8 to peer idx: 3
+[4] Starting thread to request vote for term 8 to peer idx: 6
+[4] Starting thread to request vote for term 8 to peer idx: 5
+[4]  Vote listener thread is active and listening for more
+[5] [20220707090754.581] Requesting Election
+Running Election now
+[5] Starting thread to request: {8 5 0 0}
+[5] Starting thread to request vote for term 8 to peer idx: 0
+[5] Starting thread to request vote for term 8 to peer idx: 1
+[5] Starting thread to request vote for term 8 to peer idx: 2
 [5]It me. skipping vote.
-[5] Starting thread to request vote for term 7 to peer idx: 4
-[5] Starting thread to request vote for term 7 to peer idx: 2
-[5] Starting thread to request vote for term 7 to peer idx: 6
-[5] Vote listener thread is active and listening for more
-[5] Starting thread to request vote for term 7 to peer idx: 3
-[1] Vote request for term 7, candidate 5 received. Starting.
-[1] Term and log up to date. Currently voted for 3
-[0] Vote request for term 7, candidate 5 received. Starting.
-[0] Term and log up to date. Currently voted for 3
-[4] Vote request for term 7, candidate 5 received. Starting.
-[4] Term and log up to date. Currently voted for -1
-[4] Vote granted for 5.
-[6] Vote request for term 7, candidate 5 received. Starting.
+[5]  Vote listener thread is active and listening for more
+[5] Starting thread to request vote for term 8 to peer idx: 4
+[5] Starting thread to request vote for term 8 to peer idx: 6
+[5] Starting thread to request vote for term 8 to peer idx: 3
+[0] Vote request for term 8, candidate 5 received. Starting.
+[0] Term and log up to date. Currently voted for -1
+[2] Vote request for term 8, candidate 5 received. Starting.
+[2] Term and log up to date. Currently voted for -1
+[2] Vote granted for 5.
+[4] Vote request for term 8, candidate 5 received. Starting.
+[4] Term and log up to date. Currently voted for 4
+[3] Vote request for term 8, candidate 5 received. Starting.
+[3] Term and log up to date. Currently voted for -1
+[3] Vote granted for 5.
+[5] Received reply from peer idx: 4
+[5] Successfully pushed vote to channel
+[5] Processing vote reply for term {8 false}
+[5]  Vote listener thread is active and listening for more
+[6] Vote request for term 8, candidate 5 received. Starting.
+[0] Vote granted for 5.
 [6] Term and log up to date. Currently voted for -1
 [6] Vote granted for 5.
-[5] Received reply from peer idx: 1
-[5] Successfully pushed vote to channel
-[2] Vote request for term 7, candidate 5 received. Starting.
-[2] Term and log up to date. Currently voted for 3
-[3] Vote request for term 7, candidate 5 received. Starting.
-[3] Term and log up to date. Currently voted for 3
-[5] Received reply from peer idx: 6
-[5] Received reply from peer idx: 0
 [5] Received reply from peer idx: 3
-[5] Processing vote reply for term {7 false}
-[5] Vote listener thread is active and listening for more
-[5] Received reply from peer idx: 4
-[5] Processing vote reply for term {7 true}
-[5] Vote tally for term 7: 2
+[1] Vote request for term 8, candidate 5 received. Starting.
+[5] Processing vote reply for term {8 true}
 [5] Received reply from peer idx: 2
 [5] Successfully pushed vote to channel
-[5] Vote listener thread is active and listening for more
-[5] Processing vote reply for term {7 false}
+[5] Vote tally for term 8: 2
+[5]  Vote listener thread is active and listening for more
+[5] Processing vote reply for term {8 true}
+[5] Vote tally for term 8: 3
+[5]  Vote listener thread is active and listening for more
+[1] Term and log up to date. Currently voted for -1
 [5] Successfully pushed vote to channel
-[5] Vote listener thread is active and listening for more
-[5] Processing vote reply for term {7 false}
-[5] Vote listener thread is active and listening for more
+[1] Vote granted for 5.
+[5] Received reply from peer idx: 0
+[5] Received reply from peer idx: 6
+[5] Processing vote reply for term {8 true}
 [5] Successfully pushed vote to channel
-[5] Processing vote reply for term {7 true}
-[5] Vote tally for term 7: 3
-[5] Vote listener thread is active and listening for more
-[5] Successfully pushed vote to channel
-[5] Successfully pushed vote to channel
-[5] Processing vote reply for term {7 false}
-[5] Vote listener thread is active and listening for more
-[6] [20220704142910.283] Heartbeat [20220704142911.016] received since last sleep. Resetting timer
-733.467666ms
-[3] Leader Sending Heartbeat RPC
-Running append entries process
-[3] Sending AppendEntries {7 3 0 0 -1 []} to peer 1
-[3] Sending AppendEntries {7 3 0 0 -1 []} to peer 0
-[3] it me. skipping append entry
-[3] Sending AppendEntries {7 3 0 0 -1 []} to peer 4
-[3] Sending AppendEntries {7 3 0 0 -1 []} to peer 6
-[3] Sending AppendEntries {7 3 0 0 -1 []} to peer 5
-[0] AppendEntries request for term 7, Leader 3 received. Starting.
-[3] Sending AppendEntries {7 3 0 0 -1 []} to peer 2
-[4] AppendEntries request for term 7, Leader 3 received. Starting.
-[2] AppendEntries request for term 7, Leader 3 received. Starting.
-[3] Received AppendEntries reply {7 true}
-[5] AppendEntries request for term 7, Leader 3 received. Starting.
-[1] AppendEntries request for term 7, Leader 3 received. Starting.
-[3] Received AppendEntries reply {7 true}
-[3] Received AppendEntries reply {7 true}
-[6] AppendEntries request for term 7, Leader 3 received. Starting.
-[3] Received AppendEntries reply {7 true}
-[3] Received AppendEntries reply {7 true}
-[3] Received AppendEntries reply {7 true}
-[2] [20220704142910.379] Heartbeat [20220704142911.028] received since last sleep. Resetting timer
-649.4135ms
-[0] [20220704142910.389] Heartbeat [20220704142911.613] received since last sleep. Resetting timer
-1.223914209s
-[4] [20220704142910.421] Heartbeat [20220704142911.741] received since last sleep. Resetting timer
-1.319680458s
-[3] Leader Sending Heartbeat RPC
-Running append entries process
-[3] Sending AppendEntries {7 3 0 0 -1 []} to peer 0
-[3] it me. skipping append entry
-[3] Sending AppendEntries {7 3 0 0 -1 []} to peer 1
-[3] Sending AppendEntries {7 3 0 0 -1 []} to peer 4
-[3] Sending AppendEntries {7 3 0 0 -1 []} to peer 6
-[3] Sending AppendEntries {7 3 0 0 -1 []} to peer 2
-[3] Sending AppendEntries {7 3 0 0 -1 []} to peer 5
-[1] AppendEntries request for term 7, Leader 3 received. Starting.
-[2] AppendEntries request for term 7, Leader 3 received. Starting.
-[5] AppendEntries request for term 7, Leader 3 received. Starting.
-[0] AppendEntries request for term 7, Leader 3 received. Starting.
-[3] Received AppendEntries reply {7 true}
-[3] Received AppendEntries reply {7 true}
-[3] Received AppendEntries reply {7 true}
-[3] Received AppendEntries reply {7 true}
-[6] AppendEntries request for term 7, Leader 3 received. Starting.
-[4] AppendEntries request for term 7, Leader 3 received. Starting.
-[3] Received AppendEntries reply {7 true}
-[3] Received AppendEntries reply {7 true}
-  ... Passed --   6.4  7  186   32184    0
+[5] Vote tally for term 8: 4
+[5] Won election. Switching to leader
+[5]8 true
+[5] Received reply from peer idx: 1
+[4] [20220707090754.796] Requesting Election
+[4] Killing old Election thread
+[4] Received signal to kill current election
+Running Election now
+[4] Starting thread to request: {9 4 0 0}
+[4] Starting thread to request vote for term 9 to peer idx: 0
+[4] Starting thread to request vote for term 9 to peer idx: 1
+[4] Starting thread to request vote for term 9 to peer idx: 2
+[4] Starting thread to request vote for term 9 to peer idx: 3
+[4]It me. skipping vote.
+[4] Starting thread to request vote for term 9 to peer idx: 5
+[4]  Vote listener thread is active and listening for more
+[4] Starting thread to request vote for term 9 to peer idx: 6
+[0] Vote request for term 9, candidate 4 received. Starting.
+[0] Term and log up to date. Currently voted for -1
+[0] Vote granted for 4.
+[5] Vote request for term 9, candidate 4 received. Starting.
+[5] Term and log up to date. Currently voted for -1
+[1] Vote request for term 9, candidate 4 received. Starting.
+[1] Term and log up to date. Currently voted for -1
+[1] Vote granted for 4.
+[6] Vote request for term 9, candidate 4 received. Starting.
+[6] Term and log up to date. Currently voted for -1
+[6] Vote granted for 4.
+[4] Received reply from peer idx: 0
+[4] Successfully pushed vote to channel
+[2] Vote request for term 9, candidate 4 received. Starting.
+[3] Vote request for term 9, candidate 4 received. Starting.
+[5] Vote granted for 4.
+[2] Term and log up to date. Currently voted for -1
+[2] Vote granted for 4.
+[4] Processing vote reply for term {9 true}
+[4] Vote tally for term 9: 2
+[4]  Vote listener thread is active and listening for more
+[4] Received reply from peer idx: 6
+[4] Successfully pushed vote to channel
+[4] Processing vote reply for term {9 true}
+[4] Vote tally for term 9: 3
+[3] Term and log up to date. Currently voted for -1
+[4] Received reply from peer idx: 1
+[4]  Vote listener thread is active and listening for more
+[3] Vote granted for 4.
+[4] Received reply from peer idx: 5
+[4] Processing vote reply for term {9 true}
+[4] Vote tally for term 9: 4
+[4] Won election. Switching to leader
+[4]9 true
+[4] Successfully pushed vote to channel
+[4] Received reply from peer idx: 2
+[4] Received reply from peer idx: 3
+[1] [20220707090754.807] Heartbeat [20220707090756.061] received since last sleep. Resetting timer
+1.254533334s
+[6] [20220707090754.921] Heartbeat [20220707090755.917] received since last sleep. Resetting timer
+995.682292ms
+[0] [20220707090754.967] Heartbeat [20220707090756.148] received since last sleep. Resetting timer
+1.181126166s
+  ... Passed --   5.9  7  180   28830    0
 PASS
-ok  	6.824/raft	15.010s
+ok  	6.824/raft	14.808s
