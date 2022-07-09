@@ -32,12 +32,13 @@ import (
 )
 
 const HEARTBEAT_FREQUENCY = time.Duration(150) * time.Millisecond
+const VERBOSE = true
 
 //
 // A Go object implementing a single log entry.
 //
 type LogEntry struct {
-	Command string
+	Command interface{}
 	Term    int
 }
 
@@ -107,15 +108,17 @@ type Raft struct {
 
 	// Look at the paper's Figure 2 for a description of what
 	// state a Raft server must maintain.
-
+	// 2B - Leader State
+	nextIndex   []int // Next log entry to try to send to peer
+	matchIndex  []int // Last log entry known replicated on peer
+	lastApplied int   // Index of last command that was applied
+	applyChan   chan ApplyMsg
 }
-
-const VERBOSE = true
 
 // Print log messages if VERBOSE == True
 func (rf *Raft) LogMessage(message string) {
 	if VERBOSE {
-		fmt.Println(fmt.Sprintf("[%d] ", rf.me), message)
+		fmt.Println(fmt.Sprintf("[%d][%s] -", rf.me, time.Now().Format("20060102150405.000")), message)
 	}
 }
 
@@ -123,10 +126,10 @@ func (rf *Raft) LogMessage(message string) {
 // Set lastElectionResetTime to time.Now
 func (rf *Raft) ResetElectionTimer() time.Duration {
 
-	rf.mu.Lock()
-	defer rf.mu.Unlock()
 	delay := rf.GenElectionTimeout()
 
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
 	rf.lastElectionResetTime = time.Now().Add(delay)
 	return delay
 }
@@ -179,10 +182,27 @@ func (rf *Raft) SafeUpdateTerm(newTerm int) bool {
 }
 
 //
+// Initialize leader state
+//
+func (rf *Raft) InitializeLeader() {
+	rf.LogMessage("Won election. Switching to leader")
+	_, LastIndex := rf.GetLastLog()
+	rf.mu.Lock()
+	rf.inElection = false
+	// Initialize nextIndex to LastIndex + 1, and matchIndex to 0
+	for i := 0; i < len(rf.peers); i++ {
+		rf.nextIndex[i] = LastIndex + 1
+		rf.matchIndex[i] = 0
+	}
+	rf.mu.Unlock()
+	// rf.LogMessage(fmt.Sprintln(rf.nextIndex))
+}
+
+//
 // Generate a random wait period before starting new election
 
 func (rf *Raft) GenElectionTimeout() time.Duration {
-	return time.Duration(500+rand.Intn(1000)) * time.Millisecond
+	return time.Duration(250+rand.Intn(500)) * time.Millisecond
 }
 
 //
@@ -201,17 +221,113 @@ func (rf *Raft) persist() {
 	// rf.persister.SaveRaftState(data)
 }
 
-func (rf *Raft) GetLastLogTerm() (int, int) {
+//
+// helper function that returns term of a specific log index
+//
+//
+
+func (rf *Raft) GetLogInfo(logIndex int) int {
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 
 	var logTerm int
-	if len(rf.log) == 0 {
+	if logIndex < 1 {
 		logTerm = 0
+	} else if logIndex > len(rf.log) {
+		logTerm = -1
 	} else {
-		logTerm = rf.log[len(rf.log)-1].Term
+		logTerm = rf.log[logIndex-1].Term
 	}
-	return logTerm, len(rf.log)
+	return logTerm
+}
+
+//
+// helper function that returns copy of peer list
+//
+//
+
+func (rf *Raft) NumPeers() int {
+
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+	return len(rf.peers)
+}
+
+//
+// helper function that returns term and index of last log entry
+//
+//
+
+func (rf *Raft) GetLastLog() (int, int) {
+	rf.mu.Lock()
+	logLen := len(rf.log)
+	rf.mu.Unlock()
+	logTerm := rf.GetLogInfo(logLen)
+
+	return logTerm, logLen
+}
+
+//
+// Checks the largest index has a majority of servers agreeing
+// If they agree then return that index
+//
+
+func (rf *Raft) CheckCommit() int {
+	rf.LogMessage("Checking commit index")
+	CommitIndex := -1
+	_, is_leader := rf.GetState()
+	if !is_leader {
+		return -1 // Only leader can check
+	} else {
+
+		rf.mu.Lock()
+		currentTerm := rf.currentTerm
+		tallyThreshold := len(rf.peers) / 2
+		matchIndexCopy := make([]int, len(rf.matchIndex))
+		copy(matchIndexCopy, rf.matchIndex) // to reduce time we lock rf state
+		rf.mu.Unlock()
+
+		var highestLogIndex int
+		highestLogTerm, nextHighestLogIndex := rf.GetLastLog()
+
+		// Lower "highestLogIndex" incrementally, counting # of peers that have
+		// matchIndex at least as high
+		for true {
+			highestLogIndex = nextHighestLogIndex
+			highestLogTerm = rf.GetLogInfo(highestLogIndex)
+			committedTally := 1 // We know at least leader has highestLogIndex
+			rf.LogMessage(fmt.Sprintf("Checking how many peers have MatchIndex at least %d, term %d", highestLogIndex, highestLogTerm))
+			for i, v := range matchIndexCopy {
+				rf.LogMessage(fmt.Sprintf("Committed tally: %d, Checking peer %d, matchindex %d", committedTally, i, v))
+				if v >= highestLogIndex {
+					committedTally += 1
+				} else {
+					// Save the next highest logIndex we find to decrement next
+					if nextHighestLogIndex == highestLogIndex {
+						nextHighestLogIndex = v
+					} else {
+						if nextHighestLogIndex < v {
+							nextHighestLogIndex = v
+						}
+					}
+				}
+			}
+
+			// After one run through all peers, check success criteria
+			rf.LogMessage(fmt.Sprintf("Committed tally: %d, Highest Log Term %d, Current Term %d", committedTally, highestLogTerm, currentTerm))
+			if committedTally > tallyThreshold && highestLogTerm == currentTerm {
+				CommitIndex = highestLogIndex
+				rf.LogMessage(fmt.Sprintf("Found commit Index %d", CommitIndex))
+				break
+			} else if nextHighestLogIndex == highestLogIndex {
+				// There are no matches found, and no more lower log indexes
+				rf.LogMessage(fmt.Sprintf("Found no valid Commit Indices"))
+				break
+			}
+		}
+		rf.LogMessage(fmt.Sprintf("Returning commit Index %d", CommitIndex))
+		return CommitIndex
+	}
 }
 
 //
@@ -283,11 +399,15 @@ type RequestVoteReply struct {
 //
 func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	// Your code here (2A, 2B).
-	fmt.Printf("[%d] Vote request for term %d, candidate %d received. Starting.\n", rf.me, args.Term, args.CandidateId)
+	rf.LogMessage(fmt.Sprintf("Vote request for term %d, candidate %d received. Starting.\n", args.Term, args.CandidateId))
 	vote := false
 
 	term, _ := rf.GetState()
-	lastLogTerm, lastLogIndex := rf.GetLastLogTerm()
+	lastLogTerm, lastLogIndex := rf.GetLastLog()
+
+	// candidate term at higher, reset term and rever tto follower
+	rf.SafeUpdateTerm(args.Term)
+
 	// Refuse vote if all conditions not met
 	if args.Term >= term && // candidate term at least as high
 		// candidate log is at least as up to date
@@ -295,11 +415,11 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		args.LastLogIndex >= lastLogIndex {
 
 		// Update if args.Term > currentTerm
-		rf.SafeUpdateTerm(args.Term)
+		rf.LogMessage("Vote request. Got to update term")
 
 		// If haven't already voted this term or voted for Candidate, grant vote
+		rf.LogMessage(fmt.Sprintf("Term and log up to date. Currently voted for %d", rf.votedFor))
 		rf.mu.Lock()
-		fmt.Printf("[%d] Term and log up to date. Currently voted for %d\n", rf.me, rf.votedFor)
 		if (rf.votedFor == -1) || (rf.votedFor == args.CandidateId) {
 			rf.votedFor = args.CandidateId
 			vote = true
@@ -307,10 +427,10 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		rf.mu.Unlock()
 		if vote {
 			rf.ResetElectionTimer()
-			fmt.Printf("[%d] Vote granted for %d.\n", rf.me, args.CandidateId)
+			rf.LogMessage(fmt.Sprintf("Vote granted for %d.", args.CandidateId))
 		}
 	}
-	reply.Term = rf.currentTerm
+	reply.Term = term
 	reply.VoteGranted = vote
 	return
 }
@@ -320,34 +440,50 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 //
 func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply) {
 	success := false
-	fmt.Printf("[%d] AppendEntries request for term %d, Leader %d received. Starting.\n", rf.me, args.Term, args.LeaderId)
+	// rf.LogMessage(fmt.Sprintf("AppendEntries request %v for term %d, Leader %d received. My term is %d, log is %v. Starting.", args, args.Term, args.LeaderId, rf.currentTerm, rf.log))
 	//  RPC comes in with greater term, then we can process. Otherwise it's definitely rejected.
 
 	term, _ := rf.GetState()
+	lastLogTerm, _ := rf.GetLastLog()
+
+	rf.LogMessage(fmt.Sprintf("Attempting Append with args %v. My term %d. My lastLogTerm %d", args, term, lastLogTerm))
+	updated := rf.SafeUpdateTerm(args.Term)
 
 	if term <= args.Term {
+		rf.ResetElectionTimer()
+		rf.LogMessage(fmt.Sprintf("Current terms match. Checking last log term %d vs. args %d", lastLogTerm, args.PrevLogTerm))
 		// If higher term received than my election, kill my election
-		updated := rf.SafeUpdateTerm(args.Term)
 
 		// If candidate log is at least as up to date, append logs and return success.
-		lastLogTerm, _ := rf.GetLastLogTerm()
+		lastLogTerm, _ := rf.GetLastLog()
 		if args.PrevLogTerm == lastLogTerm {
+			rf.LogMessage("Logs match sufficiently. Trying to append")
 			rf.mu.Lock()
-			rf.log = append(rf.log[:args.PrevLogIndex], args.Entries...)
-			rf.commitIndex = int(math.Min(float64(args.LeaderCommit), float64(len(rf.log)-1)))
+
+			if args.PrevLogIndex == 0 { // First actual log entry
+				rf.log = args.Entries
+			} else if len(rf.log) < args.PrevLogIndex { // Log is not up to date with everything before these new appends
+
+			} else { // Appending to existing logs
+				rf.log = append(rf.log[:args.PrevLogIndex], args.Entries...)
+			}
+			// Update commit index
+			rf.commitIndex = int(math.Min(float64(args.LeaderCommit), float64(len(rf.log))))
+			rf.LogMessage(fmt.Sprintf("Append Finish. My log %v. My CommitIndex %d", rf.log, rf.commitIndex))
 			rf.mu.Unlock()
 			success = true
 		}
 
 		// If leader was ahead in term, or log updated, reset election timer
 		if updated || success {
-			rf.ResetElectionTimer()
+			// Set off go routine to apply any newly committed commands
+			go rf.ApplyCommands()
 		}
-
 	}
 
-	reply.Term = rf.currentTerm
+	reply.Term = term
 	reply.Success = success
+
 	return
 }
 
@@ -412,8 +548,17 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	term := -1
 
 	// Your code here (2B).
-
-	return index, term, rf.votedFor == rf.me
+	_, isLeader := rf.GetState()
+	if isLeader {
+		rf.LogMessage(fmt.Sprintf("ADDING REAL COMMAND %v", command))
+		rf.mu.Lock()
+		rf.log = append(rf.log, LogEntry{command, rf.currentTerm})
+		rf.LogMessage(fmt.Sprintf("My log %v", rf.log))
+		rf.mu.Unlock()
+		go RunAppendEntries(rf)
+		term, index = rf.GetLastLog()
+	}
+	return index, term, isLeader
 }
 
 //
@@ -446,44 +591,42 @@ func (rf *Raft) ticker() {
 	for rf.killed() == false {
 		// Your code here to check if a leader election should
 		// be started and to randomize sleeping time using
+		rf.LogMessage(fmt.Sprintf("Checking if Leader"))
 		_, is_leader := rf.GetState()
+		rf.LogMessage(fmt.Sprintf("Checked if Leader"))
 		if is_leader {
-			fmt.Printf("[%d] Leader Sending Heartbeat RPC\n", rf.me)
+			rf.LogMessage(fmt.Sprintf("Leader Sending Heartbeat RPC"))
 			// Heartbeat request is an empty list of messages
-			lastLogTerm, lastLogIndex := rf.GetLastLogTerm()
-			go RunAppendEntries(rf, lastLogIndex, lastLogTerm, &[]LogEntry{})
+			go RunAppendEntries(rf)
 
-			time.Sleep(HEARTBEAT_FREQUENCY)
 			// TODO: add check to not send heartbeat if you've sent a real AppendEntries request recently
 
 		} else {
 			if time.Now().Before(rf.GetLatestElectionReset()) {
-				fmt.Printf("[%d] [%s] Heartbeat [%s] received since last sleep. Resetting timer\n", rf.me, time.Now().Format("20060102150405.000"), rf.GetLatestElectionReset().Format("20060102150405.000"))
+				rf.LogMessage(fmt.Sprintf("[%s] Heartbeat [%s] received since last sleep. Resetting timer", time.Now().Format("20060102150405.000"), rf.GetLatestElectionReset().Format("20060102150405.000")))
 
 				// Go back to sleep until next new timer
-				sleepDuration := rf.GetLatestElectionReset().Sub(time.Now())
-				fmt.Println(sleepDuration)
-
+				// sleepDuration := rf.GetLatestElectionReset().Sub(time.Now())
 				// Negative timeWindow causes sleep to return immediately
-				time.Sleep(sleepDuration)
 			} else // Otherwise, request an election
 			{
-				fmt.Printf("[%d] [%s] Requesting Election\n", rf.me, time.Now().Format("20060102150405.000"))
+				rf.LogMessage(fmt.Sprintf("[%s] Requesting Election", time.Now().Format("20060102150405.000")))
 				// Kill timed out election thread and start again
 				rf.mu.Lock()
-				if rf.inElection {
-					fmt.Printf("[%d] Killing old Election thread\n", rf.me)
+				inElection := rf.inElection
+				if inElection {
+					rf.LogMessage("Killing old Election thread")
 					quitElectionCh <- true
 				}
 				rf.inElection = true
-				go RunElection(rf, rf.currentTerm+1, quitElectionCh)
 				rf.mu.Unlock()
+				go RunElection(rf, rf.currentTerm+1, quitElectionCh)
 
 				// Reset election timer and go back to sleep
-				sleepDuration := rf.ResetElectionTimer()
-				time.Sleep(sleepDuration)
+				rf.ResetElectionTimer()
 			}
 		}
+		time.Sleep(HEARTBEAT_FREQUENCY)
 	}
 }
 
@@ -511,63 +654,139 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	rf.inElection = false
 	rf.lastElectionResetTime = time.Now()
 	rf.commitIndex = -1
-	// fmt.Println("Starting Ticker")
+	rf.lastApplied = 0
+	rf.applyChan = applyCh
+
+	// Initialize nextIndex and matchIndex to 0
+	for i := 0; i < len(rf.peers); i++ {
+		rf.nextIndex = append(rf.nextIndex, 0)
+		rf.matchIndex = append(rf.matchIndex, 0)
+	}
 
 	// initialize from state persisted before a crash
 	// rf.readPersist(persister.ReadRaftState())
 
 	// start ticker goroutine to start elections
-	fmt.Println(time.Now())
+	rf.LogMessage(time.Now().String())
 	go rf.ticker()
-	fmt.Println("Starting Ticker")
+	rf.LogMessage("Starting Ticker")
 
 	return rf
 }
 
+type AppendEntriesThreadMessage struct {
+	reply  AppendEntriesReply // Reply Payload
+	peerId int                // Id of peer that this thread managed reply from
+}
+
 //
-// timeout is triggered so server wants to start an election
-// increments term, votes for itself, resets timer, and requests votes
+// leader sends AppendEntries commands to followers to bring up to sync with its log
+// At first assumes followers are in sync ("Heartbeat")
+// if not in sync it will try to send successively more to each follower until in sync
 //
-// Waits for votes to return and if so becomes leader
-func RunAppendEntries(rf *Raft, prevLogIndex, prevLogTerm int, logEntries *[]LogEntry) {
-	fmt.Println("Running append entries process")
-	appendReplyCh := make(chan AppendEntriesReply)
+func RunAppendEntries(rf *Raft) {
+	rf.LogMessage("Running append entries process")
+	appendReplyCh := make(chan AppendEntriesThreadMessage)
+
+	logEntryStub := []LogEntry{}
+	lastLogTerm, lastLogIndex := rf.GetLastLog()
 
 	// Set of Vote Request struct
-	request := AppendEntriesArgs{
+	request_stub := AppendEntriesArgs{
 		rf.currentTerm, // Current term
 		rf.me,          // Id of term leader
-		prevLogIndex,   // Index of last log entry leader believes follower should have
-		prevLogTerm,    // Term of last log entry
+		lastLogIndex,   // Index of last log entry leader believes follower should have
+		lastLogTerm,    // Term of last log entry
 		rf.commitIndex, // CommitIndex of Leader
-		*logEntries}    // Entries to append
+		logEntryStub}   // Entries to append
 
 	// Spawn AppendEntries manager thread for each other server
 	for i := 0; i < len(rf.peers); i++ {
 		if i == rf.me {
-			fmt.Printf("[%d] it me. skipping append entry\n", rf.me)
+			rf.LogMessage("It me. skipping append entry\n")
+			rf.mu.Lock()
+			rf.matchIndex[i] = lastLogIndex
+			rf.mu.Unlock()
 			continue
 		} else {
-			go func(rf *Raft, idx int, appendReplyCh chan AppendEntriesReply) {
-				fmt.Printf("[%d] Sending AppendEntries %v to peer %d\n", rf.me, request, idx)
+			go func(rf *Raft, idx int, appendReplyCh chan AppendEntriesThreadMessage) {
 				var reply AppendEntriesReply
-				ok := rf.SendAppendEntries(idx, &request, &reply)
+				success := false
+				request := request_stub
 
-				// TODO: Implement retry logic that steps back nextIndex
-
-				// If response OK, send reply to vote aggregation channel for main thread
-				if ok {
-					appendReplyCh <- reply
+				// If response OK, send reply to aggregation channel for main thread
+				// Otherwise adjust index and keep retrying
+				for !success {
+					rf.mu.Lock()
+					rf.LogMessage(fmt.Sprintf("NextIndex %v", rf.nextIndex))
+					request.PrevLogIndex = rf.nextIndex[idx] - 1 //
+					request.Entries = rf.log[request.PrevLogIndex:]
+					rf.mu.Unlock()
+					request.PrevLogTerm = rf.GetLogInfo(request.PrevLogIndex)
+					rf.LogMessage(fmt.Sprintf("Sending AppendEntries %v to peer %d", request, idx))
+					ok := rf.SendAppendEntries(idx, &request, &reply)
+					success = reply.Success
+					if ok {
+						if reply.Success {
+							appendReplyCh <- AppendEntriesThreadMessage{reply, idx}
+							return
+						} else { // decrement nextIndex for this peer and try again
+							rf.mu.Lock()
+							if rf.nextIndex[idx] <= 1 {
+								// Failed even after going back to zero log entry.
+								// Must be some other issue.
+								rf.LogMessage(fmt.Sprintf("Append response from %d unsuccessful even decrementing to 0. Returning", idx))
+								appendReplyCh <- AppendEntriesThreadMessage{reply, idx}
+								return
+							} else {
+								rf.nextIndex[idx] += -1
+							}
+							rf.LogMessage(fmt.Sprintf("Failed to append message for peer %d. Decrementing next Index to %d", idx, rf.nextIndex[idx]))
+							rf.mu.Unlock()
+						}
+					}
 				}
 			}(rf, i, appendReplyCh)
 		}
 	}
 
-	// TODO Wait for responses to know what to commit.
+	replyTally := 1 // Start with one including yourself
 	for rf.killed() == false {
 		select {
-		case reply := <-appendReplyCh:
-			fmt.Printf("[%d] Received AppendEntries reply %v\n", rf.me, reply)
+		case ThreadMessage := <-appendReplyCh:
+			rf.LogMessage(fmt.Sprintf("Received AppendEntries reply %v\n", ThreadMessage))
+
+			if ThreadMessage.reply.Success {
+				rf.LogMessage(fmt.Sprintf("Append response from %d successful", ThreadMessage.peerId))
+				rf.mu.Lock()
+				rf.matchIndex[ThreadMessage.peerId] = rf.nextIndex[ThreadMessage.peerId]
+				rf.nextIndex[ThreadMessage.peerId] += 1
+				rf.mu.Unlock()
+
+				CommitIndex := rf.CheckCommit()
+				rf.mu.Lock()
+				rf.LogMessage(fmt.Sprintf("Getting current commit"))
+				currentCommitIndex := rf.commitIndex
+				rf.mu.Unlock()
+
+				if CommitIndex > currentCommitIndex {
+					rf.LogMessage(fmt.Sprintf("Leader updating commit index from %d to %d", currentCommitIndex, CommitIndex))
+					rf.mu.Lock()
+					rf.commitIndex = CommitIndex
+					rf.mu.Unlock()
+					go rf.ApplyCommands()
+				}
+			} else {
+				rf.LogMessage(fmt.Sprintf("Append response from %d unsuccessful even after retries.", ThreadMessage.peerId))
+			}
+			rf.LogMessage(fmt.Sprintf("Done processing append reply"))
+
+			// Check if all threads replied and if so, close everything
+			replyTally += 1
+			if replyTally >= rf.NumPeers() {
+				rf.LogMessage(fmt.Sprintf("All threads replied. Ending"))
+				return
+			}
 		}
 	}
 }
@@ -578,10 +797,10 @@ func RunAppendEntries(rf *Raft, prevLogIndex, prevLogTerm int, logEntries *[]Log
 //
 // Waits for votes to return and if so becomes leader
 func RunElection(rf *Raft, targetTerm int, quitElectionCh chan bool) {
-	fmt.Println("Running Election now")
 	voteReplyCh := make(chan RequestVoteReply)
 	voteTally := 0
 
+	rf.LogMessage("Running Election now")
 	rf.mu.Lock()
 	// If targetTerm is not the next one, we got updated term.
 	// Need to abandon election.
@@ -591,8 +810,7 @@ func RunElection(rf *Raft, targetTerm int, quitElectionCh chan bool) {
 		voteTally += 1
 	}
 	rf.mu.Unlock()
-
-	lastLogTerm, lastLogIndex := rf.GetLastLogTerm()
+	lastLogTerm, lastLogIndex := rf.GetLastLog()
 	// Set of Vote Request struct
 	request := RequestVoteArgs{
 		rf.currentTerm, // incremented term
@@ -600,24 +818,22 @@ func RunElection(rf *Raft, targetTerm int, quitElectionCh chan bool) {
 		lastLogIndex,   // Last log index
 		lastLogTerm}    // Last log Term
 
-	fmt.Printf("[%d] Starting thread to request: %v\n", rf.me, request)
-
 	// Spawn vote requester for each other server
 	for i := 0; i < len(rf.peers); i++ {
 		if i == rf.me {
-			fmt.Printf("[%d]It me. skipping vote.\n", i)
+			rf.LogMessage("It me. skipping append vote")
 			continue
 		} else {
 			go func(rf *Raft, idx int, voteReplyCh chan RequestVoteReply) {
-				fmt.Printf("[%d] Starting thread to request vote for term %d to peer idx: %d\n", rf.me, request.Term, idx)
+				rf.LogMessage(fmt.Sprintf("Starting thread to request vote for term %d to peer idx: %d\n", request.Term, idx))
 				var reply RequestVoteReply
 				ok := rf.sendRequestVote(idx, &request, &reply)
 
 				// If response OK, send reply to vote aggregation channel for main thread
 				if ok {
-					fmt.Printf("[%d] Received reply from peer idx: %d\n", rf.me, idx)
+					rf.LogMessage(fmt.Sprintf("Received reply from peer idx: %d", idx))
 					voteReplyCh <- reply
-					fmt.Printf("[%d] Successfully pushed vote to channel\n", rf.me)
+					rf.LogMessage(fmt.Sprintf("Successfully pushed vote to channel"))
 				}
 			}(rf, i, voteReplyCh)
 		}
@@ -629,21 +845,20 @@ func RunElection(rf *Raft, targetTerm int, quitElectionCh chan bool) {
 		select {
 		// Election timed out. Kill this routine and stop listening.
 		case <-quitElectionCh:
-			fmt.Printf("[%d] Received signal to kill current election\n", rf.me)
+			rf.LogMessage("Kill current election thread")
 			return
 		// Received Vote. Tally.
 		case vote := <-voteReplyCh:
-			fmt.Printf("[%d] Processing vote reply for term %v\n", rf.me, vote)
+			rf.LogMessage(fmt.Sprintf("Processing vote reply for term %v", vote))
 			if vote.VoteGranted {
 				voteTally += 1
 				// If majority, now the leader. Update state and quit election.
-				fmt.Printf("[%d] Vote tally for term %d: %d\n", rf.me, vote.Term, voteTally)
+				rf.LogMessage(fmt.Sprintf("Vote tally for term %d: %d", vote.Term, voteTally))
 				if voteTally > len(rf.peers)/2 {
 					// Election now over.
-					fmt.Printf("[%d] Won election. Switching to leader\n", rf.me)
-					rf.inElection = false
-					fmt.Printf("[%d]", rf.me)
-					fmt.Println(rf.GetState())
+					rf.InitializeLeader()
+					// Immediately run append entries to assert control
+					go RunAppendEntries(rf)
 					return
 				}
 			} else {
@@ -656,4 +871,37 @@ func RunElection(rf *Raft, targetTerm int, quitElectionCh chan bool) {
 			}
 		}
 	}
+}
+
+//
+// Apply all remaining committed yet unapplied commands on a given server
+//
+
+func (rf *Raft) ApplyCommands() {
+	rf.mu.Lock()
+	LastApplied := rf.lastApplied
+	CommitIndex := rf.commitIndex
+	rf.mu.Unlock()
+
+	rf.LogMessage(fmt.Sprintf("Applying Commands from %d to %d", LastApplied, CommitIndex))
+	for LastApplied < CommitIndex {
+		// Todo: actually apply command
+		LastApplied += 1
+		rf.mu.Lock()
+		command := rf.log[LastApplied-1].Command
+		rf.mu.Unlock()
+		// Send applied message to applyChan
+		applymsg := ApplyMsg{
+			CommandValid: true,
+			Command:      command,
+			CommandIndex: LastApplied,
+		}
+		rf.mu.Lock()
+		rf.lastApplied = LastApplied
+		rf.LogMessage(fmt.Sprintf("Updated lastApplied to %d", rf.lastApplied))
+		rf.mu.Unlock()
+
+		rf.applyChan <- applymsg
+	}
+	rf.LogMessage(fmt.Sprintf("Done Applying Commands"))
 }
