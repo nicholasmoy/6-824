@@ -404,34 +404,40 @@ type RequestVoteReply struct {
 func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	// Your code here (2A, 2B).
 	rf.LogMessage(fmt.Sprintf("Vote request for term %d, candidate %d received. Starting.", args.Term, args.CandidateId))
+	rf.LogMessage(fmt.Sprintf("My log %v", rf.log))
 	vote := false
 
 	term, _ := rf.GetState()
 	lastLogTerm, lastLogIndex := rf.GetLastLog()
 
-	// candidate term at higher, reset term and rever tto follower
-	rf.SafeUpdateTerm(args.Term)
+	// Terms should be at least equal
+	if args.Term >= term {
+		// candidate term at higher, reset term and rever tto follower
+		rf.SafeUpdateTerm(args.Term)
 
-	// Refuse vote if all conditions not met
-	if args.Term >= term && // candidate term at least as high
-		// candidate log is at least as up to date
-		args.LastLogTerm >= lastLogTerm &&
-		args.LastLogIndex >= lastLogIndex {
-
-		// Update if args.Term > currentTerm
-		rf.LogMessage("Vote request. Got to update term")
-
+		rf.LogMessage("Vote request, terms compatible")
+		CandidateLogValid := false
+		if args.LastLogTerm > lastLogTerm {
+			rf.LogMessage(fmt.Sprintf("Candidate log term %d is higher than mine %d.", args.LastLogTerm, lastLogTerm))
+			CandidateLogValid = true
+		} else if args.LastLogTerm == lastLogTerm && args.LastLogIndex >= lastLogIndex {
+			rf.LogMessage(fmt.Sprintf("Candidate log term is equal. Log length %d is higher than mine %d.", args.LastLogIndex, lastLogIndex))
+			CandidateLogValid = true
+		} else {
+			rf.LogMessage("Candidate log is not as up to date as mine.")
+		}
 		// If haven't already voted this term or voted for Candidate, grant vote
 		rf.LogMessage(fmt.Sprintf("Term and log up to date. Currently voted for %d", rf.votedFor))
-		rf.mu.Lock()
-		if (rf.votedFor == -1) || (rf.votedFor == args.CandidateId) {
-			rf.votedFor = args.CandidateId
-			vote = true
-		}
-		rf.mu.Unlock()
-		if vote {
-			rf.ResetElectionTimer()
-			rf.LogMessage(fmt.Sprintf("Vote granted for %d.", args.CandidateId))
+
+		if CandidateLogValid {
+			if (rf.votedFor == -1) || (rf.votedFor == args.CandidateId) {
+				rf.mu.Lock()
+				rf.votedFor = args.CandidateId
+				rf.mu.Unlock()
+				rf.ResetElectionTimer()
+				vote = true
+				rf.LogMessage(fmt.Sprintf("Vote granted for %d.", args.CandidateId))
+			}
 		}
 	}
 	reply.Term = term
@@ -448,19 +454,19 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	//  RPC comes in with greater term, then we can process. Otherwise it's definitely rejected.
 
 	term, _ := rf.GetState()
-	lastLogTerm, _ := rf.GetLastLog()
+	prevLogTerm := rf.GetLogInfo(args.PrevLogIndex)
 
-	rf.LogMessage(fmt.Sprintf("Attempting Append with args %v. My term %d. My lastLogTerm %d", args, term, lastLogTerm))
+	rf.LogMessage(fmt.Sprintf("Attempting Append with args %v. My term %d. My prevLogTerm at index %d", args, term, prevLogTerm))
+	rf.LogMessage(fmt.Sprintf("My log %v", rf.log))
 	updated := rf.SafeUpdateTerm(args.Term)
 
 	if term <= args.Term {
 		rf.ResetElectionTimer()
-		rf.LogMessage(fmt.Sprintf("Current terms match. Checking last log term %d vs. args %d", lastLogTerm, args.PrevLogTerm))
+		rf.LogMessage(fmt.Sprintf("Current terms match. Checking last log term %d vs. args %d", prevLogTerm, args.PrevLogTerm))
 		// If higher term received than my election, kill my election
 
 		// If candidate log is at least as up to date, append logs and return success.
-		lastLogTerm, _ := rf.GetLastLog()
-		if args.PrevLogTerm == lastLogTerm {
+		if args.PrevLogTerm == prevLogTerm {
 			rf.LogMessage("Logs match sufficiently. Trying to append")
 			rf.mu.Lock()
 			logLength := len(rf.log)
@@ -725,16 +731,21 @@ func RunAppendEntries(rf *Raft) {
 				success := false
 				request := request_stub
 
+				rf.mu.Lock()
+				rf.LogMessage(fmt.Sprintf("Append requester for peer %d. NextIndex %v", idx, rf.nextIndex))
+				nextIndex := rf.nextIndex[idx]
+				logCopy := make([]LogEntry, len(rf.log))
+				copy(logCopy, rf.log)
+				rf.mu.Unlock()
+
 				AppendExpireTime := time.Now().Add(rf.GenElectionTimeout())
 
 				// If response OK, send reply to aggregation channel for main thread
 				// Otherwise adjust index and keep retrying
 				for !success {
-					rf.mu.Lock()
-					rf.LogMessage(fmt.Sprintf("NextIndex %v", rf.nextIndex))
-					request.PrevLogIndex = rf.nextIndex[idx] - 1 //
-					request.Entries = rf.log[request.PrevLogIndex:]
-					rf.mu.Unlock()
+					rf.LogMessage(fmt.Sprintf("NextIndex %d", nextIndex))
+					request.PrevLogIndex = nextIndex - 1 //
+					request.Entries = logCopy[request.PrevLogIndex:]
 					request.PrevLogTerm = rf.GetLogInfo(request.PrevLogIndex)
 					rf.LogMessage(fmt.Sprintf("Sending AppendEntries %v to peer %d", request, idx))
 					ok := rf.SendAppendEntries(idx, &request, &reply)
@@ -751,20 +762,21 @@ func RunAppendEntries(rf *Raft) {
 								rf.mu.Lock()
 								rf.LogMessage(fmt.Sprintf("Append response from %d unsuccessful even decrementing to 0. Returning", idx))
 								rf.mu.Unlock()
-								appendReplyCh <- AppendEntriesThreadMessage{reply, idx, -1, request.PrevLogIndex}
+								appendReplyCh <- AppendEntriesThreadMessage{reply, idx, 0, request.PrevLogIndex}
 								return
 							} else {
+								nextIndex += -1
 								rf.mu.Lock()
-								rf.nextIndex[idx] += -1
-								rf.LogMessage(fmt.Sprintf("Failed to append message for peer %d. Decrementing next Index to %d", idx, rf.nextIndex[idx]))
+								rf.LogMessage(fmt.Sprintf("Failed to append message for peer %d. Decrementing next Index to %d", idx, nextIndex))
 								rf.mu.Unlock()
 							}
 						}
-					} else {
-						rf.LogMessage(fmt.Sprintf("Reply not ok for peer %d.", idx))
-						// Response timeout. If AppendExpire time, then don't retry. Otherwise will retry again
+					} else { // Unsuccessful RPC
+						rf.LogMessage(fmt.Sprintf("No OK reply for peer %d.", idx))
+						// If we've been trying for a long time, end loop. Otherwise will retry again with the same index
 						if time.Now().After(AppendExpireTime) {
 							rf.LogMessage(fmt.Sprintf("%d Timed out. Giving up.", idx))
+							// appendReplyCh <- AppendEntriesThreadMessage{reply, idx, 0, request.PrevLogIndex}
 							return
 						}
 					}
@@ -801,6 +813,10 @@ func RunAppendEntries(rf *Raft) {
 					go rf.ApplyCommands()
 				}
 			} else {
+				// Update NextIndex to the last one we tried before failing (should be 1)
+				rf.mu.Lock()
+				rf.nextIndex[ThreadMessage.peerId] = (ThreadMessage.prevLogIndex + 1) + ThreadMessage.numEntries
+				rf.mu.Unlock()
 				rf.LogMessage(fmt.Sprintf("Append response from %d unsuccessful even after retries.", ThreadMessage.peerId))
 			}
 			rf.LogMessage(fmt.Sprintf("Done processing append reply"))
