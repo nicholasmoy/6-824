@@ -267,6 +267,13 @@ func (rf *Raft) GetLastLog() (int, int) {
 	return logTerm, logLen
 }
 
+func (rf *Raft) GetCommitIndex() int {
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+	rf.LogMessage(fmt.Sprintf("Getting current commit"))
+	return rf.commitIndex
+}
+
 //
 // Checks the largest index has a majority of servers agreeing
 // If they agree then return that index
@@ -404,7 +411,9 @@ type RequestVoteReply struct {
 func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	// Your code here (2A, 2B).
 	rf.LogMessage(fmt.Sprintf("Vote request for term %d, candidate %d received. Starting.", args.Term, args.CandidateId))
+	rf.mu.Lock()
 	rf.LogMessage(fmt.Sprintf("My log %v", rf.log))
+	rf.mu.Unlock()
 	vote := false
 
 	term, _ := rf.GetState()
@@ -427,16 +436,18 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 			rf.LogMessage("Candidate log is not as up to date as mine.")
 		}
 		// If haven't already voted this term or voted for Candidate, grant vote
-		rf.LogMessage(fmt.Sprintf("Term and log up to date. Currently voted for %d", rf.votedFor))
-
 		if CandidateLogValid {
-			if (rf.votedFor == -1) || (rf.votedFor == args.CandidateId) {
+			rf.mu.Lock()
+			votedFor := rf.votedFor
+			rf.mu.Unlock()
+
+			if (votedFor == -1) || (votedFor == args.CandidateId) {
 				rf.mu.Lock()
 				rf.votedFor = args.CandidateId
+				rf.LogMessage(fmt.Sprintf("Vote granted for %d.", args.CandidateId))
 				rf.mu.Unlock()
 				rf.ResetElectionTimer()
 				vote = true
-				rf.LogMessage(fmt.Sprintf("Vote granted for %d.", args.CandidateId))
 			}
 		}
 	}
@@ -457,7 +468,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 	prevLogTerm := rf.GetLogInfo(args.PrevLogIndex)
 
 	rf.LogMessage(fmt.Sprintf("Attempting Append with args %v. My term %d. My prevLogTerm at index %d", args, term, prevLogTerm))
-	rf.LogMessage(fmt.Sprintf("My log %v", rf.log))
+	// rf.LogMessage(fmt.Sprintf("My log %v", rf.log))
 	updated := rf.SafeUpdateTerm(args.Term)
 
 	if term <= args.Term {
@@ -563,6 +574,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	term := -1
 
 	// Your code here (2B).
+	time.Sleep(10 * time.Millisecond)
 	_, isLeader := rf.GetState()
 	if isLeader {
 		rf.LogMessage(fmt.Sprintf("ADDING REAL COMMAND %v", command))
@@ -635,7 +647,8 @@ func (rf *Raft) ticker() {
 				}
 				rf.inElection = true
 				rf.mu.Unlock()
-				go RunElection(rf, rf.currentTerm+1, quitElectionCh)
+				currentTerm, _ := rf.GetState()
+				go RunElection(rf, currentTerm+1, quitElectionCh)
 
 				// Reset election timer and go back to sleep
 				rf.ResetElectionTimer()
@@ -703,19 +716,24 @@ type AppendEntriesThreadMessage struct {
 //
 func RunAppendEntries(rf *Raft) {
 	rf.LogMessage("Running append entries process")
+	rf.mu.Lock()
+	rf.LogMessage(fmt.Sprintf("My log %v", rf.log))
+	rf.mu.Unlock()
 	appendReplyCh := make(chan AppendEntriesThreadMessage)
 
 	logEntryStub := []LogEntry{}
 	lastLogTerm, lastLogIndex := rf.GetLastLog()
 
+	term, _ := rf.GetState()
+
 	// Set of Vote Request struct
 	request_stub := AppendEntriesArgs{
-		rf.currentTerm, // Current term
-		rf.me,          // Id of term leader
-		lastLogIndex,   // Index of last log entry leader believes follower should have
-		lastLogTerm,    // Term of last log entry
-		rf.commitIndex, // CommitIndex of Leader
-		logEntryStub}   // Entries to append
+		term,                // Current term
+		rf.me,               // Id of term leader
+		lastLogIndex,        // Index of last log entry leader believes follower should have
+		lastLogTerm,         // Term of last log entry
+		rf.GetCommitIndex(), // CommitIndex of Leader
+		logEntryStub}        // Entries to append
 
 	// Spawn AppendEntries manager thread for each other server
 	for i := 0; i < len(rf.peers); i++ {
@@ -800,10 +818,7 @@ func RunAppendEntries(rf *Raft) {
 				rf.mu.Unlock()
 
 				CommitIndex := rf.CheckCommit()
-				rf.mu.Lock()
-				rf.LogMessage(fmt.Sprintf("Getting current commit"))
-				currentCommitIndex := rf.commitIndex
-				rf.mu.Unlock()
+				currentCommitIndex := rf.GetCommitIndex()
 
 				if CommitIndex > currentCommitIndex {
 					rf.LogMessage(fmt.Sprintf("Leader updating commit index from %d to %d", currentCommitIndex, CommitIndex))
