@@ -1,0 +1,2062 @@
+[0][20220712000243.059] - 2022-07-12 00:02:43.058832 -0700 PDT m=+0.003468293
+[0][20220712000243.059] - Starting Ticker
+[1][20220712000243.059] - 2022-07-12 00:02:43.059535 -0700 PDT m=+0.004171293
+[1][20220712000243.059] - Starting Ticker
+[2][20220712000243.059] - 2022-07-12 00:02:43.05956 -0700 PDT m=+0.004196668
+[2][20220712000243.059] - Starting Ticker
+[3][20220712000243.059] - 2022-07-12 00:02:43.059586 -0700 PDT m=+0.004222834
+[3][20220712000243.059] - Starting Ticker
+[4][20220712000243.059] - 2022-07-12 00:02:43.059607 -0700 PDT m=+0.004243709
+[4][20220712000243.059] - Starting Ticker
+Test (2B): no agreement if too many followers disconnect ...
+[0][20220712000243.059] - Checking if Leader
+[0][20220712000243.059] - Checked if Leader
+[0][20220712000243.059] - [20220712000243.059] Heartbeat [20220712000243.744] received since last sleep. Resetting timer
+[3][20220712000243.059] - Checking if Leader
+[3][20220712000243.059] - Checked if Leader
+[3][20220712000243.059] - [20220712000243.059] Heartbeat [20220712000243.678] received since last sleep. Resetting timer
+[4][20220712000243.059] - Checking if Leader
+[4][20220712000243.059] - Checked if Leader
+[4][20220712000243.059] - [20220712000243.059] Heartbeat [20220712000243.768] received since last sleep. Resetting timer
+[1][20220712000243.059] - Checking if Leader
+[1][20220712000243.059] - Checked if Leader
+[1][20220712000243.059] - [20220712000243.059] Heartbeat [20220712000243.528] received since last sleep. Resetting timer
+[2][20220712000243.059] - Checking if Leader
+[2][20220712000243.059] - Checked if Leader
+[2][20220712000243.059] - [20220712000243.059] Heartbeat [20220712000243.476] received since last sleep. Resetting timer
+[2][20220712000243.210] - Checking if Leader
+[2][20220712000243.210] - Checked if Leader
+[2][20220712000243.210] - [20220712000243.210] Heartbeat [20220712000243.476] received since last sleep. Resetting timer
+[0][20220712000243.210] - Checking if Leader
+[0][20220712000243.210] - Checked if Leader
+[0][20220712000243.210] - [20220712000243.210] Heartbeat [20220712000243.744] received since last sleep. Resetting timer
+[3][20220712000243.210] - Checking if Leader
+[3][20220712000243.210] - Checked if Leader
+[3][20220712000243.210] - [20220712000243.210] Heartbeat [20220712000243.678] received since last sleep. Resetting timer
+[1][20220712000243.210] - Checking if Leader
+[1][20220712000243.210] - Checked if Leader
+[1][20220712000243.210] - [20220712000243.210] Heartbeat [20220712000243.528] received since last sleep. Resetting timer
+[4][20220712000243.210] - Checking if Leader
+[4][20220712000243.210] - Checked if Leader
+[4][20220712000243.210] - [20220712000243.210] Heartbeat [20220712000243.768] received since last sleep. Resetting timer
+[4][20220712000243.361] - Checking if Leader
+[4][20220712000243.361] - Checked if Leader
+[4][20220712000243.361] - [20220712000243.361] Heartbeat [20220712000243.768] received since last sleep. Resetting timer
+[3][20220712000243.361] - Checking if Leader
+[3][20220712000243.361] - Checked if Leader
+[0][20220712000243.361] - Checking if Leader
+[3][20220712000243.361] - [20220712000243.361] Heartbeat [20220712000243.678] received since last sleep. Resetting timer
+[1][20220712000243.361] - Checking if Leader
+[1][20220712000243.361] - Checked if Leader
+[1][20220712000243.361] - [20220712000243.361] Heartbeat [20220712000243.528] received since last sleep. Resetting timer
+[2][20220712000243.361] - Checking if Leader
+[2][20220712000243.361] - Checked if Leader
+[2][20220712000243.361] - [20220712000243.361] Heartbeat [20220712000243.476] received since last sleep. Resetting timer
+[0][20220712000243.361] - Checked if Leader
+[0][20220712000243.361] - [20220712000243.361] Heartbeat [20220712000243.744] received since last sleep. Resetting timer
+[0][20220712000243.511] - Checking if Leader
+[0][20220712000243.511] - Checked if Leader
+[2][20220712000243.511] - Checking if Leader
+[4][20220712000243.511] - Checking if Leader
+[4][20220712000243.511] - Checked if Leader
+[4][20220712000243.511] - [20220712000243.511] Heartbeat [20220712000243.768] received since last sleep. Resetting timer
+[1][20220712000243.511] - Checking if Leader
+[1][20220712000243.511] - Checked if Leader
+[1][20220712000243.511] - [20220712000243.511] Heartbeat [20220712000243.528] received since last sleep. Resetting timer
+[2][20220712000243.511] - Checked if Leader
+[2][20220712000243.511] - [20220712000243.511] Requesting Election
+[0][20220712000243.511] - [20220712000243.511] Heartbeat [20220712000243.744] received since last sleep. Resetting timer
+[3][20220712000243.511] - Checking if Leader
+[3][20220712000243.511] - Checked if Leader
+[3][20220712000243.511] - [20220712000243.511] Heartbeat [20220712000243.678] received since last sleep. Resetting timer
+[2][20220712000243.511] - Running Election now
+[2][20220712000243.511] - It me. skipping append vote
+[2][20220712000243.511] - Vote listener thread is active and listening for more
+[2][20220712000243.511] - Starting thread to request vote for term 1 to peer idx: 1
+[2][20220712000243.511] - Starting thread to request vote for term 1 to peer idx: 0
+[2][20220712000243.511] - Starting thread to request vote for term 1 to peer idx: 4
+[2][20220712000243.511] - Starting thread to request vote for term 1 to peer idx: 3
+[3][20220712000243.512] - Vote request for term 1, candidate 2 received. Starting.
+[3][20220712000243.512] - My log []
+[3][20220712000243.512] - Vote request, terms compatible
+[3][20220712000243.512] - Candidate log term is equal. Log length 0 is higher than mine 0.
+[3][20220712000243.512] - Vote granted for 2.
+[2][20220712000243.512] - Received reply from peer idx: 3
+[2][20220712000243.512] - Successfully pushed vote to channel
+[1][20220712000243.512] - Vote request for term 1, candidate 2 received. Starting.
+[1][20220712000243.512] - My log []
+[1][20220712000243.512] - Vote request, terms compatible
+[1][20220712000243.512] - Candidate log term is equal. Log length 0 is higher than mine 0.
+[1][20220712000243.512] - Vote granted for 2.
+[4][20220712000243.512] - Vote request for term 1, candidate 2 received. Starting.
+[4][20220712000243.512] - My log []
+[4][20220712000243.512] - Vote request, terms compatible
+[4][20220712000243.512] - Candidate log term is equal. Log length 0 is higher than mine 0.
+[4][20220712000243.512] - Vote granted for 2.
+[0][20220712000243.512] - Vote request for term 1, candidate 2 received. Starting.
+[0][20220712000243.512] - My log []
+[0][20220712000243.512] - Vote request, terms compatible
+[0][20220712000243.512] - Candidate log term is equal. Log length 0 is higher than mine 0.
+[0][20220712000243.512] - Vote granted for 2.
+[2][20220712000243.512] - Received reply from peer idx: 4
+[2][20220712000243.512] - Received reply from peer idx: 1
+[2][20220712000243.512] - Processing vote reply for term {0 true}
+[2][20220712000243.512] - Vote tally for term 0: 2
+[2][20220712000243.512] - Vote listener thread is active and listening for more
+[2][20220712000243.512] - Processing vote reply for term {0 true}
+[2][20220712000243.512] - Vote tally for term 0: 3
+[2][20220712000243.512] - Won election. Switching to leader
+[2][20220712000243.512] - Received reply from peer idx: 0
+[2][20220712000243.512] - Successfully pushed vote to channel
+[2][20220712000243.512] - Running append entries process
+[2][20220712000243.512] - My log []
+[2][20220712000243.512] - Getting current commit
+[2][20220712000243.512] - It me. skipping append entry
+
+[2][20220712000243.512] - Append requester for peer 4. NextIndex [1 1 1 1 1]
+[2][20220712000243.512] - NextIndex 1
+[2][20220712000243.512] - Sending AppendEntries {1 2 0 0 -1 []} to peer 4
+[2][20220712000243.512] - Append requester for peer 1. NextIndex [1 1 1 1 1]
+[2][20220712000243.512] - NextIndex 1
+[2][20220712000243.512] - Sending AppendEntries {1 2 0 0 -1 []} to peer 1
+[2][20220712000243.512] - Append requester for peer 0. NextIndex [1 1 1 1 1]
+[2][20220712000243.512] - NextIndex 1
+[2][20220712000243.512] - Sending AppendEntries {1 2 0 0 -1 []} to peer 0
+[1][20220712000243.512] - Attempting Append with args &{1 2 0 0 -1 []}. My term 1. My prevLogTerm at index 0
+[1][20220712000243.512] - Current terms match. Checking last log term 0 vs. args 0
+[1][20220712000243.512] - Logs match sufficiently. Trying to append
+[1][20220712000243.512] - Append Finish. My log []. My CommitIndex -1
+[0][20220712000243.512] - Attempting Append with args &{1 2 0 0 -1 []}. My term 1. My prevLogTerm at index 0
+[0][20220712000243.512] - Current terms match. Checking last log term 0 vs. args 0
+[0][20220712000243.512] - Logs match sufficiently. Trying to append
+[0][20220712000243.512] - Append Finish. My log []. My CommitIndex -1
+[4][20220712000243.512] - Attempting Append with args &{1 2 0 0 -1 []}. My term 1. My prevLogTerm at index 0
+[4][20220712000243.512] - Current terms match. Checking last log term 0 vs. args 0
+[4][20220712000243.512] - Logs match sufficiently. Trying to append
+[4][20220712000243.512] - Append Finish. My log []. My CommitIndex -1
+[1][20220712000243.512] - Applying Commands from 0 to -1
+[1][20220712000243.512] - Done Applying Commands
+[4][20220712000243.512] - Applying Commands from 0 to -1
+[4][20220712000243.512] - Done Applying Commands
+[2][20220712000243.512] - Received AppendEntries reply {{1 true} 1 0 0}
+
+[2][20220712000243.512] - Append response from 1 successful
+[2][20220712000243.512] - Append requester for peer 3. NextIndex [1 1 1 1 1]
+[2][20220712000243.512] - NextIndex 1
+[2][20220712000243.512] - Peer 1 - NextIndex: 1, MatchIndex: 0
+[2][20220712000243.512] - Checking commit index
+[2][20220712000243.512] - Checking how many peers have MatchIndex at least 0, term 0
+[2][20220712000243.512] - Committed tally: 1, Checking peer 0, matchindex 0
+[2][20220712000243.512] - Committed tally: 2, Checking peer 1, matchindex 0
+[2][20220712000243.512] - Committed tally: 3, Checking peer 3, matchindex 0
+[2][20220712000243.512] - Committed tally: 4, Checking peer 4, matchindex 0
+[2][20220712000243.512] - Committed tally: 5, Highest Log Term 0, Current Term 1
+[2][20220712000243.512] - Found no valid Commit Indices
+[2][20220712000243.512] - Returning commit Index -1
+[2][20220712000243.512] - Getting current commit
+[2][20220712000243.512] - Done processing append reply
+[2][20220712000243.512] - Received AppendEntries reply {{1 true} 4 0 0}
+
+[2][20220712000243.512] - Append response from 4 successful
+[2][20220712000243.512] - Peer 4 - NextIndex: 1, MatchIndex: 0
+[2][20220712000243.512] - Checking commit index
+[2][20220712000243.512] - Checking how many peers have MatchIndex at least 0, term 0
+[2][20220712000243.512] - Committed tally: 1, Checking peer 0, matchindex 0
+[2][20220712000243.512] - Committed tally: 2, Checking peer 1, matchindex 0
+[2][20220712000243.512] - Committed tally: 3, Checking peer 3, matchindex 0
+[2][20220712000243.512] - Committed tally: 4, Checking peer 4, matchindex 0
+[2][20220712000243.512] - Committed tally: 5, Highest Log Term 0, Current Term 1
+[2][20220712000243.512] - Found no valid Commit Indices
+[2][20220712000243.512] - Returning commit Index -1
+[2][20220712000243.512] - Getting current commit
+[2][20220712000243.512] - Done processing append reply
+[2][20220712000243.512] - Received AppendEntries reply {{1 true} 0 0 0}
+
+[2][20220712000243.512] - Append response from 0 successful
+[2][20220712000243.512] - Peer 0 - NextIndex: 1, MatchIndex: 0
+[2][20220712000243.512] - Checking commit index
+[2][20220712000243.512] - Checking how many peers have MatchIndex at least 0, term 0
+[2][20220712000243.512] - Committed tally: 1, Checking peer 0, matchindex 0
+[2][20220712000243.512] - Committed tally: 2, Checking peer 1, matchindex 0
+[2][20220712000243.512] - Committed tally: 3, Checking peer 3, matchindex 0
+[2][20220712000243.512] - Committed tally: 4, Checking peer 4, matchindex 0
+[2][20220712000243.512] - Committed tally: 5, Highest Log Term 0, Current Term 1
+[2][20220712000243.512] - Found no valid Commit Indices
+[2][20220712000243.512] - Returning commit Index -1
+[2][20220712000243.512] - Getting current commit
+[2][20220712000243.512] - Done processing append reply
+[0][20220712000243.512] - Applying Commands from 0 to -1
+[0][20220712000243.512] - Done Applying Commands
+[2][20220712000243.512] - Sending AppendEntries {1 2 0 0 -1 []} to peer 3
+[3][20220712000243.513] - Attempting Append with args &{1 2 0 0 -1 []}. My term 1. My prevLogTerm at index 0
+[3][20220712000243.513] - Current terms match. Checking last log term 0 vs. args 0
+[3][20220712000243.513] - Logs match sufficiently. Trying to append
+[3][20220712000243.513] - Append Finish. My log []. My CommitIndex -1
+[2][20220712000243.513] - Received AppendEntries reply {{1 true} 3 0 0}
+
+[2][20220712000243.513] - Append response from 3 successful
+[2][20220712000243.513] - Peer 3 - NextIndex: 1, MatchIndex: 0
+[2][20220712000243.513] - Checking commit index
+[2][20220712000243.513] - Checking how many peers have MatchIndex at least 0, term 0
+[2][20220712000243.513] - Committed tally: 1, Checking peer 0, matchindex 0
+[2][20220712000243.513] - Committed tally: 2, Checking peer 1, matchindex 0
+[2][20220712000243.513] - Committed tally: 3, Checking peer 3, matchindex 0
+[2][20220712000243.513] - Committed tally: 4, Checking peer 4, matchindex 0
+[2][20220712000243.513] - Committed tally: 5, Highest Log Term 0, Current Term 1
+[2][20220712000243.513] - Found no valid Commit Indices
+[2][20220712000243.513] - Returning commit Index -1
+[2][20220712000243.513] - Getting current commit
+[2][20220712000243.513] - Done processing append reply
+[2][20220712000243.513] - All threads replied. Ending
+[3][20220712000243.513] - Applying Commands from 0 to -1
+[3][20220712000243.513] - Done Applying Commands
+[2][20220712000243.530] - ADDING REAL COMMAND 10
+[2][20220712000243.530] - My log [{10 1}]
+[2][20220712000243.530] - Running append entries process
+[2][20220712000243.530] - My log [{10 1}]
+[2][20220712000243.530] - Getting current commit
+[2][20220712000243.530] - It me. skipping append entry
+
+[2][20220712000243.530] - Append requester for peer 4. NextIndex [1 1 1 1 1]
+[2][20220712000243.530] - NextIndex 1
+[2][20220712000243.530] - Sending AppendEntries {1 2 0 0 -1 [{10 1}]} to peer 4
+[2][20220712000243.530] - Append requester for peer 1. NextIndex [1 1 1 1 1]
+[2][20220712000243.530] - NextIndex 1
+[2][20220712000243.530] - Sending AppendEntries {1 2 0 0 -1 [{10 1}]} to peer 1
+[4][20220712000243.530] - Attempting Append with args &{1 2 0 0 -1 [{10 1}]}. My term 1. My prevLogTerm at index 0
+[4][20220712000243.530] - Current terms match. Checking last log term 0 vs. args 0
+[4][20220712000243.530] - Logs match sufficiently. Trying to append
+[4][20220712000243.530] - Append Finish. My log [{10 1}]. My CommitIndex -1
+[1][20220712000243.530] - Attempting Append with args &{1 2 0 0 -1 [{10 1}]}. My term 1. My prevLogTerm at index 0
+[1][20220712000243.530] - Current terms match. Checking last log term 0 vs. args 0
+[1][20220712000243.530] - Logs match sufficiently. Trying to append
+[2][20220712000243.530] - Received AppendEntries reply {{1 true} 4 1 0}
+
+[2][20220712000243.530] - Append response from 4 successful
+[2][20220712000243.530] - Append requester for peer 0. NextIndex [1 1 1 1 1]
+[1][20220712000243.530] - Append Finish. My log [{10 1}]. My CommitIndex -1
+[2][20220712000243.530] - Append requester for peer 3. NextIndex [1 1 1 1 1]
+[2][20220712000243.530] - NextIndex 1
+[2][20220712000243.530] - Sending AppendEntries {1 2 0 0 -1 [{10 1}]} to peer 3
+[4][20220712000243.530] - Applying Commands from 0 to -1
+[4][20220712000243.530] - Done Applying Commands
+[2][20220712000243.530] - Peer 4 - NextIndex: 2, MatchIndex: 1
+[2][20220712000243.530] - Checking commit index
+[2][20220712000243.530] - Checking how many peers have MatchIndex at least 1, term 1
+[3][20220712000243.530] - Attempting Append with args &{1 2 0 0 -1 [{10 1}]}. My term 1. My prevLogTerm at index 0
+[3][20220712000243.530] - Current terms match. Checking last log term 0 vs. args 0
+[3][20220712000243.530] - Logs match sufficiently. Trying to append
+[3][20220712000243.530] - Append Finish. My log [{10 1}]. My CommitIndex -1
+[2][20220712000243.530] - Committed tally: 1, Checking peer 0, matchindex 0
+[2][20220712000243.530] - NextIndex 1
+[2][20220712000243.530] - Sending AppendEntries {1 2 0 0 -1 [{10 1}]} to peer 0
+[2][20220712000243.530] - Committed tally: 1, Checking peer 1, matchindex 0
+[2][20220712000243.531] - Committed tally: 1, Checking peer 3, matchindex 0
+[2][20220712000243.531] - Committed tally: 1, Checking peer 4, matchindex 1
+[2][20220712000243.531] - Committed tally: 2, Highest Log Term 1, Current Term 1
+[2][20220712000243.531] - Checking how many peers have MatchIndex at least 0, term 0
+[2][20220712000243.531] - Committed tally: 1, Checking peer 0, matchindex 0
+[2][20220712000243.531] - Committed tally: 2, Checking peer 1, matchindex 0
+[2][20220712000243.531] - Committed tally: 3, Checking peer 3, matchindex 0
+[2][20220712000243.531] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000243.531] - Committed tally: 5, Highest Log Term 0, Current Term 1
+[2][20220712000243.531] - Found no valid Commit Indices
+[2][20220712000243.531] - Returning commit Index -1
+[2][20220712000243.531] - Getting current commit
+[2][20220712000243.531] - Done processing append reply
+[2][20220712000243.531] - Received AppendEntries reply {{1 true} 3 1 0}
+
+[2][20220712000243.531] - Append response from 3 successful
+[2][20220712000243.531] - Peer 3 - NextIndex: 2, MatchIndex: 1
+[2][20220712000243.531] - Checking commit index
+[2][20220712000243.531] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000243.531] - Committed tally: 1, Checking peer 0, matchindex 0
+[2][20220712000243.531] - Committed tally: 1, Checking peer 1, matchindex 0
+[2][20220712000243.531] - Committed tally: 1, Checking peer 3, matchindex 1
+[2][20220712000243.531] - Committed tally: 2, Checking peer 4, matchindex 1
+[2][20220712000243.531] - Committed tally: 3, Highest Log Term 1, Current Term 1
+[2][20220712000243.531] - Found commit Index 1
+[2][20220712000243.531] - Returning commit Index 1
+[2][20220712000243.531] - Getting current commit
+[2][20220712000243.531] - Leader updating commit index from -1 to 1
+[2][20220712000243.531] - Done processing append reply
+[2][20220712000243.531] - Received AppendEntries reply {{1 true} 1 1 0}
+
+[2][20220712000243.531] - Append response from 1 successful
+[2][20220712000243.531] - Peer 1 - NextIndex: 2, MatchIndex: 1
+[2][20220712000243.531] - Checking commit index
+[2][20220712000243.531] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000243.531] - Committed tally: 1, Checking peer 0, matchindex 0
+[2][20220712000243.531] - Committed tally: 1, Checking peer 1, matchindex 1
+[2][20220712000243.531] - Committed tally: 2, Checking peer 3, matchindex 1
+[2][20220712000243.531] - Committed tally: 3, Checking peer 4, matchindex 1
+[2][20220712000243.531] - Committed tally: 4, Highest Log Term 1, Current Term 1
+[2][20220712000243.531] - Found commit Index 1
+[2][20220712000243.531] - Returning commit Index 1
+[3][20220712000243.530] - Applying Commands from 0 to -1
+[3][20220712000243.531] - Done Applying Commands
+[0][20220712000243.531] - Attempting Append with args &{1 2 0 0 -1 [{10 1}]}. My term 1. My prevLogTerm at index 0
+[0][20220712000243.531] - Current terms match. Checking last log term 0 vs. args 0
+[0][20220712000243.531] - Logs match sufficiently. Trying to append
+[0][20220712000243.531] - Append Finish. My log [{10 1}]. My CommitIndex -1
+[2][20220712000243.531] - Getting current commit
+[2][20220712000243.531] - Done processing append reply
+[2][20220712000243.531] - Applying Commands from 0 to 1
+[2][20220712000243.531] - Updated lastApplied to 1
+[2][20220712000243.531] - Done Applying Commands
+[1][20220712000243.530] - Applying Commands from 0 to -1
+[0][20220712000243.531] - Applying Commands from 0 to -1
+[0][20220712000243.531] - Done Applying Commands
+[1][20220712000243.531] - Done Applying Commands
+[2][20220712000243.531] - Received AppendEntries reply {{1 true} 0 1 0}
+
+[2][20220712000243.531] - Append response from 0 successful
+[2][20220712000243.531] - Peer 0 - NextIndex: 2, MatchIndex: 1
+[2][20220712000243.531] - Checking commit index
+[2][20220712000243.531] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000243.531] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000243.531] - Committed tally: 2, Checking peer 1, matchindex 1
+[2][20220712000243.531] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000243.531] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000243.531] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000243.531] - Found commit Index 1
+[2][20220712000243.531] - Returning commit Index 1
+[2][20220712000243.531] - Getting current commit
+[2][20220712000243.531] - Done processing append reply
+[2][20220712000243.531] - All threads replied. Ending
+[2][20220712000243.662] - Checking if Leader
+[2][20220712000243.662] - Checked if Leader
+[2][20220712000243.662] - Leader Sending Heartbeat RPC
+[2][20220712000243.662] - Running append entries process
+[2][20220712000243.662] - My log [{10 1}]
+[2][20220712000243.662] - Getting current commit
+[2][20220712000243.662] - It me. skipping append entry
+
+[2][20220712000243.662] - Append requester for peer 4. NextIndex [2 2 1 2 2]
+[2][20220712000243.662] - NextIndex 2
+[2][20220712000243.662] - Sending AppendEntries {1 2 1 1 1 []} to peer 4
+[4][20220712000243.662] - Attempting Append with args &{1 2 1 1 1 []}. My term 1. My prevLogTerm at index 1
+[4][20220712000243.662] - Current terms match. Checking last log term 1 vs. args 1
+[4][20220712000243.662] - Logs match sufficiently. Trying to append
+[4][20220712000243.662] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[2][20220712000243.662] - Received AppendEntries reply {{1 true} 4 0 1}
+
+[2][20220712000243.662] - Append response from 4 successful
+[2][20220712000243.662] - Peer 4 - NextIndex: 2, MatchIndex: 1
+[2][20220712000243.662] - Checking commit index
+[2][20220712000243.662] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000243.662] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000243.662] - Committed tally: 2, Checking peer 1, matchindex 1
+[2][20220712000243.662] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000243.662] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000243.662] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000243.662] - Found commit Index 1
+[2][20220712000243.662] - Returning commit Index 1
+[2][20220712000243.662] - Getting current commit
+[2][20220712000243.662] - Done processing append reply
+[4][20220712000243.662] - Checking if Leader
+[4][20220712000243.662] - Checked if Leader
+[4][20220712000243.662] - [20220712000243.662] Heartbeat [20220712000244.131] received since last sleep. Resetting timer
+[1][20220712000243.662] - Checking if Leader
+[1][20220712000243.662] - Checked if Leader
+[1][20220712000243.662] - [20220712000243.662] Heartbeat [20220712000243.933] received since last sleep. Resetting timer
+[2][20220712000243.662] - Append requester for peer 0. NextIndex [2 2 1 2 2]
+[2][20220712000243.662] - NextIndex 2
+[2][20220712000243.662] - Sending AppendEntries {1 2 1 1 1 []} to peer 0
+[0][20220712000243.662] - Attempting Append with args &{1 2 1 1 1 []}. My term 1. My prevLogTerm at index 1
+[0][20220712000243.662] - Current terms match. Checking last log term 1 vs. args 1
+[0][20220712000243.662] - Logs match sufficiently. Trying to append
+[0][20220712000243.662] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[2][20220712000243.662] - Received AppendEntries reply {{1 true} 0 0 1}
+
+[2][20220712000243.662] - Append response from 0 successful
+[2][20220712000243.662] - Peer 0 - NextIndex: 2, MatchIndex: 1
+[2][20220712000243.662] - Checking commit index
+[2][20220712000243.662] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000243.662] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000243.662] - Committed tally: 2, Checking peer 1, matchindex 1
+[2][20220712000243.662] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000243.662] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000243.662] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000243.662] - Found commit Index 1
+[2][20220712000243.662] - Returning commit Index 1
+[2][20220712000243.662] - Getting current commit
+[2][20220712000243.662] - Done processing append reply
+[2][20220712000243.662] - Append requester for peer 1. NextIndex [2 2 1 2 2]
+[2][20220712000243.662] - NextIndex 2
+[2][20220712000243.662] - Sending AppendEntries {1 2 1 1 1 []} to peer 1
+[1][20220712000243.662] - Attempting Append with args &{1 2 1 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000243.662] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000243.662] - Logs match sufficiently. Trying to append
+[1][20220712000243.662] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[2][20220712000243.662] - Received AppendEntries reply {{1 true} 1 0 1}
+
+[2][20220712000243.662] - Append response from 1 successful
+[2][20220712000243.662] - Peer 1 - NextIndex: 2, MatchIndex: 1
+[2][20220712000243.662] - Checking commit index
+[2][20220712000243.662] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000243.662] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000243.662] - Committed tally: 2, Checking peer 1, matchindex 1
+[2][20220712000243.662] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000243.662] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000243.662] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000243.662] - Found commit Index 1
+[2][20220712000243.662] - Returning commit Index 1
+[2][20220712000243.662] - Getting current commit
+[2][20220712000243.662] - Done processing append reply
+[2][20220712000243.662] - Append requester for peer 3. NextIndex [2 2 1 2 2]
+[2][20220712000243.662] - NextIndex 2
+[0][20220712000243.663] - Applying Commands from 0 to 1
+[0][20220712000243.663] - Updated lastApplied to 1
+[0][20220712000243.663] - Done Applying Commands
+[4][20220712000243.663] - Applying Commands from 0 to 1
+[4][20220712000243.663] - Updated lastApplied to 1
+[4][20220712000243.663] - Done Applying Commands
+[1][20220712000243.663] - Applying Commands from 0 to 1
+[1][20220712000243.663] - Updated lastApplied to 1
+[1][20220712000243.663] - Done Applying Commands
+[3][20220712000243.663] - Checking if Leader
+[3][20220712000243.663] - Checked if Leader
+[3][20220712000243.663] - [20220712000243.663] Heartbeat [20220712000244.035] received since last sleep. Resetting timer
+[0][20220712000243.663] - Checking if Leader
+[0][20220712000243.663] - Checked if Leader
+[0][20220712000243.663] - [20220712000243.663] Heartbeat [20220712000244.135] received since last sleep. Resetting timer
+[2][20220712000243.663] - Sending AppendEntries {1 2 1 1 1 []} to peer 3
+[3][20220712000243.663] - Attempting Append with args &{1 2 1 1 1 []}. My term 1. My prevLogTerm at index 1
+[3][20220712000243.663] - Current terms match. Checking last log term 1 vs. args 1
+[3][20220712000243.663] - Logs match sufficiently. Trying to append
+[3][20220712000243.663] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[2][20220712000243.664] - Received AppendEntries reply {{1 true} 3 0 1}
+
+[2][20220712000243.664] - Append response from 3 successful
+[2][20220712000243.664] - Peer 3 - NextIndex: 2, MatchIndex: 1
+[2][20220712000243.664] - Checking commit index
+[2][20220712000243.664] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000243.664] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000243.664] - Committed tally: 2, Checking peer 1, matchindex 1
+[2][20220712000243.664] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000243.664] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000243.664] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000243.664] - Found commit Index 1
+[2][20220712000243.664] - Returning commit Index 1
+[2][20220712000243.664] - Getting current commit
+[2][20220712000243.664] - Done processing append reply
+[2][20220712000243.664] - All threads replied. Ending
+[3][20220712000243.664] - Applying Commands from 0 to 1
+[3][20220712000243.664] - Updated lastApplied to 1
+[3][20220712000243.664] - Done Applying Commands
+[1][20220712000243.812] - Checking if Leader
+[1][20220712000243.813] - Checked if Leader
+[1][20220712000243.813] - [20220712000243.813] Heartbeat [20220712000244.297] received since last sleep. Resetting timer
+[4][20220712000243.812] - Checking if Leader
+[4][20220712000243.813] - Checked if Leader
+[4][20220712000243.813] - [20220712000243.813] Heartbeat [20220712000244.131] received since last sleep. Resetting timer
+[2][20220712000243.812] - Checking if Leader
+[2][20220712000243.813] - Checked if Leader
+[2][20220712000243.813] - Leader Sending Heartbeat RPC
+[2][20220712000243.813] - Running append entries process
+[2][20220712000243.813] - My log [{10 1}]
+[2][20220712000243.813] - Getting current commit
+[2][20220712000243.813] - It me. skipping append entry
+
+[2][20220712000243.813] - Append requester for peer 4. NextIndex [2 2 1 2 2]
+[2][20220712000243.813] - NextIndex 2
+[2][20220712000243.813] - Sending AppendEntries {1 2 1 1 1 []} to peer 4
+[4][20220712000243.813] - Attempting Append with args &{1 2 1 1 1 []}. My term 1. My prevLogTerm at index 1
+[4][20220712000243.813] - Current terms match. Checking last log term 1 vs. args 1
+[4][20220712000243.813] - Logs match sufficiently. Trying to append
+[4][20220712000243.813] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[2][20220712000243.813] - Received AppendEntries reply {{1 true} 4 0 1}
+
+[2][20220712000243.813] - Append response from 4 successful
+[2][20220712000243.813] - Peer 4 - NextIndex: 2, MatchIndex: 1
+[2][20220712000243.813] - Checking commit index
+[2][20220712000243.813] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000243.813] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000243.813] - Committed tally: 2, Checking peer 1, matchindex 1
+[2][20220712000243.813] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000243.813] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000243.813] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000243.813] - Found commit Index 1
+[2][20220712000243.813] - Returning commit Index 1
+[2][20220712000243.813] - Getting current commit
+[2][20220712000243.813] - Done processing append reply
+[2][20220712000243.813] - Append requester for peer 0. NextIndex [2 2 1 2 2]
+[2][20220712000243.813] - NextIndex 2
+[2][20220712000243.813] - Sending AppendEntries {1 2 1 1 1 []} to peer 0
+[0][20220712000243.813] - Attempting Append with args &{1 2 1 1 1 []}. My term 1. My prevLogTerm at index 1
+[0][20220712000243.813] - Current terms match. Checking last log term 1 vs. args 1
+[0][20220712000243.813] - Logs match sufficiently. Trying to append
+[0][20220712000243.813] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[2][20220712000243.813] - Received AppendEntries reply {{1 true} 0 0 1}
+
+[4][20220712000243.813] - Applying Commands from 1 to 1
+[0][20220712000243.813] - Applying Commands from 1 to 1
+[0][20220712000243.813] - Done Applying Commands
+[4][20220712000243.813] - Done Applying Commands
+[2][20220712000243.813] - Append response from 0 successful
+[0][20220712000243.813] - Checking if Leader
+[0][20220712000243.813] - Checked if Leader
+[0][20220712000243.813] - [20220712000243.813] Heartbeat [20220712000244.459] received since last sleep. Resetting timer
+[3][20220712000243.813] - Checking if Leader
+[3][20220712000243.813] - Checked if Leader
+[3][20220712000243.813] - [20220712000243.813] Heartbeat [20220712000243.919] received since last sleep. Resetting timer
+[2][20220712000243.813] - Append requester for peer 3. NextIndex [2 2 1 2 2]
+[2][20220712000243.813] - NextIndex 2
+[2][20220712000243.813] - Sending AppendEntries {1 2 1 1 1 []} to peer 3
+[2][20220712000243.813] - Append requester for peer 1. NextIndex [2 2 1 2 2]
+[2][20220712000243.813] - NextIndex 2
+[2][20220712000243.813] - Sending AppendEntries {1 2 1 1 1 []} to peer 1
+[3][20220712000243.813] - Attempting Append with args &{1 2 1 1 1 []}. My term 1. My prevLogTerm at index 1
+[3][20220712000243.814] - Current terms match. Checking last log term 1 vs. args 1
+[3][20220712000243.814] - Logs match sufficiently. Trying to append
+[3][20220712000243.814] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[2][20220712000243.814] - Peer 0 - NextIndex: 2, MatchIndex: 1
+[2][20220712000243.814] - Checking commit index
+[2][20220712000243.814] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000243.814] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000243.814] - Committed tally: 2, Checking peer 1, matchindex 1
+[2][20220712000243.814] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000243.814] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000243.814] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000243.814] - Found commit Index 1
+[2][20220712000243.814] - Returning commit Index 1
+[2][20220712000243.814] - Getting current commit
+[2][20220712000243.814] - Done processing append reply
+[1][20220712000243.814] - Attempting Append with args &{1 2 1 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000243.814] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000243.814] - Logs match sufficiently. Trying to append
+[1][20220712000243.814] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[2][20220712000243.814] - Received AppendEntries reply {{1 true} 3 0 1}
+
+[2][20220712000243.814] - Append response from 3 successful
+[1][20220712000243.814] - Applying Commands from 1 to 1
+[1][20220712000243.814] - Done Applying Commands
+[3][20220712000243.814] - Applying Commands from 1 to 1
+[3][20220712000243.814] - Done Applying Commands
+[2][20220712000243.814] - Peer 3 - NextIndex: 2, MatchIndex: 1
+[2][20220712000243.814] - Checking commit index
+[2][20220712000243.814] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000243.814] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000243.814] - Committed tally: 2, Checking peer 1, matchindex 1
+[2][20220712000243.814] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000243.814] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000243.814] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000243.814] - Found commit Index 1
+[2][20220712000243.814] - Returning commit Index 1
+[2][20220712000243.814] - Getting current commit
+[2][20220712000243.814] - Done processing append reply
+[2][20220712000243.814] - Received AppendEntries reply {{1 true} 1 0 1}
+
+[2][20220712000243.814] - Append response from 1 successful
+[2][20220712000243.814] - Peer 1 - NextIndex: 2, MatchIndex: 1
+[2][20220712000243.814] - Checking commit index
+[2][20220712000243.814] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000243.814] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000243.814] - Committed tally: 2, Checking peer 1, matchindex 1
+[2][20220712000243.814] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000243.814] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000243.814] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000243.814] - Found commit Index 1
+[2][20220712000243.814] - Returning commit Index 1
+[2][20220712000243.814] - Getting current commit
+[2][20220712000243.814] - Done processing append reply
+[2][20220712000243.814] - All threads replied. Ending
+[4][20220712000243.964] - Checking if Leader
+[4][20220712000243.964] - Checked if Leader
+[4][20220712000243.964] - [20220712000243.964] Heartbeat [20220712000244.286] received since last sleep. Resetting timer
+[0][20220712000243.964] - Checking if Leader
+[0][20220712000243.964] - Checked if Leader
+[0][20220712000243.964] - [20220712000243.964] Heartbeat [20220712000244.459] received since last sleep. Resetting timer
+[2][20220712000243.964] - Checking if Leader
+[2][20220712000243.964] - Checked if Leader
+[2][20220712000243.964] - Leader Sending Heartbeat RPC
+[3][20220712000243.964] - Checking if Leader
+[3][20220712000243.964] - Checked if Leader
+[3][20220712000243.964] - [20220712000243.964] Heartbeat [20220712000244.077] received since last sleep. Resetting timer
+[2][20220712000243.964] - Running append entries process
+[2][20220712000243.964] - My log [{10 1}]
+[1][20220712000243.964] - Checking if Leader
+[1][20220712000243.964] - Checked if Leader
+[1][20220712000243.964] - [20220712000243.964] Heartbeat [20220712000244.435] received since last sleep. Resetting timer
+[2][20220712000243.964] - Getting current commit
+[2][20220712000243.964] - It me. skipping append entry
+
+[2][20220712000243.964] - Append requester for peer 4. NextIndex [2 2 1 2 2]
+[2][20220712000243.964] - NextIndex 2
+[2][20220712000243.964] - Sending AppendEntries {1 2 1 1 1 []} to peer 4
+[2][20220712000243.964] - Append requester for peer 0. NextIndex [2 2 1 2 2]
+[2][20220712000243.964] - NextIndex 2
+[2][20220712000243.964] - Append requester for peer 3. NextIndex [2 2 1 2 2]
+[2][20220712000243.964] - NextIndex 2
+[2][20220712000243.964] - Sending AppendEntries {1 2 1 1 1 []} to peer 3
+[2][20220712000243.964] - Sending AppendEntries {1 2 1 1 1 []} to peer 0
+[3][20220712000243.964] - Attempting Append with args &{1 2 1 1 1 []}. My term 1. My prevLogTerm at index 1
+[3][20220712000243.964] - Current terms match. Checking last log term 1 vs. args 1
+[3][20220712000243.964] - Logs match sufficiently. Trying to append
+[3][20220712000243.964] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[2][20220712000243.964] - Append requester for peer 1. NextIndex [2 2 1 2 2]
+[4][20220712000243.964] - Attempting Append with args &{1 2 1 1 1 []}. My term 1. My prevLogTerm at index 1
+[4][20220712000243.964] - Current terms match. Checking last log term 1 vs. args 1
+[4][20220712000243.964] - Logs match sufficiently. Trying to append
+[4][20220712000243.964] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[3][20220712000243.964] - Applying Commands from 1 to 1
+[3][20220712000243.964] - Done Applying Commands
+[0][20220712000243.964] - Attempting Append with args &{1 2 1 1 1 []}. My term 1. My prevLogTerm at index 1
+[0][20220712000243.964] - Current terms match. Checking last log term 1 vs. args 1
+[0][20220712000243.964] - Logs match sufficiently. Trying to append
+[0][20220712000243.964] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[2][20220712000243.964] - NextIndex 2
+[0][20220712000243.964] - Applying Commands from 1 to 1
+[0][20220712000243.964] - Done Applying Commands
+[2][20220712000243.964] - Sending AppendEntries {1 2 1 1 1 []} to peer 1
+[2][20220712000243.964] - Received AppendEntries reply {{1 true} 3 0 1}
+
+[2][20220712000243.964] - Append response from 3 successful
+[2][20220712000243.964] - Peer 3 - NextIndex: 2, MatchIndex: 1
+[2][20220712000243.964] - Checking commit index
+[2][20220712000243.964] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000243.964] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000243.964] - Committed tally: 2, Checking peer 1, matchindex 1
+[1][20220712000243.964] - Attempting Append with args &{1 2 1 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000243.964] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000243.964] - Logs match sufficiently. Trying to append
+[1][20220712000243.964] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[2][20220712000243.964] - Committed tally: 3, Checking peer 3, matchindex 1
+[4][20220712000243.964] - Applying Commands from 1 to 1
+[4][20220712000243.964] - Done Applying Commands
+[1][20220712000243.964] - Applying Commands from 1 to 1
+[1][20220712000243.964] - Done Applying Commands
+[2][20220712000243.964] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000243.964] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000243.964] - Found commit Index 1
+[2][20220712000243.964] - Returning commit Index 1
+[2][20220712000243.964] - Getting current commit
+[2][20220712000243.964] - Done processing append reply
+[2][20220712000243.964] - Received AppendEntries reply {{1 true} 4 0 1}
+
+[2][20220712000243.964] - Append response from 4 successful
+[2][20220712000243.964] - Peer 4 - NextIndex: 2, MatchIndex: 1
+[2][20220712000243.964] - Checking commit index
+[2][20220712000243.964] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000243.964] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000243.964] - Committed tally: 2, Checking peer 1, matchindex 1
+[2][20220712000243.964] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000243.964] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000243.964] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000243.964] - Found commit Index 1
+[2][20220712000243.964] - Returning commit Index 1
+[2][20220712000243.964] - Getting current commit
+[2][20220712000243.964] - Done processing append reply
+[2][20220712000243.964] - Received AppendEntries reply {{1 true} 0 0 1}
+
+[2][20220712000243.964] - Append response from 0 successful
+[2][20220712000243.964] - Peer 0 - NextIndex: 2, MatchIndex: 1
+[2][20220712000243.964] - Checking commit index
+[2][20220712000243.964] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000243.964] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000243.964] - Committed tally: 2, Checking peer 1, matchindex 1
+[2][20220712000243.964] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000243.964] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000243.964] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000243.964] - Found commit Index 1
+[2][20220712000243.964] - Returning commit Index 1
+[2][20220712000243.964] - Getting current commit
+[2][20220712000243.964] - Done processing append reply
+[2][20220712000243.964] - Received AppendEntries reply {{1 true} 1 0 1}
+
+[2][20220712000243.964] - Append response from 1 successful
+[2][20220712000243.964] - Peer 1 - NextIndex: 2, MatchIndex: 1
+[2][20220712000243.964] - Checking commit index
+[2][20220712000243.964] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000243.964] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000243.964] - Committed tally: 2, Checking peer 1, matchindex 1
+[2][20220712000243.964] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000243.964] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000243.964] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000243.964] - Found commit Index 1
+[2][20220712000243.964] - Returning commit Index 1
+[2][20220712000243.964] - Getting current commit
+[2][20220712000243.964] - Done processing append reply
+[2][20220712000243.964] - All threads replied. Ending
+[1][20220712000244.115] - Checking if Leader
+[1][20220712000244.115] - Checked if Leader
+[0][20220712000244.115] - Checking if Leader
+[1][20220712000244.115] - [20220712000244.115] Heartbeat [20220712000244.336] received since last sleep. Resetting timer
+[3][20220712000244.115] - Checking if Leader
+[3][20220712000244.115] - Checked if Leader
+[3][20220712000244.115] - [20220712000244.115] Heartbeat [20220712000244.336] received since last sleep. Resetting timer
+[4][20220712000244.115] - Checking if Leader
+[4][20220712000244.115] - Checked if Leader
+[4][20220712000244.115] - [20220712000244.115] Heartbeat [20220712000244.220] received since last sleep. Resetting timer
+[0][20220712000244.115] - Checked if Leader
+[0][20220712000244.115] - [20220712000244.115] Heartbeat [20220712000244.597] received since last sleep. Resetting timer
+[2][20220712000244.115] - Checking if Leader
+[2][20220712000244.115] - Checked if Leader
+[2][20220712000244.115] - Leader Sending Heartbeat RPC
+[2][20220712000244.115] - Running append entries process
+[2][20220712000244.115] - My log [{10 1}]
+[2][20220712000244.115] - Getting current commit
+[2][20220712000244.115] - It me. skipping append entry
+
+[2][20220712000244.115] - Append requester for peer 4. NextIndex [2 2 1 2 2]
+[2][20220712000244.115] - NextIndex 2
+[2][20220712000244.115] - Sending AppendEntries {1 2 1 1 1 []} to peer 4
+[2][20220712000244.115] - Append requester for peer 1. NextIndex [2 2 1 2 2]
+[2][20220712000244.115] - NextIndex 2
+[2][20220712000244.115] - Sending AppendEntries {1 2 1 1 1 []} to peer 1
+[2][20220712000244.115] - Append requester for peer 0. NextIndex [2 2 1 2 2]
+[2][20220712000244.115] - NextIndex 2
+[1][20220712000244.115] - Attempting Append with args &{1 2 1 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000244.115] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000244.115] - Logs match sufficiently. Trying to append
+[1][20220712000244.115] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[4][20220712000244.115] - Attempting Append with args &{1 2 1 1 1 []}. My term 1. My prevLogTerm at index 1
+[2][20220712000244.115] - Append requester for peer 3. NextIndex [2 2 1 2 2]
+[2][20220712000244.115] - NextIndex 2
+[2][20220712000244.115] - Sending AppendEntries {1 2 1 1 1 []} to peer 3
+[1][20220712000244.115] - Applying Commands from 1 to 1
+[1][20220712000244.115] - Done Applying Commands
+[4][20220712000244.115] - Current terms match. Checking last log term 1 vs. args 1
+[4][20220712000244.115] - Logs match sufficiently. Trying to append
+[4][20220712000244.115] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[2][20220712000244.115] - Received AppendEntries reply {{1 true} 1 0 1}
+
+[2][20220712000244.115] - Append response from 1 successful
+[2][20220712000244.115] - Peer 1 - NextIndex: 2, MatchIndex: 1
+[2][20220712000244.115] - Checking commit index
+[4][20220712000244.115] - Applying Commands from 1 to 1
+[4][20220712000244.115] - Done Applying Commands
+[2][20220712000244.115] - Sending AppendEntries {1 2 1 1 1 []} to peer 0
+[2][20220712000244.115] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000244.115] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000244.115] - Committed tally: 2, Checking peer 1, matchindex 1
+[2][20220712000244.115] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000244.115] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000244.115] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000244.115] - Found commit Index 1
+[2][20220712000244.115] - Returning commit Index 1
+[2][20220712000244.115] - Getting current commit
+[2][20220712000244.115] - Done processing append reply
+[2][20220712000244.115] - Received AppendEntries reply {{1 true} 4 0 1}
+
+[2][20220712000244.115] - Append response from 4 successful
+[2][20220712000244.115] - Peer 4 - NextIndex: 2, MatchIndex: 1
+[2][20220712000244.115] - Checking commit index
+[2][20220712000244.115] - Checking how many peers have MatchIndex at least 1, term 1
+[0][20220712000244.115] - Attempting Append with args &{1 2 1 1 1 []}. My term 1. My prevLogTerm at index 1
+[0][20220712000244.115] - Current terms match. Checking last log term 1 vs. args 1
+[0][20220712000244.115] - Logs match sufficiently. Trying to append
+[0][20220712000244.115] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[3][20220712000244.115] - Attempting Append with args &{1 2 1 1 1 []}. My term 1. My prevLogTerm at index 1
+[3][20220712000244.115] - Current terms match. Checking last log term 1 vs. args 1
+[3][20220712000244.115] - Logs match sufficiently. Trying to append
+[3][20220712000244.115] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[2][20220712000244.115] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000244.115] - Committed tally: 2, Checking peer 1, matchindex 1
+[2][20220712000244.115] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000244.115] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000244.115] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000244.115] - Found commit Index 1
+[2][20220712000244.115] - Returning commit Index 1
+[2][20220712000244.115] - Getting current commit
+[2][20220712000244.115] - Done processing append reply
+[0][20220712000244.115] - Applying Commands from 1 to 1
+[0][20220712000244.115] - Done Applying Commands
+[2][20220712000244.115] - Received AppendEntries reply {{1 true} 0 0 1}
+
+[2][20220712000244.115] - Append response from 0 successful
+[2][20220712000244.115] - Peer 0 - NextIndex: 2, MatchIndex: 1
+[2][20220712000244.115] - Checking commit index
+[2][20220712000244.115] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000244.115] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000244.115] - Committed tally: 2, Checking peer 1, matchindex 1
+[2][20220712000244.115] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000244.115] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000244.115] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000244.115] - Found commit Index 1
+[2][20220712000244.115] - Returning commit Index 1
+[2][20220712000244.115] - Getting current commit
+[2][20220712000244.115] - Done processing append reply
+[2][20220712000244.115] - Received AppendEntries reply {{1 true} 3 0 1}
+
+[2][20220712000244.115] - Append response from 3 successful
+[2][20220712000244.115] - Peer 3 - NextIndex: 2, MatchIndex: 1
+[2][20220712000244.115] - Checking commit index
+[2][20220712000244.115] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000244.115] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000244.115] - Committed tally: 2, Checking peer 1, matchindex 1
+[2][20220712000244.115] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000244.115] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000244.115] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000244.115] - Found commit Index 1
+[2][20220712000244.115] - Returning commit Index 1
+[2][20220712000244.115] - Getting current commit
+[2][20220712000244.115] - Done processing append reply
+[2][20220712000244.115] - All threads replied. Ending
+[3][20220712000244.115] - Applying Commands from 1 to 1
+[3][20220712000244.115] - Done Applying Commands
+[2][20220712000244.213] - ADDING REAL COMMAND 20
+[2][20220712000244.213] - My log [{10 1} {20 1}]
+[2][20220712000244.213] - Running append entries process
+[2][20220712000244.213] - My log [{10 1} {20 1}]
+[2][20220712000244.213] - Getting current commit
+[2][20220712000244.213] - It me. skipping append entry
+
+[2][20220712000244.213] - Append requester for peer 4. NextIndex [2 2 1 2 2]
+[2][20220712000244.213] - NextIndex 2
+[2][20220712000244.213] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 4
+[2][20220712000244.213] - Append requester for peer 1. NextIndex [2 2 1 2 2]
+[2][20220712000244.213] - NextIndex 2
+[2][20220712000244.213] - Append requester for peer 3. NextIndex [2 2 1 2 2]
+[2][20220712000244.213] - NextIndex 2
+[2][20220712000244.213] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 1
+[2][20220712000244.213] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 3
+[2][20220712000244.214] - Append requester for peer 0. NextIndex [2 2 1 2 2]
+[2][20220712000244.214] - NextIndex 2
+[2][20220712000244.214] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 0
+[1][20220712000244.214] - Attempting Append with args &{1 2 1 1 1 [{20 1}]}. My term 1. My prevLogTerm at index 1
+[1][20220712000244.214] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000244.214] - Logs match sufficiently. Trying to append
+[1][20220712000244.214] - Append Finish. My log [{10 1} {20 1}]. My CommitIndex 1
+[1][20220712000244.214] - Applying Commands from 1 to 1
+[1][20220712000244.214] - Done Applying Commands
+[2][20220712000244.214] - Received AppendEntries reply {{1 true} 1 1 1}
+
+[2][20220712000244.214] - Append response from 1 successful
+[2][20220712000244.214] - Peer 1 - NextIndex: 3, MatchIndex: 2
+[2][20220712000244.214] - Checking commit index
+[2][20220712000244.214] - Checking how many peers have MatchIndex at least 2, term 1
+[2][20220712000244.214] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000244.214] - Committed tally: 1, Checking peer 1, matchindex 2
+[2][20220712000244.214] - Committed tally: 2, Checking peer 3, matchindex 1
+[2][20220712000244.214] - Committed tally: 2, Checking peer 4, matchindex 1
+[2][20220712000244.214] - Committed tally: 2, Highest Log Term 1, Current Term 1
+[2][20220712000244.214] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000244.214] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000244.214] - Committed tally: 2, Checking peer 1, matchindex 2
+[2][20220712000244.214] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000244.214] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000244.214] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000244.214] - Found commit Index 1
+[2][20220712000244.214] - Returning commit Index 1
+[2][20220712000244.214] - Getting current commit
+[2][20220712000244.214] - Done processing append reply
+[2][20220712000244.266] - Checking if Leader
+[2][20220712000244.266] - Checked if Leader
+[2][20220712000244.266] - Leader Sending Heartbeat RPC
+[1][20220712000244.266] - Checking if Leader
+[2][20220712000244.266] - Running append entries process
+[3][20220712000244.266] - Checking if Leader
+[3][20220712000244.266] - Checked if Leader
+[2][20220712000244.266] - My log [{10 1} {20 1}]
+[2][20220712000244.266] - Getting current commit
+[2][20220712000244.266] - It me. skipping append entry
+
+[2][20220712000244.266] - Append requester for peer 4. NextIndex [2 3 1 2 2]
+[2][20220712000244.266] - NextIndex 2
+[2][20220712000244.266] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 4
+[2][20220712000244.266] - Append requester for peer 1. NextIndex [2 3 1 2 2]
+[2][20220712000244.266] - NextIndex 3
+[2][20220712000244.266] - Sending AppendEntries {1 2 2 1 1 []} to peer 1
+[0][20220712000244.266] - Checking if Leader
+[0][20220712000244.266] - Checked if Leader
+[0][20220712000244.266] - [20220712000244.266] Heartbeat [20220712000244.756] received since last sleep. Resetting timer
+[3][20220712000244.266] - [20220712000244.266] Heartbeat [20220712000244.612] received since last sleep. Resetting timer
+[1][20220712000244.266] - Checked if Leader
+[1][20220712000244.266] - [20220712000244.266] Heartbeat [20220712000244.867] received since last sleep. Resetting timer
+[4][20220712000244.266] - Checking if Leader
+[2][20220712000244.266] - Append requester for peer 0. NextIndex [2 3 1 2 2]
+[2][20220712000244.266] - NextIndex 2
+[4][20220712000244.266] - Checked if Leader
+[4][20220712000244.266] - [20220712000244.266] Heartbeat [20220712000244.467] received since last sleep. Resetting timer
+[2][20220712000244.266] - Append requester for peer 3. NextIndex [2 3 1 2 2]
+[2][20220712000244.266] - NextIndex 2
+[2][20220712000244.266] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 3
+[2][20220712000244.266] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 0
+[1][20220712000244.266] - Attempting Append with args &{1 2 2 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000244.266] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000244.266] - Logs match sufficiently. Trying to append
+[1][20220712000244.266] - Append Finish. My log [{10 1} {20 1}]. My CommitIndex 1
+[1][20220712000244.266] - Applying Commands from 1 to 1
+[1][20220712000244.266] - Done Applying Commands
+[2][20220712000244.266] - Received AppendEntries reply {{1 true} 1 0 2}
+
+[2][20220712000244.266] - Append response from 1 successful
+[2][20220712000244.266] - Peer 1 - NextIndex: 3, MatchIndex: 2
+[2][20220712000244.266] - Checking commit index
+[2][20220712000244.266] - Checking how many peers have MatchIndex at least 2, term 1
+[2][20220712000244.266] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000244.266] - Committed tally: 1, Checking peer 1, matchindex 2
+[2][20220712000244.266] - Committed tally: 2, Checking peer 3, matchindex 1
+[2][20220712000244.266] - Committed tally: 2, Checking peer 4, matchindex 1
+[2][20220712000244.266] - Committed tally: 2, Highest Log Term 1, Current Term 1
+[2][20220712000244.266] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000244.266] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000244.266] - Committed tally: 2, Checking peer 1, matchindex 2
+[2][20220712000244.266] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000244.266] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000244.266] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000244.266] - Found commit Index 1
+[2][20220712000244.266] - Returning commit Index 1
+[2][20220712000244.266] - Getting current commit
+[2][20220712000244.266] - Done processing append reply
+[1][20220712000244.416] - Checking if Leader
+[1][20220712000244.416] - Checked if Leader
+[1][20220712000244.416] - [20220712000244.416] Heartbeat [20220712000244.695] received since last sleep. Resetting timer
+[2][20220712000244.416] - Checking if Leader
+[2][20220712000244.416] - Checked if Leader
+[2][20220712000244.416] - Leader Sending Heartbeat RPC
+[2][20220712000244.416] - Running append entries process
+[2][20220712000244.416] - My log [{10 1} {20 1}]
+[2][20220712000244.416] - Getting current commit
+[2][20220712000244.416] - It me. skipping append entry
+
+[2][20220712000244.416] - Append requester for peer 4. NextIndex [2 3 1 2 2]
+[2][20220712000244.416] - NextIndex 2
+[2][20220712000244.416] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 4
+[0][20220712000244.416] - Checking if Leader
+[0][20220712000244.416] - Checked if Leader
+[0][20220712000244.416] - [20220712000244.416] Heartbeat [20220712000244.756] received since last sleep. Resetting timer
+[3][20220712000244.416] - Checking if Leader
+[3][20220712000244.416] - Checked if Leader
+[3][20220712000244.416] - [20220712000244.416] Heartbeat [20220712000244.612] received since last sleep. Resetting timer
+[2][20220712000244.416] - Append requester for peer 0. NextIndex [2 3 1 2 2]
+[2][20220712000244.416] - NextIndex 2
+[2][20220712000244.416] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 0
+[2][20220712000244.416] - Append requester for peer 1. NextIndex [2 3 1 2 2]
+[2][20220712000244.416] - NextIndex 3
+[2][20220712000244.416] - Sending AppendEntries {1 2 2 1 1 []} to peer 1
+[1][20220712000244.416] - Attempting Append with args &{1 2 2 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000244.416] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000244.416] - Logs match sufficiently. Trying to append
+[1][20220712000244.416] - Append Finish. My log [{10 1} {20 1}]. My CommitIndex 1
+[2][20220712000244.416] - Received AppendEntries reply {{1 true} 1 0 2}
+
+[2][20220712000244.416] - Append response from 1 successful
+[2][20220712000244.416] - Peer 1 - NextIndex: 3, MatchIndex: 2
+[2][20220712000244.416] - Checking commit index
+[2][20220712000244.416] - Checking how many peers have MatchIndex at least 2, term 1
+[2][20220712000244.416] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000244.416] - Committed tally: 1, Checking peer 1, matchindex 2
+[2][20220712000244.416] - Committed tally: 2, Checking peer 3, matchindex 1
+[2][20220712000244.416] - Committed tally: 2, Checking peer 4, matchindex 1
+[2][20220712000244.416] - Committed tally: 2, Highest Log Term 1, Current Term 1
+[2][20220712000244.416] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000244.416] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000244.416] - Committed tally: 2, Checking peer 1, matchindex 2
+[2][20220712000244.416] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000244.416] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000244.416] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000244.416] - Found commit Index 1
+[2][20220712000244.416] - Returning commit Index 1
+[2][20220712000244.416] - Getting current commit
+[2][20220712000244.416] - Done processing append reply
+[2][20220712000244.416] - Append requester for peer 3. NextIndex [2 3 1 2 2]
+[2][20220712000244.416] - NextIndex 2
+[2][20220712000244.416] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 3
+[1][20220712000244.416] - Applying Commands from 1 to 1
+[1][20220712000244.416] - Done Applying Commands
+[4][20220712000244.416] - Checking if Leader
+[4][20220712000244.416] - Checked if Leader
+[4][20220712000244.416] - [20220712000244.416] Heartbeat [20220712000244.467] received since last sleep. Resetting timer
+[2][20220712000244.566] - Checking if Leader
+[2][20220712000244.566] - Checked if Leader
+[2][20220712000244.566] - Leader Sending Heartbeat RPC
+[2][20220712000244.566] - Running append entries process
+[2][20220712000244.566] - My log [{10 1} {20 1}]
+[2][20220712000244.566] - Getting current commit
+[2][20220712000244.566] - It me. skipping append entry
+
+[4][20220712000244.566] - Checking if Leader
+[4][20220712000244.566] - Checked if Leader
+[4][20220712000244.566] - [20220712000244.566] Requesting Election
+[4][20220712000244.566] - Running Election now
+[4][20220712000244.566] - It me. skipping append vote
+[4][20220712000244.566] - Vote listener thread is active and listening for more
+[4][20220712000244.566] - Starting thread to request vote for term 2 to peer idx: 3
+[3][20220712000244.566] - Checking if Leader
+[3][20220712000244.567] - Checked if Leader
+[3][20220712000244.567] - [20220712000244.567] Heartbeat [20220712000244.612] received since last sleep. Resetting timer
+[0][20220712000244.566] - Checking if Leader
+[0][20220712000244.567] - Checked if Leader
+[0][20220712000244.567] - [20220712000244.567] Heartbeat [20220712000244.756] received since last sleep. Resetting timer
+[1][20220712000244.566] - Checking if Leader
+[1][20220712000244.567] - Checked if Leader
+[1][20220712000244.567] - [20220712000244.567] Heartbeat [20220712000244.744] received since last sleep. Resetting timer
+[2][20220712000244.567] - Append requester for peer 0. NextIndex [2 3 1 2 2]
+[2][20220712000244.567] - NextIndex 2
+[2][20220712000244.567] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 0
+[2][20220712000244.567] - Append requester for peer 1. NextIndex [2 3 1 2 2]
+[2][20220712000244.567] - NextIndex 3
+[2][20220712000244.567] - Sending AppendEntries {1 2 2 1 1 []} to peer 1
+[1][20220712000244.567] - Attempting Append with args &{1 2 2 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000244.567] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000244.567] - Logs match sufficiently. Trying to append
+[1][20220712000244.567] - Append Finish. My log [{10 1} {20 1}]. My CommitIndex 1
+[2][20220712000244.567] - Received AppendEntries reply {{1 true} 1 0 2}
+
+[2][20220712000244.567] - Append response from 1 successful
+[2][20220712000244.567] - Peer 1 - NextIndex: 3, MatchIndex: 2
+[2][20220712000244.567] - Checking commit index
+[2][20220712000244.567] - Checking how many peers have MatchIndex at least 2, term 1
+[2][20220712000244.567] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000244.567] - Committed tally: 1, Checking peer 1, matchindex 2
+[2][20220712000244.567] - Committed tally: 2, Checking peer 3, matchindex 1
+[2][20220712000244.567] - Committed tally: 2, Checking peer 4, matchindex 1
+[2][20220712000244.567] - Committed tally: 2, Highest Log Term 1, Current Term 1
+[2][20220712000244.567] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000244.567] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000244.567] - Committed tally: 2, Checking peer 1, matchindex 2
+[2][20220712000244.567] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000244.567] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000244.567] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000244.567] - Found commit Index 1
+[2][20220712000244.567] - Returning commit Index 1
+[2][20220712000244.567] - Getting current commit
+[2][20220712000244.567] - Done processing append reply
+[2][20220712000244.567] - Append requester for peer 3. NextIndex [2 3 1 2 2]
+[2][20220712000244.567] - NextIndex 2
+[2][20220712000244.567] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 3
+[2][20220712000244.567] - Append requester for peer 4. NextIndex [2 3 1 2 2]
+[2][20220712000244.567] - NextIndex 2
+[2][20220712000244.567] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 4
+[4][20220712000244.567] - Starting thread to request vote for term 2 to peer idx: 0
+[4][20220712000244.567] - Starting thread to request vote for term 2 to peer idx: 1
+[4][20220712000244.567] - Starting thread to request vote for term 2 to peer idx: 2
+[1][20220712000244.567] - Applying Commands from 1 to 1
+[1][20220712000244.567] - Done Applying Commands
+[3][20220712000244.717] - Checking if Leader
+[3][20220712000244.717] - Checked if Leader
+[3][20220712000244.717] - [20220712000244.717] Requesting Election
+[4][20220712000244.717] - Checking if Leader
+[4][20220712000244.717] - Checked if Leader
+[4][20220712000244.717] - [20220712000244.717] Heartbeat [20220712000245.054] received since last sleep. Resetting timer
+[2][20220712000244.717] - Checking if Leader
+[3][20220712000244.717] - Running Election now
+[3][20220712000244.717] - It me. skipping append vote
+[3][20220712000244.717] - Vote listener thread is active and listening for more
+[0][20220712000244.717] - Checking if Leader
+[0][20220712000244.717] - Checked if Leader
+[0][20220712000244.717] - [20220712000244.717] Heartbeat [20220712000244.756] received since last sleep. Resetting timer
+[2][20220712000244.717] - Checked if Leader
+[2][20220712000244.717] - Leader Sending Heartbeat RPC
+[3][20220712000244.717] - Starting thread to request vote for term 2 to peer idx: 2
+[3][20220712000244.717] - Starting thread to request vote for term 2 to peer idx: 4
+[3][20220712000244.717] - Starting thread to request vote for term 2 to peer idx: 0
+[3][20220712000244.717] - Starting thread to request vote for term 2 to peer idx: 1
+[2][20220712000244.717] - Running append entries process
+[1][20220712000244.717] - Checking if Leader
+[1][20220712000244.717] - Checked if Leader
+[2][20220712000244.717] - My log [{10 1} {20 1}]
+[2][20220712000244.717] - Getting current commit
+[1][20220712000244.717] - [20220712000244.717] Heartbeat [20220712000245.223] received since last sleep. Resetting timer
+[2][20220712000244.717] - It me. skipping append entry
+
+[2][20220712000244.717] - Append requester for peer 1. NextIndex [2 3 1 2 2]
+[2][20220712000244.717] - NextIndex 3
+[2][20220712000244.717] - Sending AppendEntries {1 2 2 1 1 []} to peer 1
+[1][20220712000244.717] - Attempting Append with args &{1 2 2 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000244.717] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000244.717] - Logs match sufficiently. Trying to append
+[1][20220712000244.717] - Append Finish. My log [{10 1} {20 1}]. My CommitIndex 1
+[2][20220712000244.717] - Append requester for peer 0. NextIndex [2 3 1 2 2]
+[2][20220712000244.717] - NextIndex 2
+[2][20220712000244.717] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 0
+[1][20220712000244.717] - Applying Commands from 1 to 1
+[1][20220712000244.717] - Done Applying Commands
+[2][20220712000244.717] - Received AppendEntries reply {{1 true} 1 0 2}
+
+[2][20220712000244.717] - Append response from 1 successful
+[2][20220712000244.717] - Peer 1 - NextIndex: 3, MatchIndex: 2
+[2][20220712000244.717] - Checking commit index
+[2][20220712000244.717] - Checking how many peers have MatchIndex at least 2, term 1
+[2][20220712000244.717] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000244.717] - Committed tally: 1, Checking peer 1, matchindex 2
+[2][20220712000244.717] - Committed tally: 2, Checking peer 3, matchindex 1
+[2][20220712000244.717] - Committed tally: 2, Checking peer 4, matchindex 1
+[2][20220712000244.717] - Committed tally: 2, Highest Log Term 1, Current Term 1
+[2][20220712000244.717] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000244.717] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000244.717] - Committed tally: 2, Checking peer 1, matchindex 2
+[2][20220712000244.717] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000244.717] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000244.717] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000244.717] - Found commit Index 1
+[2][20220712000244.717] - Returning commit Index 1
+[2][20220712000244.717] - Getting current commit
+[2][20220712000244.717] - Done processing append reply
+[2][20220712000244.717] - Append requester for peer 3. NextIndex [2 3 1 2 2]
+[2][20220712000244.717] - NextIndex 2
+[2][20220712000244.717] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 3
+[2][20220712000244.717] - Append requester for peer 4. NextIndex [2 3 1 2 2]
+[2][20220712000244.717] - NextIndex 2
+[2][20220712000244.717] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 4
+[2][20220712000244.868] - Checking if Leader
+[2][20220712000244.868] - Checked if Leader
+[2][20220712000244.868] - Leader Sending Heartbeat RPC
+[3][20220712000244.868] - Checking if Leader
+[3][20220712000244.868] - Checked if Leader
+[3][20220712000244.868] - [20220712000244.868] Heartbeat [20220712000245.389] received since last sleep. Resetting timer
+[0][20220712000244.868] - Checking if Leader
+[0][20220712000244.868] - Checked if Leader
+[0][20220712000244.868] - [20220712000244.868] Requesting Election
+[0][20220712000244.868] - Running Election now
+[0][20220712000244.868] - It me. skipping append vote
+[0][20220712000244.868] - Vote listener thread is active and listening for more
+[2][20220712000244.868] - Running append entries process
+[4][20220712000244.868] - Checking if Leader
+[4][20220712000244.868] - Checked if Leader
+[4][20220712000244.868] - [20220712000244.868] Heartbeat [20220712000245.054] received since last sleep. Resetting timer
+[0][20220712000244.868] - Starting thread to request vote for term 2 to peer idx: 1
+[1][20220712000244.868] - Checking if Leader
+[1][20220712000244.868] - Checked if Leader
+[1][20220712000244.868] - [20220712000244.868] Heartbeat [20220712000245.457] received since last sleep. Resetting timer
+[2][20220712000244.868] - My log [{10 1} {20 1}]
+[2][20220712000244.868] - Getting current commit
+[2][20220712000244.868] - It me. skipping append entry
+
+[2][20220712000244.868] - Append requester for peer 4. NextIndex [2 3 1 2 2]
+[2][20220712000244.868] - NextIndex 2
+[0][20220712000244.868] - Starting thread to request vote for term 2 to peer idx: 3
+[2][20220712000244.868] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 4
+[2][20220712000244.868] - Append requester for peer 0. NextIndex [2 3 1 2 2]
+[2][20220712000244.868] - NextIndex 2
+[0][20220712000244.868] - Starting thread to request vote for term 2 to peer idx: 4
+[2][20220712000244.868] - Append requester for peer 1. NextIndex [2 3 1 2 2]
+[2][20220712000244.868] - NextIndex 3
+[2][20220712000244.868] - Sending AppendEntries {1 2 2 1 1 []} to peer 1
+[0][20220712000244.868] - Starting thread to request vote for term 2 to peer idx: 2
+[2][20220712000244.868] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 0
+[2][20220712000244.868] - Append requester for peer 3. NextIndex [2 3 1 2 2]
+[2][20220712000244.868] - NextIndex 2
+[2][20220712000244.868] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 3
+[1][20220712000244.868] - Attempting Append with args &{1 2 2 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000244.868] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000244.868] - Logs match sufficiently. Trying to append
+[1][20220712000244.868] - Append Finish. My log [{10 1} {20 1}]. My CommitIndex 1
+[1][20220712000244.868] - Applying Commands from 1 to 1
+[1][20220712000244.868] - Done Applying Commands
+[2][20220712000244.868] - Received AppendEntries reply {{1 true} 1 0 2}
+
+[2][20220712000244.868] - Append response from 1 successful
+[2][20220712000244.868] - Peer 1 - NextIndex: 3, MatchIndex: 2
+[2][20220712000244.868] - Checking commit index
+[2][20220712000244.868] - Checking how many peers have MatchIndex at least 2, term 1
+[2][20220712000244.868] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000244.868] - Committed tally: 1, Checking peer 1, matchindex 2
+[2][20220712000244.868] - Committed tally: 2, Checking peer 3, matchindex 1
+[2][20220712000244.868] - Committed tally: 2, Checking peer 4, matchindex 1
+[2][20220712000244.868] - Committed tally: 2, Highest Log Term 1, Current Term 1
+[2][20220712000244.868] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000244.868] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000244.868] - Committed tally: 2, Checking peer 1, matchindex 2
+[2][20220712000244.868] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000244.868] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000244.868] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000244.868] - Found commit Index 1
+[2][20220712000244.868] - Returning commit Index 1
+[2][20220712000244.868] - Getting current commit
+[2][20220712000244.868] - Done processing append reply
+[2][20220712000244.953] - No OK reply for peer 4.
+[2][20220712000244.953] - 4 Timed out. Giving up.
+[0][20220712000245.018] - Checking if Leader
+[0][20220712000245.018] - Checked if Leader
+[3][20220712000245.018] - Checking if Leader
+[3][20220712000245.018] - Checked if Leader
+[0][20220712000245.018] - [20220712000245.018] Heartbeat [20220712000245.571] received since last sleep. Resetting timer
+[3][20220712000245.018] - [20220712000245.018] Heartbeat [20220712000245.389] received since last sleep. Resetting timer
+[2][20220712000245.018] - Checking if Leader
+[2][20220712000245.018] - Checked if Leader
+[2][20220712000245.018] - Leader Sending Heartbeat RPC
+[2][20220712000245.018] - Running append entries process
+[2][20220712000245.018] - My log [{10 1} {20 1}]
+[2][20220712000245.018] - Getting current commit
+[2][20220712000245.018] - It me. skipping append entry
+
+[1][20220712000245.018] - Checking if Leader
+[1][20220712000245.018] - Checked if Leader
+[4][20220712000245.018] - Checking if Leader
+[4][20220712000245.018] - Checked if Leader
+[4][20220712000245.018] - [20220712000245.018] Heartbeat [20220712000245.054] received since last sleep. Resetting timer
+[1][20220712000245.018] - [20220712000245.018] Heartbeat [20220712000245.141] received since last sleep. Resetting timer
+[2][20220712000245.018] - Append requester for peer 4. NextIndex [2 3 1 2 2]
+[2][20220712000245.018] - NextIndex 2
+[2][20220712000245.018] - Append requester for peer 0. NextIndex [2 3 1 2 2]
+[2][20220712000245.018] - NextIndex 2
+[2][20220712000245.018] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 0
+[2][20220712000245.018] - Append requester for peer 1. NextIndex [2 3 1 2 2]
+[2][20220712000245.018] - NextIndex 3
+[2][20220712000245.018] - Sending AppendEntries {1 2 2 1 1 []} to peer 1
+[2][20220712000245.018] - Append requester for peer 3. NextIndex [2 3 1 2 2]
+[2][20220712000245.018] - NextIndex 2
+[2][20220712000245.018] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 3
+[2][20220712000245.018] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 4
+[1][20220712000245.018] - Attempting Append with args &{1 2 2 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000245.018] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000245.018] - Logs match sufficiently. Trying to append
+[1][20220712000245.018] - Append Finish. My log [{10 1} {20 1}]. My CommitIndex 1
+[1][20220712000245.018] - Applying Commands from 1 to 1
+[1][20220712000245.018] - Done Applying Commands
+[2][20220712000245.018] - Received AppendEntries reply {{1 true} 1 0 2}
+
+[2][20220712000245.018] - Append response from 1 successful
+[2][20220712000245.018] - Peer 1 - NextIndex: 3, MatchIndex: 2
+[2][20220712000245.018] - Checking commit index
+[2][20220712000245.018] - Checking how many peers have MatchIndex at least 2, term 1
+[2][20220712000245.018] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000245.018] - Committed tally: 1, Checking peer 1, matchindex 2
+[2][20220712000245.018] - Committed tally: 2, Checking peer 3, matchindex 1
+[2][20220712000245.018] - Committed tally: 2, Checking peer 4, matchindex 1
+[2][20220712000245.018] - Committed tally: 2, Highest Log Term 1, Current Term 1
+[2][20220712000245.018] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000245.018] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000245.018] - Committed tally: 2, Checking peer 1, matchindex 2
+[2][20220712000245.018] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000245.018] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000245.018] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000245.018] - Found commit Index 1
+[2][20220712000245.018] - Returning commit Index 1
+[2][20220712000245.018] - Getting current commit
+[2][20220712000245.018] - Done processing append reply
+[1][20220712000245.168] - Checking if Leader
+[1][20220712000245.168] - Checked if Leader
+[1][20220712000245.168] - [20220712000245.168] Heartbeat [20220712000245.606] received since last sleep. Resetting timer
+[3][20220712000245.168] - Checking if Leader
+[3][20220712000245.168] - Checked if Leader
+[3][20220712000245.168] - [20220712000245.168] Heartbeat [20220712000245.389] received since last sleep. Resetting timer
+[4][20220712000245.168] - Checking if Leader
+[4][20220712000245.168] - Checked if Leader
+[4][20220712000245.168] - [20220712000245.168] Requesting Election
+[4][20220712000245.168] - Killing old Election thread
+[2][20220712000245.168] - Checking if Leader
+[2][20220712000245.168] - Checked if Leader
+[2][20220712000245.168] - Leader Sending Heartbeat RPC
+[2][20220712000245.168] - Running append entries process
+[4][20220712000245.168] - Running Election now
+[4][20220712000245.168] - It me. skipping append vote
+[4][20220712000245.168] - Vote listener thread is active and listening for more
+[0][20220712000245.168] - Checking if Leader
+[0][20220712000245.168] - Checked if Leader
+[4][20220712000245.168] - Starting thread to request vote for term 3 to peer idx: 0
+[4][20220712000245.168] - Starting thread to request vote for term 3 to peer idx: 1
+[4][20220712000245.168] - Kill current election thread
+[4][20220712000245.168] - Starting thread to request vote for term 3 to peer idx: 3
+[0][20220712000245.168] - [20220712000245.168] Heartbeat [20220712000245.571] received since last sleep. Resetting timer
+[4][20220712000245.168] - Starting thread to request vote for term 3 to peer idx: 2
+[2][20220712000245.168] - My log [{10 1} {20 1}]
+[2][20220712000245.169] - Getting current commit
+[2][20220712000245.169] - It me. skipping append entry
+
+[2][20220712000245.169] - Append requester for peer 0. NextIndex [2 3 1 2 2]
+[2][20220712000245.169] - NextIndex 2
+[2][20220712000245.169] - Append requester for peer 4. NextIndex [2 3 1 2 2]
+[2][20220712000245.169] - NextIndex 2
+[2][20220712000245.169] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 4
+[2][20220712000245.169] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 0
+[2][20220712000245.169] - Append requester for peer 1. NextIndex [2 3 1 2 2]
+[2][20220712000245.169] - NextIndex 3
+[2][20220712000245.169] - Sending AppendEntries {1 2 2 1 1 []} to peer 1
+[2][20220712000245.169] - Append requester for peer 3. NextIndex [2 3 1 2 2]
+[2][20220712000245.169] - NextIndex 2
+[2][20220712000245.169] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 3
+[1][20220712000245.169] - Attempting Append with args &{1 2 2 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000245.169] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000245.169] - Logs match sufficiently. Trying to append
+[1][20220712000245.169] - Append Finish. My log [{10 1} {20 1}]. My CommitIndex 1
+[1][20220712000245.169] - Applying Commands from 1 to 1
+[1][20220712000245.169] - Done Applying Commands
+[2][20220712000245.169] - Received AppendEntries reply {{1 true} 1 0 2}
+
+[2][20220712000245.169] - Append response from 1 successful
+[2][20220712000245.169] - Peer 1 - NextIndex: 3, MatchIndex: 2
+[2][20220712000245.169] - Checking commit index
+[2][20220712000245.169] - Checking how many peers have MatchIndex at least 2, term 1
+[2][20220712000245.169] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000245.169] - Committed tally: 1, Checking peer 1, matchindex 2
+[2][20220712000245.169] - Committed tally: 2, Checking peer 3, matchindex 1
+[2][20220712000245.169] - Committed tally: 2, Checking peer 4, matchindex 1
+[2][20220712000245.169] - Committed tally: 2, Highest Log Term 1, Current Term 1
+[2][20220712000245.169] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000245.169] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000245.169] - Committed tally: 2, Checking peer 1, matchindex 2
+[2][20220712000245.169] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000245.169] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000245.169] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000245.169] - Found commit Index 1
+[2][20220712000245.169] - Returning commit Index 1
+[2][20220712000245.169] - Getting current commit
+[2][20220712000245.169] - Done processing append reply
+[1][20220712000245.319] - Checking if Leader
+[1][20220712000245.319] - Checked if Leader
+[1][20220712000245.319] - [20220712000245.319] Heartbeat [20220712000245.582] received since last sleep. Resetting timer
+[3][20220712000245.319] - Checking if Leader
+[3][20220712000245.319] - Checked if Leader
+[3][20220712000245.319] - [20220712000245.319] Heartbeat [20220712000245.389] received since last sleep. Resetting timer
+[0][20220712000245.319] - Checking if Leader
+[0][20220712000245.319] - Checked if Leader
+[0][20220712000245.319] - [20220712000245.319] Heartbeat [20220712000245.571] received since last sleep. Resetting timer
+[4][20220712000245.319] - Checking if Leader
+[4][20220712000245.319] - Checked if Leader
+[4][20220712000245.319] - [20220712000245.319] Heartbeat [20220712000245.913] received since last sleep. Resetting timer
+[2][20220712000245.319] - Checking if Leader
+[2][20220712000245.319] - Checked if Leader
+[2][20220712000245.319] - Leader Sending Heartbeat RPC
+[2][20220712000245.319] - Running append entries process
+[2][20220712000245.319] - My log [{10 1} {20 1}]
+[2][20220712000245.319] - Getting current commit
+[2][20220712000245.319] - It me. skipping append entry
+
+[2][20220712000245.319] - Append requester for peer 0. NextIndex [2 3 1 2 2]
+[2][20220712000245.320] - NextIndex 2
+[2][20220712000245.320] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 0
+[2][20220712000245.320] - Append requester for peer 4. NextIndex [2 3 1 2 2]
+[2][20220712000245.320] - NextIndex 2
+[2][20220712000245.320] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 4
+[2][20220712000245.320] - Append requester for peer 1. NextIndex [2 3 1 2 2]
+[2][20220712000245.320] - NextIndex 3
+[2][20220712000245.320] - Sending AppendEntries {1 2 2 1 1 []} to peer 1
+[2][20220712000245.320] - Append requester for peer 3. NextIndex [2 3 1 2 2]
+[2][20220712000245.320] - NextIndex 2
+[2][20220712000245.320] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 3
+[1][20220712000245.320] - Attempting Append with args &{1 2 2 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000245.320] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000245.320] - Logs match sufficiently. Trying to append
+[1][20220712000245.320] - Append Finish. My log [{10 1} {20 1}]. My CommitIndex 1
+[1][20220712000245.320] - Applying Commands from 1 to 1
+[1][20220712000245.320] - Done Applying Commands
+[2][20220712000245.320] - Received AppendEntries reply {{1 true} 1 0 2}
+
+[2][20220712000245.320] - Append response from 1 successful
+[2][20220712000245.320] - Peer 1 - NextIndex: 3, MatchIndex: 2
+[2][20220712000245.320] - Checking commit index
+[2][20220712000245.320] - Checking how many peers have MatchIndex at least 2, term 1
+[2][20220712000245.320] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000245.320] - Committed tally: 1, Checking peer 1, matchindex 2
+[2][20220712000245.320] - Committed tally: 2, Checking peer 3, matchindex 1
+[2][20220712000245.320] - Committed tally: 2, Checking peer 4, matchindex 1
+[2][20220712000245.320] - Committed tally: 2, Highest Log Term 1, Current Term 1
+[2][20220712000245.320] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000245.320] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000245.320] - Committed tally: 2, Checking peer 1, matchindex 2
+[2][20220712000245.320] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000245.320] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000245.320] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000245.320] - Found commit Index 1
+[2][20220712000245.320] - Returning commit Index 1
+[2][20220712000245.320] - Getting current commit
+[2][20220712000245.320] - Done processing append reply
+[2][20220712000245.428] - No OK reply for peer 4.
+[2][20220712000245.428] - 4 Timed out. Giving up.
+[2][20220712000245.470] - Checking if Leader
+[2][20220712000245.471] - Checked if Leader
+[2][20220712000245.471] - Leader Sending Heartbeat RPC
+[3][20220712000245.471] - Checking if Leader
+[3][20220712000245.471] - Checked if Leader
+[3][20220712000245.471] - [20220712000245.471] Requesting Election
+[3][20220712000245.471] - Killing old Election thread
+[3][20220712000245.471] - Running Election now
+[3][20220712000245.471] - It me. skipping append vote
+[3][20220712000245.471] - Vote listener thread is active and listening for more
+[3][20220712000245.471] - Starting thread to request vote for term 3 to peer idx: 4
+[1][20220712000245.471] - Checking if Leader
+[1][20220712000245.471] - Checked if Leader
+[1][20220712000245.471] - [20220712000245.471] Heartbeat [20220712000245.695] received since last sleep. Resetting timer
+[3][20220712000245.471] - Kill current election thread
+[3][20220712000245.471] - Starting thread to request vote for term 3 to peer idx: 0
+[3][20220712000245.471] - Starting thread to request vote for term 3 to peer idx: 1
+[3][20220712000245.471] - Starting thread to request vote for term 3 to peer idx: 2
+[0][20220712000245.471] - Checking if Leader
+[0][20220712000245.471] - Checked if Leader
+[0][20220712000245.471] - [20220712000245.471] Heartbeat [20220712000245.571] received since last sleep. Resetting timer
+[4][20220712000245.471] - Checking if Leader
+[4][20220712000245.471] - Checked if Leader
+[4][20220712000245.471] - [20220712000245.471] Heartbeat [20220712000245.913] received since last sleep. Resetting timer
+[2][20220712000245.471] - Running append entries process
+[2][20220712000245.471] - My log [{10 1} {20 1}]
+[2][20220712000245.471] - Getting current commit
+[2][20220712000245.471] - It me. skipping append entry
+
+[2][20220712000245.471] - Append requester for peer 4. NextIndex [2 3 1 2 2]
+[2][20220712000245.471] - NextIndex 2
+[2][20220712000245.471] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 4
+[2][20220712000245.471] - Append requester for peer 0. NextIndex [2 3 1 2 2]
+[2][20220712000245.471] - NextIndex 2
+[2][20220712000245.471] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 0
+[2][20220712000245.471] - Append requester for peer 1. NextIndex [2 3 1 2 2]
+[2][20220712000245.471] - NextIndex 3
+[2][20220712000245.471] - Sending AppendEntries {1 2 2 1 1 []} to peer 1
+[1][20220712000245.471] - Attempting Append with args &{1 2 2 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000245.471] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000245.471] - Logs match sufficiently. Trying to append
+[1][20220712000245.471] - Append Finish. My log [{10 1} {20 1}]. My CommitIndex 1
+[2][20220712000245.471] - Append requester for peer 3. NextIndex [2 3 1 2 2]
+[2][20220712000245.471] - NextIndex 2
+[2][20220712000245.471] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 3
+[1][20220712000245.471] - Applying Commands from 1 to 1
+[1][20220712000245.471] - Done Applying Commands
+[2][20220712000245.471] - Received AppendEntries reply {{1 true} 1 0 2}
+
+[2][20220712000245.471] - Append response from 1 successful
+[2][20220712000245.471] - Peer 1 - NextIndex: 3, MatchIndex: 2
+[2][20220712000245.471] - Checking commit index
+[2][20220712000245.471] - Checking how many peers have MatchIndex at least 2, term 1
+[2][20220712000245.471] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000245.471] - Committed tally: 1, Checking peer 1, matchindex 2
+[2][20220712000245.471] - Committed tally: 2, Checking peer 3, matchindex 1
+[2][20220712000245.471] - Committed tally: 2, Checking peer 4, matchindex 1
+[2][20220712000245.471] - Committed tally: 2, Highest Log Term 1, Current Term 1
+[2][20220712000245.471] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000245.471] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000245.471] - Committed tally: 2, Checking peer 1, matchindex 2
+[2][20220712000245.471] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000245.471] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000245.471] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000245.471] - Found commit Index 1
+[2][20220712000245.471] - Returning commit Index 1
+[2][20220712000245.471] - Getting current commit
+[2][20220712000245.471] - Done processing append reply
+[2][20220712000245.621] - Checking if Leader
+[2][20220712000245.621] - Checked if Leader
+[2][20220712000245.621] - Leader Sending Heartbeat RPC
+[1][20220712000245.621] - Checking if Leader
+[2][20220712000245.621] - Running append entries process
+[2][20220712000245.621] - My log [{10 1} {20 1}]
+[2][20220712000245.621] - Getting current commit
+[2][20220712000245.621] - It me. skipping append entry
+
+[3][20220712000245.621] - Checking if Leader
+[1][20220712000245.621] - Checked if Leader
+[1][20220712000245.621] - [20220712000245.621] Heartbeat [20220712000246.063] received since last sleep. Resetting timer
+[0][20220712000245.621] - Checking if Leader
+[0][20220712000245.621] - Checked if Leader
+[0][20220712000245.621] - [20220712000245.621] Requesting Election
+[0][20220712000245.621] - Killing old Election thread
+[3][20220712000245.621] - Checked if Leader
+[3][20220712000245.621] - [20220712000245.621] Heartbeat [20220712000245.848] received since last sleep. Resetting timer
+[2][20220712000245.621] - Append requester for peer 4. NextIndex [2 3 1 2 2]
+[0][20220712000245.621] - Kill current election thread
+[4][20220712000245.621] - Checking if Leader
+[4][20220712000245.621] - Checked if Leader
+[4][20220712000245.621] - [20220712000245.621] Heartbeat [20220712000245.913] received since last sleep. Resetting timer
+[0][20220712000245.621] - Running Election now
+[0][20220712000245.621] - It me. skipping append vote
+[0][20220712000245.621] - Vote listener thread is active and listening for more
+[0][20220712000245.621] - Starting thread to request vote for term 3 to peer idx: 1
+[0][20220712000245.621] - Starting thread to request vote for term 3 to peer idx: 2
+[2][20220712000245.621] - NextIndex 2
+[0][20220712000245.621] - Starting thread to request vote for term 3 to peer idx: 3
+[0][20220712000245.621] - Starting thread to request vote for term 3 to peer idx: 4
+[2][20220712000245.621] - Append requester for peer 0. NextIndex [2 3 1 2 2]
+[2][20220712000245.621] - NextIndex 2
+[2][20220712000245.621] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 0
+[2][20220712000245.621] - Append requester for peer 1. NextIndex [2 3 1 2 2]
+[2][20220712000245.621] - NextIndex 3
+[2][20220712000245.621] - Sending AppendEntries {1 2 2 1 1 []} to peer 1
+[2][20220712000245.621] - Append requester for peer 3. NextIndex [2 3 1 2 2]
+[2][20220712000245.621] - NextIndex 2
+[2][20220712000245.621] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 3
+[2][20220712000245.621] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 4
+[1][20220712000245.621] - Attempting Append with args &{1 2 2 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000245.621] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000245.621] - Logs match sufficiently. Trying to append
+[1][20220712000245.621] - Append Finish. My log [{10 1} {20 1}]. My CommitIndex 1
+[1][20220712000245.621] - Applying Commands from 1 to 1
+[1][20220712000245.621] - Done Applying Commands
+[2][20220712000245.621] - Received AppendEntries reply {{1 true} 1 0 2}
+
+[2][20220712000245.621] - Append response from 1 successful
+[2][20220712000245.621] - Peer 1 - NextIndex: 3, MatchIndex: 2
+[2][20220712000245.621] - Checking commit index
+[2][20220712000245.621] - Checking how many peers have MatchIndex at least 2, term 1
+[2][20220712000245.621] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000245.621] - Committed tally: 1, Checking peer 1, matchindex 2
+[2][20220712000245.621] - Committed tally: 2, Checking peer 3, matchindex 1
+[2][20220712000245.621] - Committed tally: 2, Checking peer 4, matchindex 1
+[2][20220712000245.621] - Committed tally: 2, Highest Log Term 1, Current Term 1
+[2][20220712000245.621] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000245.621] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000245.621] - Committed tally: 2, Checking peer 1, matchindex 2
+[2][20220712000245.621] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000245.621] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000245.621] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000245.621] - Found commit Index 1
+[2][20220712000245.621] - Returning commit Index 1
+[2][20220712000245.621] - Getting current commit
+[2][20220712000245.621] - Done processing append reply
+[2][20220712000245.729] - No OK reply for peer 3.
+[2][20220712000245.729] - 3 Timed out. Giving up.
+[3][20220712000245.772] - Checking if Leader
+[3][20220712000245.772] - Checked if Leader
+[3][20220712000245.772] - [20220712000245.772] Heartbeat [20220712000245.848] received since last sleep. Resetting timer
+[1][20220712000245.772] - Checking if Leader
+[1][20220712000245.772] - Checked if Leader
+[1][20220712000245.772] - [20220712000245.772] Heartbeat [20220712000246.299] received since last sleep. Resetting timer
+[2][20220712000245.772] - Checking if Leader
+[2][20220712000245.772] - Checked if Leader
+[2][20220712000245.772] - Leader Sending Heartbeat RPC
+[4][20220712000245.772] - Checking if Leader
+[4][20220712000245.772] - Checked if Leader
+[4][20220712000245.772] - [20220712000245.772] Heartbeat [20220712000245.913] received since last sleep. Resetting timer
+[0][20220712000245.772] - Checking if Leader
+[0][20220712000245.772] - Checked if Leader
+[0][20220712000245.772] - [20220712000245.772] Heartbeat [20220712000246.283] received since last sleep. Resetting timer
+[2][20220712000245.772] - Running append entries process
+[2][20220712000245.772] - My log [{10 1} {20 1}]
+[2][20220712000245.772] - Getting current commit
+[2][20220712000245.772] - It me. skipping append entry
+
+[2][20220712000245.772] - Append requester for peer 4. NextIndex [2 3 1 2 2]
+[2][20220712000245.772] - NextIndex 2
+[2][20220712000245.772] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 4
+[2][20220712000245.772] - Append requester for peer 1. NextIndex [2 3 1 2 2]
+[2][20220712000245.772] - NextIndex 3
+[2][20220712000245.772] - Sending AppendEntries {1 2 2 1 1 []} to peer 1
+[2][20220712000245.772] - Append requester for peer 0. NextIndex [2 3 1 2 2]
+[2][20220712000245.772] - NextIndex 2
+[2][20220712000245.772] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 0
+[2][20220712000245.772] - Append requester for peer 3. NextIndex [2 3 1 2 2]
+[2][20220712000245.772] - NextIndex 2
+[2][20220712000245.772] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 3
+[1][20220712000245.772] - Attempting Append with args &{1 2 2 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000245.772] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000245.772] - Logs match sufficiently. Trying to append
+[1][20220712000245.772] - Append Finish. My log [{10 1} {20 1}]. My CommitIndex 1
+[2][20220712000245.772] - Received AppendEntries reply {{1 true} 1 0 2}
+
+[2][20220712000245.772] - Append response from 1 successful
+[2][20220712000245.772] - Peer 1 - NextIndex: 3, MatchIndex: 2
+[2][20220712000245.772] - Checking commit index
+[2][20220712000245.772] - Checking how many peers have MatchIndex at least 2, term 1
+[2][20220712000245.772] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000245.772] - Committed tally: 1, Checking peer 1, matchindex 2
+[2][20220712000245.772] - Committed tally: 2, Checking peer 3, matchindex 1
+[2][20220712000245.772] - Committed tally: 2, Checking peer 4, matchindex 1
+[2][20220712000245.772] - Committed tally: 2, Highest Log Term 1, Current Term 1
+[2][20220712000245.772] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000245.772] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000245.772] - Committed tally: 2, Checking peer 1, matchindex 2
+[2][20220712000245.772] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000245.772] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000245.772] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[1][20220712000245.772] - Applying Commands from 1 to 1
+[1][20220712000245.772] - Done Applying Commands
+[2][20220712000245.772] - Found commit Index 1
+[2][20220712000245.773] - Returning commit Index 1
+[2][20220712000245.773] - Getting current commit
+[2][20220712000245.773] - Done processing append reply
+[2][20220712000245.816] - No OK reply for peer 3.
+[2][20220712000245.816] - 3 Timed out. Giving up.
+[0][20220712000245.922] - Checking if Leader
+[0][20220712000245.922] - Checked if Leader
+[2][20220712000245.922] - Checking if Leader
+[2][20220712000245.922] - Checked if Leader
+[2][20220712000245.922] - Leader Sending Heartbeat RPC
+[2][20220712000245.922] - Running append entries process
+[1][20220712000245.922] - Checking if Leader
+[1][20220712000245.922] - Checked if Leader
+[1][20220712000245.922] - [20220712000245.922] Heartbeat [20220712000246.109] received since last sleep. Resetting timer
+[0][20220712000245.922] - [20220712000245.922] Heartbeat [20220712000246.283] received since last sleep. Resetting timer
+[4][20220712000245.922] - Checking if Leader
+[4][20220712000245.922] - Checked if Leader
+[4][20220712000245.922] - [20220712000245.922] Requesting Election
+[4][20220712000245.922] - Killing old Election thread
+[2][20220712000245.922] - My log [{10 1} {20 1}]
+[2][20220712000245.922] - Getting current commit
+[4][20220712000245.922] - Kill current election thread
+[3][20220712000245.922] - Checking if Leader
+[3][20220712000245.922] - Checked if Leader
+[2][20220712000245.922] - It me. skipping append entry
+
+[4][20220712000245.922] - Running Election now
+[4][20220712000245.922] - It me. skipping append vote
+[4][20220712000245.922] - Vote listener thread is active and listening for more
+[2][20220712000245.922] - Append requester for peer 1. NextIndex [2 3 1 2 2]
+[2][20220712000245.922] - NextIndex 3
+[2][20220712000245.922] - Sending AppendEntries {1 2 2 1 1 []} to peer 1
+[4][20220712000245.922] - Starting thread to request vote for term 4 to peer idx: 1
+[3][20220712000245.922] - [20220712000245.922] Requesting Election
+[3][20220712000245.922] - Killing old Election thread
+[3][20220712000245.922] - Running Election now
+[4][20220712000245.922] - Starting thread to request vote for term 4 to peer idx: 3
+[3][20220712000245.923] - Starting thread to request vote for term 4 to peer idx: 0
+[1][20220712000245.922] - Attempting Append with args &{1 2 2 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000245.923] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000245.923] - Logs match sufficiently. Trying to append
+[1][20220712000245.923] - Append Finish. My log [{10 1} {20 1}]. My CommitIndex 1
+[4][20220712000245.922] - Starting thread to request vote for term 4 to peer idx: 0
+[3][20220712000245.922] - Starting thread to request vote for term 4 to peer idx: 2
+[3][20220712000245.922] - It me. skipping append vote
+[3][20220712000245.923] - Vote listener thread is active and listening for more
+[3][20220712000245.923] - Starting thread to request vote for term 4 to peer idx: 4
+[3][20220712000245.923] - Kill current election thread
+[4][20220712000245.922] - Starting thread to request vote for term 4 to peer idx: 2
+[1][20220712000245.923] - Applying Commands from 1 to 1
+[1][20220712000245.923] - Done Applying Commands
+[2][20220712000245.922] - Append requester for peer 0. NextIndex [2 3 1 2 2]
+[2][20220712000245.923] - NextIndex 2
+[3][20220712000245.923] - Starting thread to request vote for term 4 to peer idx: 1
+[2][20220712000245.923] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 0
+[2][20220712000245.923] - Received AppendEntries reply {{1 true} 1 0 2}
+
+[2][20220712000245.923] - Append response from 1 successful
+[2][20220712000245.923] - Append requester for peer 3. NextIndex [2 3 1 2 2]
+[2][20220712000245.923] - NextIndex 2
+[2][20220712000245.923] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 3
+[2][20220712000245.923] - Peer 1 - NextIndex: 3, MatchIndex: 2
+[2][20220712000245.923] - Checking commit index
+[2][20220712000245.923] - Checking how many peers have MatchIndex at least 2, term 1
+[2][20220712000245.923] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000245.923] - Committed tally: 1, Checking peer 1, matchindex 2
+[2][20220712000245.923] - Committed tally: 2, Checking peer 3, matchindex 1
+[2][20220712000245.923] - Committed tally: 2, Checking peer 4, matchindex 1
+[2][20220712000245.923] - Committed tally: 2, Highest Log Term 1, Current Term 1
+[2][20220712000245.923] - Append requester for peer 4. NextIndex [2 3 1 2 2]
+[2][20220712000245.923] - NextIndex 2
+[2][20220712000245.923] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 4
+[2][20220712000245.923] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000245.923] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000245.923] - Committed tally: 2, Checking peer 1, matchindex 2
+[2][20220712000245.923] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000245.923] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000245.923] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000245.923] - Found commit Index 1
+[2][20220712000245.923] - Returning commit Index 1
+[2][20220712000245.923] - Getting current commit
+[2][20220712000245.923] - Done processing append reply
+[2][20220712000246.005] - No OK reply for peer 0.
+[2][20220712000246.005] - 0 Timed out. Giving up.
+[2][20220712000246.073] - Checking if Leader
+[3][20220712000246.073] - Checking if Leader
+[2][20220712000246.073] - Checked if Leader
+[2][20220712000246.073] - Leader Sending Heartbeat RPC
+[2][20220712000246.073] - Running append entries process
+[2][20220712000246.073] - My log [{10 1} {20 1}]
+[3][20220712000246.073] - Checked if Leader
+[3][20220712000246.073] - [20220712000246.073] Heartbeat [20220712000246.397] received since last sleep. Resetting timer
+[0][20220712000246.073] - Checking if Leader
+[0][20220712000246.073] - Checked if Leader
+[0][20220712000246.073] - [20220712000246.073] Heartbeat [20220712000246.283] received since last sleep. Resetting timer
+[1][20220712000246.073] - Checking if Leader
+[1][20220712000246.073] - Checked if Leader
+[1][20220712000246.073] - [20220712000246.073] Heartbeat [20220712000246.461] received since last sleep. Resetting timer
+[4][20220712000246.073] - Checking if Leader
+[4][20220712000246.073] - Checked if Leader
+[4][20220712000246.073] - [20220712000246.073] Heartbeat [20220712000246.561] received since last sleep. Resetting timer
+[2][20220712000246.073] - Getting current commit
+[2][20220712000246.073] - It me. skipping append entry
+
+[2][20220712000246.073] - Append requester for peer 0. NextIndex [2 3 1 2 2]
+[2][20220712000246.073] - NextIndex 2
+[2][20220712000246.073] - Append requester for peer 4. NextIndex [2 3 1 2 2]
+[2][20220712000246.073] - NextIndex 2
+[2][20220712000246.073] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 4
+[2][20220712000246.073] - Append requester for peer 1. NextIndex [2 3 1 2 2]
+[2][20220712000246.073] - NextIndex 3
+[2][20220712000246.073] - Sending AppendEntries {1 2 2 1 1 []} to peer 1
+[1][20220712000246.073] - Attempting Append with args &{1 2 2 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000246.073] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000246.073] - Logs match sufficiently. Trying to append
+[1][20220712000246.073] - Append Finish. My log [{10 1} {20 1}]. My CommitIndex 1
+[2][20220712000246.073] - Append requester for peer 3. NextIndex [2 3 1 2 2]
+[2][20220712000246.073] - NextIndex 2
+[2][20220712000246.073] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 3
+[2][20220712000246.073] - Received AppendEntries reply {{1 true} 1 0 2}
+
+[2][20220712000246.073] - Append response from 1 successful
+[2][20220712000246.073] - Peer 1 - NextIndex: 3, MatchIndex: 2
+[2][20220712000246.073] - Checking commit index
+[2][20220712000246.073] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 0
+[2][20220712000246.073] - Checking how many peers have MatchIndex at least 2, term 1
+[2][20220712000246.073] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000246.073] - Committed tally: 1, Checking peer 1, matchindex 2
+[2][20220712000246.073] - Committed tally: 2, Checking peer 3, matchindex 1
+[2][20220712000246.073] - Committed tally: 2, Checking peer 4, matchindex 1
+[2][20220712000246.073] - Committed tally: 2, Highest Log Term 1, Current Term 1
+[2][20220712000246.073] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000246.073] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000246.073] - Committed tally: 2, Checking peer 1, matchindex 2
+[2][20220712000246.073] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000246.073] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000246.073] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000246.073] - Found commit Index 1
+[2][20220712000246.073] - Returning commit Index 1
+[2][20220712000246.073] - Getting current commit
+[2][20220712000246.073] - Done processing append reply
+[1][20220712000246.073] - Applying Commands from 1 to 1
+[1][20220712000246.073] - Done Applying Commands
+[4][20220712000246.223] - Checking if Leader
+[4][20220712000246.223] - Checked if Leader
+[2][20220712000246.223] - Checking if Leader
+[4][20220712000246.223] - [20220712000246.223] Heartbeat [20220712000246.561] received since last sleep. Resetting timer
+[0][20220712000246.223] - Checking if Leader
+[2][20220712000246.223] - Checked if Leader
+[3][20220712000246.223] - Checking if Leader
+[3][20220712000246.223] - Checked if Leader
+[3][20220712000246.223] - [20220712000246.223] Heartbeat [20220712000246.397] received since last sleep. Resetting timer
+[0][20220712000246.223] - Checked if Leader
+[2][20220712000246.223] - Leader Sending Heartbeat RPC
+[0][20220712000246.223] - [20220712000246.223] Heartbeat [20220712000246.283] received since last sleep. Resetting timer
+[1][20220712000246.223] - Checking if Leader
+[1][20220712000246.223] - Checked if Leader
+[1][20220712000246.223] - [20220712000246.223] Heartbeat [20220712000246.742] received since last sleep. Resetting timer
+[2][20220712000246.223] - Running append entries process
+[2][20220712000246.223] - My log [{10 1} {20 1}]
+[2][20220712000246.223] - Getting current commit
+[2][20220712000246.223] - It me. skipping append entry
+
+[2][20220712000246.223] - Append requester for peer 4. NextIndex [2 3 1 2 2]
+[2][20220712000246.223] - NextIndex 2
+[2][20220712000246.223] - Append requester for peer 1. NextIndex [2 3 1 2 2]
+[2][20220712000246.223] - NextIndex 3
+[2][20220712000246.223] - Sending AppendEntries {1 2 2 1 1 []} to peer 1
+[2][20220712000246.224] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 4
+[1][20220712000246.224] - Attempting Append with args &{1 2 2 1 1 []}. My term 1. My prevLogTerm at index 1
+[1][20220712000246.224] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000246.224] - Logs match sufficiently. Trying to append
+[1][20220712000246.224] - Append Finish. My log [{10 1} {20 1}]. My CommitIndex 1
+[2][20220712000246.224] - Received AppendEntries reply {{1 true} 1 0 2}
+
+[2][20220712000246.224] - Append response from 1 successful
+[2][20220712000246.224] - Append requester for peer 3. NextIndex [2 3 1 2 2]
+[2][20220712000246.224] - NextIndex 2
+[2][20220712000246.224] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 3
+[4][20220712000246.224] - Attempting Append with args &{1 2 1 1 1 [{20 1}]}. My term 4. My prevLogTerm at index 1
+[3][20220712000246.224] - Attempting Append with args &{1 2 1 1 1 [{20 1}]}. My term 4. My prevLogTerm at index 1
+[2][20220712000246.224] - Append requester for peer 0. NextIndex [2 3 1 2 2]
+[2][20220712000246.224] - NextIndex 2
+[2][20220712000246.224] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 0
+[2][20220712000246.224] - Failed to append message for peer 4. Decrementing next Index to 1
+[2][20220712000246.224] - NextIndex 1
+[2][20220712000246.224] - Sending AppendEntries {1 2 0 0 1 [{10 1} {20 1}]} to peer 4
+[0][20220712000246.224] - Attempting Append with args &{1 2 1 1 1 [{20 1}]}. My term 3. My prevLogTerm at index 1
+[2][20220712000246.224] - Failed to append message for peer 0. Decrementing next Index to 1
+[2][20220712000246.224] - NextIndex 1
+[2][20220712000246.224] - Sending AppendEntries {1 2 0 0 1 [{10 1} {20 1}]} to peer 0
+[4][20220712000246.224] - Attempting Append with args &{1 2 0 0 1 [{10 1} {20 1}]}. My term 4. My prevLogTerm at index 0
+labgob warning: Decoding into a non-default variable/field Term may not work
+[1][20220712000246.224] - Applying Commands from 1 to 1
+[0][20220712000246.224] - Attempting Append with args &{1 2 0 0 1 [{10 1} {20 1}]}. My term 3. My prevLogTerm at index 0
+[1][20220712000246.224] - Done Applying Commands
+[2][20220712000246.224] - Append response from 4 unsuccessful even decrementing to 0. Returning
+[2][20220712000246.224] - Peer 1 - NextIndex: 3, MatchIndex: 2
+[2][20220712000246.224] - Checking commit index
+[2][20220712000246.224] - Checking how many peers have MatchIndex at least 2, term 1
+[2][20220712000246.224] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000246.224] - Committed tally: 1, Checking peer 1, matchindex 2
+[2][20220712000246.224] - Committed tally: 2, Checking peer 3, matchindex 1
+[2][20220712000246.224] - Committed tally: 2, Checking peer 4, matchindex 1
+[2][20220712000246.224] - Committed tally: 2, Highest Log Term 1, Current Term 1
+[2][20220712000246.224] - Failed to append message for peer 3. Decrementing next Index to 1
+[2][20220712000246.224] - NextIndex 1
+[2][20220712000246.224] - Sending AppendEntries {1 2 0 0 1 [{10 1} {20 1}]} to peer 3
+[2][20220712000246.224] - Append response from 0 unsuccessful even decrementing to 0. Returning
+[2][20220712000246.224] - Checking how many peers have MatchIndex at least 1, term 1
+[2][20220712000246.224] - Committed tally: 1, Checking peer 0, matchindex 1
+[2][20220712000246.224] - Committed tally: 2, Checking peer 1, matchindex 2
+[2][20220712000246.224] - Committed tally: 3, Checking peer 3, matchindex 1
+[2][20220712000246.224] - Committed tally: 4, Checking peer 4, matchindex 1
+[2][20220712000246.224] - Committed tally: 5, Highest Log Term 1, Current Term 1
+[2][20220712000246.224] - Found commit Index 1
+[2][20220712000246.224] - Returning commit Index 1
+[2][20220712000246.224] - Getting current commit
+[2][20220712000246.224] - Done processing append reply
+[2][20220712000246.224] - Received AppendEntries reply {{4 false} 4 0 0}
+
+[2][20220712000246.224] - Append response from 4 unsuccessful even after retries.
+[2][20220712000246.224] - Done processing append reply
+[2][20220712000246.224] - Received AppendEntries reply {{3 false} 0 0 0}
+
+[2][20220712000246.224] - Append response from 0 unsuccessful even after retries.
+[2][20220712000246.224] - Done processing append reply
+[3][20220712000246.224] - Attempting Append with args &{1 2 0 0 1 [{10 1} {20 1}]}. My term 4. My prevLogTerm at index 0
+[2][20220712000246.224] - Append response from 3 unsuccessful even decrementing to 0. Returning
+[2][20220712000246.224] - Received AppendEntries reply {{4 false} 3 0 0}
+
+[2][20220712000246.224] - Append response from 3 unsuccessful even after retries.
+[2][20220712000246.224] - Done processing append reply
+[2][20220712000246.224] - All threads replied. Ending
+[3][20220712000246.374] - Checking if Leader
+[3][20220712000246.374] - Checked if Leader
+[3][20220712000246.374] - [20220712000246.374] Heartbeat [20220712000246.397] received since last sleep. Resetting timer
+[0][20220712000246.374] - Checking if Leader
+[0][20220712000246.374] - Checked if Leader
+[0][20220712000246.374] - [20220712000246.374] Requesting Election
+[0][20220712000246.374] - Killing old Election thread
+[1][20220712000246.374] - Checking if Leader
+[1][20220712000246.374] - Checked if Leader
+[0][20220712000246.374] - Running Election now
+[0][20220712000246.374] - It me. skipping append vote
+[0][20220712000246.374] - Vote listener thread is active and listening for more
+[2][20220712000246.374] - Checking if Leader
+[2][20220712000246.374] - Checked if Leader
+[2][20220712000246.374] - Leader Sending Heartbeat RPC
+[2][20220712000246.374] - Running append entries process
+[2][20220712000246.374] - My log [{10 1} {20 1}]
+[0][20220712000246.374] - Starting thread to request vote for term 4 to peer idx: 2
+[0][20220712000246.374] - Starting thread to request vote for term 4 to peer idx: 3
+[4][20220712000246.374] - Checking if Leader
+[4][20220712000246.374] - Checked if Leader
+[4][20220712000246.374] - [20220712000246.374] Heartbeat [20220712000246.561] received since last sleep. Resetting timer
+[1][20220712000246.374] - [20220712000246.374] Heartbeat [20220712000246.614] received since last sleep. Resetting timer
+[0][20220712000246.374] - Starting thread to request vote for term 4 to peer idx: 1
+[0][20220712000246.374] - Starting thread to request vote for term 4 to peer idx: 4
+[1][20220712000246.374] - Vote request for term 4, candidate 0 received. Starting.
+[1][20220712000246.374] - My log [{10 1} {20 1}]
+[1][20220712000246.374] - Vote request, terms compatible
+[1][20220712000246.374] - Candidate log is not as up to date as mine.
+[2][20220712000246.374] - Vote request for term 4, candidate 0 received. Starting.
+[3][20220712000246.374] - Vote request for term 4, candidate 0 received. Starting.
+[3][20220712000246.374] - My log [{10 1}]
+[3][20220712000246.374] - Vote request, terms compatible
+[3][20220712000246.374] - Candidate log term is equal. Log length 1 is higher than mine 1.
+[0][20220712000246.375] - Received reply from peer idx: 1
+[0][20220712000246.375] - Successfully pushed vote to channel
+[0][20220712000246.375] - Processing vote reply for term {1 false}
+[0][20220712000246.375] - Vote listener thread is active and listening for more
+[0][20220712000246.374] - Kill current election thread
+[2][20220712000246.374] - Getting current commit
+[2][20220712000246.375] - My log [{10 1} {20 1}]
+[2][20220712000246.375] - Vote request, terms compatible
+[2][20220712000246.375] - It me. skipping append entry
+
+[0][20220712000246.375] - Received reply from peer idx: 3
+[0][20220712000246.375] - Successfully pushed vote to channel
+[0][20220712000246.375] - Processing vote reply for term {4 false}
+[0][20220712000246.375] - Vote listener thread is active and listening for more
+[2][20220712000246.375] - Candidate log is not as up to date as mine.
+[2][20220712000246.375] - Append requester for peer 0. NextIndex [1 3 1 1 1]
+[2][20220712000246.375] - NextIndex 1
+[0][20220712000246.375] - Received reply from peer idx: 2
+[0][20220712000246.375] - Successfully pushed vote to channel
+[0][20220712000246.375] - Processing vote reply for term {1 false}
+[0][20220712000246.375] - Vote listener thread is active and listening for more
+[2][20220712000246.375] - Sending AppendEntries {1 2 0 0 1 [{10 1} {20 1}]} to peer 0
+[2][20220712000246.375] - Append requester for peer 4. NextIndex [1 3 1 1 1]
+[2][20220712000246.375] - NextIndex 1
+[2][20220712000246.375] - Append requester for peer 1. NextIndex [1 3 1 1 1]
+[2][20220712000246.375] - NextIndex 3
+[2][20220712000246.375] - Sending AppendEntries {1 2 2 1 1 []} to peer 1
+[2][20220712000246.375] - Append requester for peer 3. NextIndex [1 3 1 1 1]
+[2][20220712000246.375] - NextIndex 1
+[2][20220712000246.375] - Sending AppendEntries {1 2 0 0 1 [{10 1} {20 1}]} to peer 3
+[4][20220712000246.375] - Vote request for term 4, candidate 0 received. Starting.
+[4][20220712000246.375] - My log [{10 1}]
+[4][20220712000246.375] - Vote request, terms compatible
+[4][20220712000246.375] - Candidate log term is equal. Log length 1 is higher than mine 1.
+[1][20220712000246.375] - Attempting Append with args &{1 2 2 1 1 []}. My term 4. My prevLogTerm at index 1
+[2][20220712000246.375] - Sending AppendEntries {1 2 0 0 1 [{10 1} {20 1}]} to peer 4
+[0][20220712000246.375] - Attempting Append with args &{1 2 0 0 1 [{10 1} {20 1}]}. My term 4. My prevLogTerm at index 0
+[3][20220712000246.375] - Attempting Append with args &{1 2 0 0 1 [{10 1} {20 1}]}. My term 4. My prevLogTerm at index 0
+[0][20220712000246.375] - Received reply from peer idx: 4
+[0][20220712000246.375] - Successfully pushed vote to channel
+[2][20220712000246.375] - Append response from 0 unsuccessful even decrementing to 0. Returning
+[2][20220712000246.375] - Received AppendEntries reply {{4 false} 0 0 0}
+
+[2][20220712000246.375] - Append response from 0 unsuccessful even after retries.
+[2][20220712000246.375] - Done processing append reply
+[0][20220712000246.375] - Processing vote reply for term {4 false}
+[0][20220712000246.375] - Vote listener thread is active and listening for more
+[4][20220712000246.375] - Attempting Append with args &{1 2 0 0 1 [{10 1} {20 1}]}. My term 4. My prevLogTerm at index 0
+[2][20220712000246.375] - Append response from 3 unsuccessful even decrementing to 0. Returning
+[2][20220712000246.375] - Received AppendEntries reply {{4 false} 3 0 0}
+
+[2][20220712000246.375] - Failed to append message for peer 1. Decrementing next Index to 2
+[2][20220712000246.375] - NextIndex 2
+[2][20220712000246.375] - Sending AppendEntries {1 2 1 1 1 [{20 1}]} to peer 1
+[2][20220712000246.375] - Append response from 4 unsuccessful even decrementing to 0. Returning
+[2][20220712000246.375] - Append response from 3 unsuccessful even after retries.
+[2][20220712000246.375] - Done processing append reply
+[2][20220712000246.375] - Received AppendEntries reply {{4 false} 4 0 0}
+
+[2][20220712000246.375] - Append response from 4 unsuccessful even after retries.
+[2][20220712000246.375] - Done processing append reply
+[1][20220712000246.375] - Attempting Append with args &{1 2 1 1 1 [{20 1}]}. My term 4. My prevLogTerm at index 1
+[2][20220712000246.375] - Failed to append message for peer 1. Decrementing next Index to 1
+[2][20220712000246.375] - NextIndex 1
+[2][20220712000246.375] - Sending AppendEntries {1 2 0 0 1 [{10 1} {20 1}]} to peer 1
+[1][20220712000246.375] - Attempting Append with args &{1 2 0 0 1 [{10 1} {20 1}]}. My term 4. My prevLogTerm at index 0
+[2][20220712000246.375] - Append response from 1 unsuccessful even decrementing to 0. Returning
+[2][20220712000246.375] - Received AppendEntries reply {{4 false} 1 0 0}
+
+[2][20220712000246.375] - Append response from 1 unsuccessful even after retries.
+[2][20220712000246.375] - Done processing append reply
+[2][20220712000246.375] - All threads replied. Ending
+[3][20220712000246.525] - Checking if Leader
+[3][20220712000246.525] - Checked if Leader
+[3][20220712000246.525] - [20220712000246.525] Requesting Election
+[3][20220712000246.525] - Killing old Election thread
+[3][20220712000246.525] - Running Election now
+[3][20220712000246.525] - It me. skipping append vote
+[3][20220712000246.525] - Vote listener thread is active and listening for more
+[4][20220712000246.525] - Checking if Leader
+[0][20220712000246.525] - Checking if Leader
+[3][20220712000246.525] - Starting thread to request vote for term 5 to peer idx: 2
+[0][20220712000246.525] - Checked if Leader
+[0][20220712000246.525] - [20220712000246.525] Heartbeat [20220712000246.888] received since last sleep. Resetting timer
+[4][20220712000246.525] - Checked if Leader
+[4][20220712000246.525] - [20220712000246.525] Heartbeat [20220712000246.561] received since last sleep. Resetting timer
+[1][20220712000246.525] - Checking if Leader
+[1][20220712000246.525] - Checked if Leader
+[3][20220712000246.525] - Starting thread to request vote for term 5 to peer idx: 0
+[3][20220712000246.525] - Kill current election thread
+[3][20220712000246.525] - Starting thread to request vote for term 5 to peer idx: 4
+[2][20220712000246.525] - Vote request for term 5, candidate 3 received. Starting.
+[2][20220712000246.525] - My log [{10 1} {20 1}]
+[2][20220712000246.525] - Vote request, terms compatible
+[2][20220712000246.525] - Candidate log is not as up to date as mine.
+[1][20220712000246.525] - [20220712000246.525] Heartbeat [20220712000246.614] received since last sleep. Resetting timer
+[3][20220712000246.525] - Starting thread to request vote for term 5 to peer idx: 1
+[2][20220712000246.525] - Checking if Leader
+[3][20220712000246.525] - Received reply from peer idx: 2
+[3][20220712000246.525] - Successfully pushed vote to channel
+[3][20220712000246.525] - Processing vote reply for term {4 false}
+[3][20220712000246.525] - Vote listener thread is active and listening for more
+[2][20220712000246.525] - Checked if Leader
+[2][20220712000246.526] - [20220712000246.526] Requesting Election
+[2][20220712000246.526] - Running Election now
+[2][20220712000246.526] - It me. skipping append vote
+[2][20220712000246.526] - Vote listener thread is active and listening for more
+[2][20220712000246.526] - Starting thread to request vote for term 6 to peer idx: 4
+[2][20220712000246.526] - Starting thread to request vote for term 6 to peer idx: 0
+[4][20220712000246.525] - Vote request for term 5, candidate 3 received. Starting.
+[4][20220712000246.526] - My log [{10 1}]
+[4][20220712000246.526] - Vote request, terms compatible
+[4][20220712000246.526] - Candidate log term is equal. Log length 1 is higher than mine 1.
+[0][20220712000246.525] - Vote request for term 5, candidate 3 received. Starting.
+[0][20220712000246.526] - My log [{10 1}]
+[0][20220712000246.526] - Vote request, terms compatible
+[0][20220712000246.526] - Candidate log term is equal. Log length 1 is higher than mine 1.
+[0][20220712000246.526] - Vote granted for 3.
+[1][20220712000246.526] - Vote request for term 5, candidate 3 received. Starting.
+[1][20220712000246.526] - My log [{10 1} {20 1}]
+[0][20220712000246.526] - Vote request for term 6, candidate 2 received. Starting.
+[0][20220712000246.526] - My log [{10 1}]
+[0][20220712000246.526] - Vote request, terms compatible
+[0][20220712000246.526] - Candidate log term is equal. Log length 2 is higher than mine 1.
+[0][20220712000246.526] - Vote granted for 2.
+[1][20220712000246.526] - Vote request, terms compatible
+[1][20220712000246.526] - Candidate log is not as up to date as mine.
+[2][20220712000246.526] - Starting thread to request vote for term 6 to peer idx: 1
+[2][20220712000246.526] - Received reply from peer idx: 0
+[2][20220712000246.526] - Successfully pushed vote to channel
+[4][20220712000246.526] - Vote request for term 6, candidate 2 received. Starting.
+[2][20220712000246.526] - Starting thread to request vote for term 6 to peer idx: 3
+[3][20220712000246.526] - Received reply from peer idx: 0
+[3][20220712000246.526] - Successfully pushed vote to channel
+[3][20220712000246.526] - Processing vote reply for term {4 true}
+[3][20220712000246.526] - Vote tally for term 4: 2
+[3][20220712000246.526] - Vote listener thread is active and listening for more
+[4][20220712000246.526] - Vote granted for 3.
+[2][20220712000246.526] - Processing vote reply for term {5 true}
+[3][20220712000246.526] - Received reply from peer idx: 4
+[3][20220712000246.526] - Successfully pushed vote to channel
+[3][20220712000246.526] - Received reply from peer idx: 1
+[3][20220712000246.526] - Vote request for term 6, candidate 2 received. Starting.
+[3][20220712000246.526] - My log [{10 1}]
+[3][20220712000246.526] - Processing vote reply for term {4 true}
+[3][20220712000246.526] - Vote tally for term 4: 3
+[3][20220712000246.526] - Won election. Switching to leader
+[3][20220712000246.526] - Running append entries process
+[1][20220712000246.526] - Vote request for term 6, candidate 2 received. Starting.
+[1][20220712000246.526] - My log [{10 1} {20 1}]
+[1][20220712000246.526] - Vote request, terms compatible
+[1][20220712000246.526] - Candidate log term is equal. Log length 2 is higher than mine 2.
+[1][20220712000246.526] - Vote granted for 2.
+[2][20220712000246.526] - Received reply from peer idx: 1
+[3][20220712000246.526] - Vote request, terms compatible
+[3][20220712000246.526] - Candidate log term is equal. Log length 2 is higher than mine 1.
+[3][20220712000246.526] - My log [{10 1}]
+[2][20220712000246.526] - Vote tally for term 5: 2
+[2][20220712000246.526] - Vote listener thread is active and listening for more
+[2][20220712000246.526] - Processing vote reply for term {5 true}
+[2][20220712000246.526] - Vote tally for term 5: 3
+[2][20220712000246.526] - Won election. Switching to leader
+[3][20220712000246.526] - Getting current commit
+[2][20220712000246.526] - Running append entries process
+[3][20220712000246.526] - Append requester for peer 2. NextIndex [2 2 2 2 2]
+[2][20220712000246.526] - Successfully pushed vote to channel
+[3][20220712000246.526] - It me. skipping append entry
+
+[4][20220712000246.526] - My log [{10 1}]
+[4][20220712000246.526] - Vote request, terms compatible
+[4][20220712000246.526] - Candidate log term is equal. Log length 2 is higher than mine 1.
+[4][20220712000246.526] - Vote granted for 2.
+[3][20220712000246.526] - NextIndex 2
+[3][20220712000246.526] - Vote granted for 2.
+[2][20220712000246.526] - Received reply from peer idx: 3
+[3][20220712000246.526] - Append requester for peer 0. NextIndex [2 2 2 2 2]
+[2][20220712000246.526] - Received reply from peer idx: 4
+[2][20220712000246.526] - My log [{10 1} {20 1}]
+[2][20220712000246.526] - Getting current commit
+[2][20220712000246.526] - It me. skipping append entry
+
+[3][20220712000246.526] - Append requester for peer 1. NextIndex [2 2 2 2 2]
+[3][20220712000246.526] - NextIndex 2
+[3][20220712000246.526] - Append requester for peer 4. NextIndex [2 2 2 2 2]
+[3][20220712000246.526] - NextIndex 2
+[3][20220712000246.526] - Sending AppendEntries {6 3 1 1 1 []} to peer 4
+[3][20220712000246.526] - NextIndex 2
+[3][20220712000246.526] - Sending AppendEntries {6 3 1 1 1 []} to peer 1
+[3][20220712000246.526] - Sending AppendEntries {6 3 1 1 1 []} to peer 2
+[3][20220712000246.526] - Sending AppendEntries {6 3 1 1 1 []} to peer 0
+[2][20220712000246.526] - Append requester for peer 0. NextIndex [3 3 3 3 3]
+[0][20220712000246.526] - Attempting Append with args &{6 3 1 1 1 []}. My term 6. My prevLogTerm at index 1
+[2][20220712000246.526] - Attempting Append with args &{6 3 1 1 1 []}. My term 6. My prevLogTerm at index 1
+[0][20220712000246.526] - Current terms match. Checking last log term 1 vs. args 1
+[0][20220712000246.526] - Logs match sufficiently. Trying to append
+[4][20220712000246.526] - Attempting Append with args &{6 3 1 1 1 []}. My term 6. My prevLogTerm at index 1
+[4][20220712000246.526] - Current terms match. Checking last log term 1 vs. args 1
+[4][20220712000246.526] - Logs match sufficiently. Trying to append
+[4][20220712000246.526] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[1][20220712000246.526] - Attempting Append with args &{6 3 1 1 1 []}. My term 6. My prevLogTerm at index 1
+[2][20220712000246.526] - Append requester for peer 4. NextIndex [3 3 3 3 3]
+[2][20220712000246.526] - NextIndex 3
+[2][20220712000246.526] - Sending AppendEntries {6 2 2 1 1 []} to peer 4
+[2][20220712000246.526] - Current terms match. Checking last log term 1 vs. args 1
+[2][20220712000246.526] - Logs match sufficiently. Trying to append
+[2][20220712000246.526] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[4][20220712000246.526] - Applying Commands from 1 to 1
+[4][20220712000246.526] - Attempting Append with args &{6 2 2 1 1 []}. My term 6. My prevLogTerm at index -1
+[4][20220712000246.526] - Current terms match. Checking last log term -1 vs. args 1
+[4][20220712000246.526] - Done Applying Commands
+[0][20220712000246.526] - Append Finish. My log [{10 1}]. My CommitIndex 1
+[2][20220712000246.526] - Append requester for peer 1. NextIndex [3 3 3 3 3]
+[2][20220712000246.526] - NextIndex 3
+[3][20220712000246.526] - Received AppendEntries reply {{6 true} 4 0 1}
+
+[3][20220712000246.526] - Append response from 4 successful
+[3][20220712000246.526] - Peer 4 - NextIndex: 2, MatchIndex: 1
+[3][20220712000246.526] - Checking commit index
+[3][20220712000246.526] - Getting current commit
+[3][20220712000246.526] - Done processing append reply
+[3][20220712000246.526] - Received AppendEntries reply {{6 true} 2 0 1}
+
+[3][20220712000246.526] - Append response from 2 successful
+[3][20220712000246.526] - Peer 2 - NextIndex: 2, MatchIndex: 1
+[1][20220712000246.526] - Current terms match. Checking last log term 1 vs. args 1
+[1][20220712000246.526] - Logs match sufficiently. Trying to append
+[2][20220712000246.526] - Applying Commands from 1 to 1
+[2][20220712000246.526] - Done Applying Commands
+[3][20220712000246.526] - Checking commit index
+[3][20220712000246.526] - Getting current commit
+[3][20220712000246.526] - Done processing append reply
+[3][20220712000246.526] - Received AppendEntries reply {{6 true} 0 0 1}
+
+[3][20220712000246.526] - Append response from 0 successful
+[3][20220712000246.526] - Peer 0 - NextIndex: 2, MatchIndex: 1
+[3][20220712000246.526] - Checking commit index
+[3][20220712000246.526] - Getting current commit
+[3][20220712000246.526] - Done processing append reply
+[2][20220712000246.526] - Append requester for peer 3. NextIndex [3 3 3 3 3]
+[2][20220712000246.526] - NextIndex 3
+[1][20220712000246.526] - Append Finish. My log [{10 1}]. My CommitIndex 1
+panic: runtime error: slice bounds out of range [2:1]
+
+goroutine 470 [running]:
+6.824/raft.RunAppendEntries.func1(0x1400012f450, 0x3, 0x14000318a80?)
+	/Users/nicholasmoy/Classes/6.824/src/raft/raft.go:767 +0x81c
+created by 6.824/raft.RunAppendEntries
+	/Users/nicholasmoy/Classes/6.824/src/raft/raft.go:748 +0x3f4
+exit status 2
+FAIL	6.824/raft	3.578s

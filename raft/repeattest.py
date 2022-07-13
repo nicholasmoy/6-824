@@ -29,25 +29,21 @@ def run_test(test: str, race: bool):
     os.close(f)
     return test, path, proc.returncode, runtime
 
-# [...] # Some boring command line parsing and UI setup
-
-
-
-parser = argparse.ArgumentParser()
-parser.add_argument('--test_names', nargs='+')
-parser.add_argument('--iterations', nargs='?', type=int, default = 1)
-parser.add_argument('--workers', nargs='*', type=int, default = 10)
-parser.add_argument('--race', nargs='?', type=bool, default = False)
-parser.add_argument('--savepasses', nargs='?', type=bool, default = False)
-parser.add_argument('--output_path', nargs='?', default = './test/foo')
-
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--test_names', nargs='+')
+    parser.add_argument('--iterations', nargs='?', type=int, default = 1)
+    parser.add_argument('--workers', nargs='*', type=int, default = 10)
+    parser.add_argument('--race', action=argparse.BooleanOptionalAction)
+    parser.add_argument('--savepasses', action=argparse.BooleanOptionalAction)
+    parser.add_argument('--output_path', nargs='?', default = './test/foo')
+    
     args = parser.parse_args()
     test_names = args.test_names
     iterations = args.iterations
-    savepasses = args.savepasses
+    savepasses = bool(args.savepasses)
     workers = args.workers
-    race = args.race
+    race = bool(args.race)
     output = Path(args.output_path)
     print(output)
 
@@ -55,14 +51,15 @@ if __name__ == '__main__':
     total = iterations * len(test_names)
     pass_count = dict.fromkeys(test_names, 0)
     completion_counts = dict.fromkeys(test_names, 0)
+    failure_count = dict.fromkeys(test_names, 0)    
 
     # This will collate tests, so they run in a balanced way
     tests = itertools.chain.from_iterable(itertools.repeat(test_names, iterations))
     completed = 0
 
-    with Progress(*Progress.get_default_columns(),rp.MofNCompleteColumn()) as progress:       
+    with Progress(*Progress.get_default_columns(),rp.MofNCompleteColumn(), rp.TextColumn("{task.fields[failures]}")) as progress:       
         for k in test_names:
-            progress_bars[k] = progress.add_task("[red]"+k,total = iterations) 
+            progress_bars[k] = progress.add_task("[red]"+k,total = iterations, failures = 0) 
 
         with futures.ThreadPoolExecutor(max_workers=workers) as executor:
 
@@ -98,13 +95,14 @@ if __name__ == '__main__':
 
                     if rc != 0:
                         print(f"Failed test {test} - {dest}")
+                        failure_count[test] += 1
 
                     os.remove(path)
                     completed += 1
                     futurelist = list(not_done)
 
                 for k,v in progress_bars.items():
-                    progress.update(v, completed = completion_counts[k])
+                    progress.update(v, completed = completion_counts[k], failures = failure_count[k])
 
 
     print(pass_count)

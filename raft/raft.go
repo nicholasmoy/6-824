@@ -188,6 +188,10 @@ func (rf *Raft) InitializeLeader() {
 	rf.LogMessage("Won election. Switching to leader")
 	_, LastIndex := rf.GetLastLog()
 	rf.mu.Lock()
+	// If in intervening time I switched to not in election, abandon leadership
+	if !rf.inElection {
+		return
+	}
 	rf.inElection = false
 	// Initialize nextIndex to LastIndex + 1, and matchIndex to 0
 	for i := 0; i < len(rf.peers); i++ {
@@ -255,7 +259,6 @@ func (rf *Raft) NumPeers() int {
 
 //
 // helper function that returns term and index of last log entry
-//
 //
 
 func (rf *Raft) GetLastLog() (int, int) {
@@ -574,16 +577,18 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	term := -1
 
 	// Your code here (2B).
-	time.Sleep(10 * time.Millisecond)
 	_, isLeader := rf.GetState()
 	if isLeader {
 		rf.LogMessage(fmt.Sprintf("ADDING REAL COMMAND %v", command))
 		rf.mu.Lock()
 		rf.log = append(rf.log, LogEntry{command, rf.currentTerm})
 		rf.LogMessage(fmt.Sprintf("My log %v", rf.log))
+
+		// Guarantee index is correct
+		index = len(rf.log)
+		term = rf.currentTerm
 		rf.mu.Unlock()
 		go RunAppendEntries(rf)
-		term, index = rf.GetLastLog()
 	}
 	return index, term, isLeader
 }
@@ -750,6 +755,7 @@ func RunAppendEntries(rf *Raft) {
 				request := request_stub
 
 				rf.mu.Lock()
+				initialTerm := rf.currentTerm
 				rf.LogMessage(fmt.Sprintf("Append requester for peer %d. NextIndex %v", idx, rf.nextIndex))
 				nextIndex := rf.nextIndex[idx]
 				logCopy := make([]LogEntry, len(rf.log))
@@ -760,7 +766,19 @@ func RunAppendEntries(rf *Raft) {
 
 				// If response OK, send reply to aggregation channel for main thread
 				// Otherwise adjust index and keep retrying
+				// Check if I'm still leader
+
 				for !success {
+
+					// Check if this thread request is out of date and abandon
+					currentTerm, isleader := rf.GetState()
+					rf.mu.Lock()
+					loglen := len(rf.log)
+					rf.mu.Unlock()
+
+					if !isleader || currentTerm != initialTerm || loglen > len(logCopy) {
+						return
+					}
 					rf.LogMessage(fmt.Sprintf("NextIndex %d", nextIndex))
 					request.PrevLogIndex = nextIndex - 1 //
 					request.Entries = logCopy[request.PrevLogIndex:]
@@ -794,7 +812,7 @@ func RunAppendEntries(rf *Raft) {
 						// If we've been trying for a long time, end loop. Otherwise will retry again with the same index
 						if time.Now().After(AppendExpireTime) {
 							rf.LogMessage(fmt.Sprintf("%d Timed out. Giving up.", idx))
-							// appendReplyCh <- AppendEntriesThreadMessage{reply, idx, 0, request.PrevLogIndex}
+							appendReplyCh <- AppendEntriesThreadMessage{reply, idx, 0, request.PrevLogIndex}
 							return
 						}
 					}
