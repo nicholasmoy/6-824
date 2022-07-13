@@ -19,6 +19,7 @@ package raft
 
 import (
 	//	"bytes"
+	"bytes"
 	"fmt"
 	"math/rand"
 	"sync"
@@ -26,6 +27,7 @@ import (
 	"time"
 
 	//	"6.824/labgob"
+	"6.824/labgob"
 	"6.824/labrpc"
 
 	"math"
@@ -61,7 +63,7 @@ type AppendEntriesArgs struct {
 //
 type AppendEntriesReply struct {
 	Term    int  // Current term
-	Success bool // Id of term leader
+	Success bool // Whether append successful
 }
 
 //
@@ -125,12 +127,12 @@ func (rf *Raft) LogMessage(message string) {
 //
 // Set lastElectionResetTime to time.Now
 func (rf *Raft) ResetElectionTimer() time.Duration {
-
+	rf.LogMessage("Resetting Election Timer")
 	delay := rf.GenElectionTimeout()
-
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
 	rf.lastElectionResetTime = time.Now().Add(delay)
+	rf.LogMessage("Finished resetting Election Timer")
 	return delay
 }
 
@@ -174,6 +176,7 @@ func (rf *Raft) SafeUpdateTerm(newTerm int) bool {
 		rf.currentTerm = newTerm
 		rf.votedFor = -1 // No longer voting for yourself
 		rf.inElection = false
+		rf.persist()
 		return true
 	} else {
 		return false
@@ -184,12 +187,13 @@ func (rf *Raft) SafeUpdateTerm(newTerm int) bool {
 //
 // Initialize leader state
 //
-func (rf *Raft) InitializeLeader() {
-	rf.LogMessage("Won election. Switching to leader")
+func (rf *Raft) InitializeLeader(fromPersist bool) {
+	rf.LogMessage("Initializing leader state")
 	_, LastIndex := rf.GetLastLog()
 	rf.mu.Lock()
 	// If in intervening time I switched to not in election, abandon leadership
-	if !rf.inElection {
+	// Unless recovering from crash
+	if !rf.inElection && !fromPersist {
 		return
 	}
 	rf.inElection = false
@@ -200,6 +204,7 @@ func (rf *Raft) InitializeLeader() {
 	}
 	rf.mu.Unlock()
 	// rf.LogMessage(fmt.Sprintln(rf.nextIndex))
+	rf.LogMessage("Finished initializing leader state")
 }
 
 //
@@ -217,12 +222,15 @@ func (rf *Raft) GenElectionTimeout() time.Duration {
 func (rf *Raft) persist() {
 	// Your code here (2C).
 	// Example:
-	// w := new(bytes.Buffer)
-	// e := labgob.NewEncoder(w)
-	// e.Encode(rf.xxx)
-	// e.Encode(rf.yyy)
-	// data := w.Bytes()
-	// rf.persister.SaveRaftState(data)
+	w := new(bytes.Buffer)
+	e := labgob.NewEncoder(w)
+
+	e.Encode(rf.currentTerm)
+	e.Encode(rf.votedFor)
+	e.Encode(rf.log)
+
+	data := w.Bytes()
+	rf.persister.SaveRaftState(data)
 }
 
 //
@@ -353,17 +361,31 @@ func (rf *Raft) readPersist(data []byte) {
 	}
 	// Your code here (2C).
 	// Example:
-	// r := bytes.NewBuffer(data)
-	// d := labgob.NewDecoder(r)
-	// var xxx
-	// var yyy
-	// if d.Decode(&xxx) != nil ||
-	//    d.Decode(&yyy) != nil {
-	//   error...
-	// } else {
-	//   rf.xxx = xxx
-	//   rf.yyy = yyy
-	// }
+	rf.LogMessage("Reading from persisted state.")
+	r := bytes.NewBuffer(data)
+	d := labgob.NewDecoder(r)
+	var currentTerm int
+	var votedFor int
+	var log []LogEntry
+	if d.Decode(&currentTerm) != nil ||
+		d.Decode(&votedFor) != nil ||
+		d.Decode(&log) != nil {
+		return
+	} else {
+		rf.mu.Lock()
+		rf.currentTerm = currentTerm
+		rf.votedFor = votedFor
+		rf.log = log
+		rf.mu.Unlock()
+	}
+
+	// If leader, make sure to re-initialize leader state too
+	if _, isLeader := rf.GetState(); isLeader {
+		rf.LogMessage("Re-initializing leader")
+		rf.InitializeLeader(true)
+	}
+
+	rf.LogMessage(fmt.Sprintf("Loaded State. currentTerm: %d, votedFor: %d, Log: %v", currentTerm, votedFor, log))
 }
 
 //
@@ -486,16 +508,34 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 			logLength := len(rf.log)
 			rf.mu.Unlock()
 
+			overlap_ct := logLength - args.PrevLogIndex
+
 			// Log is not up to date with everything before these new appends, it's a fail
-			if logLength >= args.PrevLogIndex {
+			if overlap_ct >= 0 {
 				rf.mu.Lock()
-				if args.PrevLogIndex == 0 { // First actual log entry
-					rf.log = args.Entries
-				} else { // Appending to existing logs
-					rf.log = append(rf.log[:args.PrevLogIndex], args.Entries...)
+				if overlap_ct == 0 { // Append to the end
+					rf.log = append(rf.log, args.Entries...)
+				} else { // iterate through each overlapping to make sure terms match
+					for i, v := range args.Entries {
+						// No more entries in log. we can just append the remainder to log
+						if i >= overlap_ct {
+							rf.log = append(rf.log[:args.PrevLogIndex+i], args.Entries[i:]...)
+							continue
+						} else {
+							// Term mismatch. Overwrite this and all subsequent entries
+							if rf.log[args.PrevLogIndex+i].Term != v.Term {
+								rf.log = append(rf.log[:args.PrevLogIndex+i], args.Entries[i:]...)
+								continue
+							} else { // overwrite one at a time
+								rf.log[args.PrevLogIndex+i] = args.Entries[i]
+							}
+						}
+					}
 				}
+
 				// Update commit index
 				rf.commitIndex = int(math.Min(float64(args.LeaderCommit), float64(len(rf.log))))
+				rf.persist()
 				rf.LogMessage(fmt.Sprintf("Append Finish. My log %v. My CommitIndex %d", rf.log, rf.commitIndex))
 				rf.mu.Unlock()
 				success = true
@@ -587,6 +627,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 		// Guarantee index is correct
 		index = len(rf.log)
 		term = rf.currentTerm
+		rf.persist()
 		rf.mu.Unlock()
 		go RunAppendEntries(rf)
 	}
@@ -637,9 +678,6 @@ func (rf *Raft) ticker() {
 			if time.Now().Before(rf.GetLatestElectionReset()) {
 				rf.LogMessage(fmt.Sprintf("[%s] Heartbeat [%s] received since last sleep. Resetting timer", time.Now().Format("20060102150405.000"), rf.GetLatestElectionReset().Format("20060102150405.000")))
 
-				// Go back to sleep until next new timer
-				// sleepDuration := rf.GetLatestElectionReset().Sub(time.Now())
-				// Negative timeWindow causes sleep to return immediately
 			} else // Otherwise, request an election
 			{
 				rf.LogMessage(fmt.Sprintf("[%s] Requesting Election", time.Now().Format("20060102150405.000")))
@@ -690,14 +728,14 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	rf.lastApplied = 0
 	rf.applyChan = applyCh
 
-	// Initialize nextIndex and matchIndex to 0
+	// Initialize nextIndex to 1 and matchIndex to 0
 	for i := 0; i < len(rf.peers); i++ {
-		rf.nextIndex = append(rf.nextIndex, 0)
+		rf.nextIndex = append(rf.nextIndex, 1)
 		rf.matchIndex = append(rf.matchIndex, 0)
 	}
 
 	// initialize from state persisted before a crash
-	// rf.readPersist(persister.ReadRaftState())
+	rf.readPersist(persister.ReadRaftState())
 
 	// start ticker goroutine to start elections
 	rf.LogMessage(time.Now().String())
@@ -743,7 +781,7 @@ func RunAppendEntries(rf *Raft) {
 	// Spawn AppendEntries manager thread for each other server
 	for i := 0; i < len(rf.peers); i++ {
 		if i == rf.me {
-			rf.LogMessage("It me. skipping append entry\n")
+			rf.LogMessage("It me. skipping append entry")
 			rf.mu.Lock()
 			rf.matchIndex[i] = lastLogIndex
 			rf.mu.Unlock()
@@ -792,7 +830,12 @@ func RunAppendEntries(rf *Raft) {
 							return
 						} else { // decrement nextIndex for this peer and try again
 
-							if request.PrevLogIndex < 1 {
+							// If follower has higher term, abandon AppendEntries
+							if reply.Term > currentTerm {
+								rf.LogMessage(fmt.Sprintf("AppendEntries response from %d has higher term. Abandoning and forfeiting leader", idx))
+								rf.SafeUpdateTerm(reply.Term)
+								return
+							} else if request.PrevLogIndex < 1 {
 								// Failed even after going back to zero log entry.
 								// Must be some other issue.
 								rf.mu.Lock()
@@ -874,15 +917,21 @@ func RunElection(rf *Raft, targetTerm int, quitElectionCh chan bool) {
 	voteTally := 0
 
 	rf.LogMessage("Running Election now")
-	rf.mu.Lock()
+	currentTerm, _ := rf.GetState()
+
 	// If targetTerm is not the next one, we got updated term.
 	// Need to abandon election.
-	if (rf.currentTerm + 1) == targetTerm {
+	if (currentTerm + 1) == targetTerm {
+		rf.mu.Lock()
 		rf.currentTerm = rf.currentTerm + 1 // increment term
 		rf.votedFor = rf.me                 // vote for self
 		voteTally += 1
+		rf.persist()
+		rf.mu.Unlock()
+	} else {
+		rf.LogMessage("Term changed since started. Ending election thread")
+		return
 	}
-	rf.mu.Unlock()
 	lastLogTerm, lastLogIndex := rf.GetLastLog()
 	// Set of Vote Request struct
 	request := RequestVoteArgs{
@@ -929,7 +978,7 @@ func RunElection(rf *Raft, targetTerm int, quitElectionCh chan bool) {
 				rf.LogMessage(fmt.Sprintf("Vote tally for term %d: %d", vote.Term, voteTally))
 				if voteTally > len(rf.peers)/2 {
 					// Election now over.
-					rf.InitializeLeader()
+					rf.InitializeLeader(false)
 					// Immediately run append entries to assert control
 					go RunAppendEntries(rf)
 					return

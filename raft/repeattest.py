@@ -33,7 +33,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--test_names', nargs='+')
     parser.add_argument('--iterations', nargs='?', type=int, default = 1)
-    parser.add_argument('--workers', nargs='*', type=int, default = 10)
+    parser.add_argument('--workers', nargs='?', type=int, default = 10)
     parser.add_argument('--race', action=argparse.BooleanOptionalAction)
     parser.add_argument('--savepasses', action=argparse.BooleanOptionalAction)
     parser.add_argument('--output_path', nargs='?', default = './test/foo')
@@ -103,7 +103,3 @@ if __name__ == '__main__':
 
                 for k,v in progress_bars.items():
                     progress.update(v, completed = completion_counts[k], failures = failure_count[k])
-
-
-    print(pass_count)
-    print(completion_counts)
