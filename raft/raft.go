@@ -379,10 +379,14 @@ func (rf *Raft) readPersist(data []byte) {
 		rf.mu.Unlock()
 	}
 
-	// If leader, make sure to re-initialize leader state too
+	// If leader, I might have just been a candidate when I crashed.
+	// Just in case, revert to candidate which will force a new election
 	if _, isLeader := rf.GetState(); isLeader {
-		rf.LogMessage("Re-initializing leader")
-		rf.InitializeLeader(true)
+
+		rf.mu.Lock()
+		rf.inElection = true
+		rf.mu.Unlock()
+		rf.LogMessage("Might have been leader. Resetting to candidate.")
 	}
 
 	rf.LogMessage(fmt.Sprintf("Loaded State. currentTerm: %d, votedFor: %d, Log: %v", currentTerm, votedFor, log))
@@ -462,6 +466,7 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		}
 		// If haven't already voted this term or voted for Candidate, grant vote
 		if CandidateLogValid {
+			rf.LogMessage("Updating votedFor.")
 			rf.mu.Lock()
 			votedFor := rf.votedFor
 			rf.mu.Unlock()
@@ -683,15 +688,22 @@ func (rf *Raft) ticker() {
 				rf.LogMessage(fmt.Sprintf("[%s] Requesting Election", time.Now().Format("20060102150405.000")))
 				// Kill timed out election thread and start again
 				rf.mu.Lock()
-				inElection := rf.inElection
-				if inElection {
-					rf.LogMessage("Killing old Election thread")
-					quitElectionCh <- true
-				}
 				rf.inElection = true
+
+				select {
+				case quitElectionCh <- true:
+					rf.LogMessage("Killing old Election thread")
+				default:
+					rf.LogMessage("No thread to kill")
+				}
+				// rf.mu.Unlock()
+
+				// rf.mu.Lock()
+				rf.currentTerm = rf.currentTerm + 1 // increment term
+				rf.votedFor = rf.me                 // vote for self
+				rf.persist()
+				go RunElection(rf, rf.currentTerm, quitElectionCh)
 				rf.mu.Unlock()
-				currentTerm, _ := rf.GetState()
-				go RunElection(rf, currentTerm+1, quitElectionCh)
 
 				// Reset election timer and go back to sleep
 				rf.ResetElectionTimer()
@@ -914,31 +926,24 @@ func RunAppendEntries(rf *Raft) {
 // Waits for votes to return and if so becomes leader
 func RunElection(rf *Raft, targetTerm int, quitElectionCh chan bool) {
 	voteReplyCh := make(chan RequestVoteReply)
-	voteTally := 0
+	voteTally := 1
 
 	rf.LogMessage("Running Election now")
 	currentTerm, _ := rf.GetState()
 
 	// If targetTerm is not the next one, we got updated term.
 	// Need to abandon election.
-	if (currentTerm + 1) == targetTerm {
-		rf.mu.Lock()
-		rf.currentTerm = rf.currentTerm + 1 // increment term
-		rf.votedFor = rf.me                 // vote for self
-		voteTally += 1
-		rf.persist()
-		rf.mu.Unlock()
-	} else {
+	if (currentTerm) != targetTerm {
 		rf.LogMessage("Term changed since started. Ending election thread")
 		return
 	}
 	lastLogTerm, lastLogIndex := rf.GetLastLog()
 	// Set of Vote Request struct
 	request := RequestVoteArgs{
-		rf.currentTerm, // incremented term
-		rf.me,          // Server's server ID
-		lastLogIndex,   // Last log index
-		lastLogTerm}    // Last log Term
+		currentTerm,  // incremented term
+		rf.me,        // Server's server ID
+		lastLogIndex, // Last log index
+		lastLogTerm}  // Last log Term
 
 	// Spawn vote requester for each other server
 	for i := 0; i < len(rf.peers); i++ {
@@ -1011,19 +1016,17 @@ func (rf *Raft) ApplyCommands() {
 		LastApplied += 1
 		rf.mu.Lock()
 		command := rf.log[LastApplied-1].Command
-		rf.mu.Unlock()
 		// Send applied message to applyChan
 		applymsg := ApplyMsg{
 			CommandValid: true,
 			Command:      command,
 			CommandIndex: LastApplied,
 		}
-		rf.mu.Lock()
 		rf.lastApplied = LastApplied
 		rf.LogMessage(fmt.Sprintf("Updated lastApplied to %d", rf.lastApplied))
-		rf.mu.Unlock()
-
+		// Need to lock applychan so we don't apply out of order
 		rf.applyChan <- applymsg
+		rf.mu.Unlock()
 	}
 	rf.LogMessage(fmt.Sprintf("Done Applying Commands"))
 }
