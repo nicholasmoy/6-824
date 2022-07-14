@@ -36,7 +36,7 @@ if __name__ == '__main__':
     parser.add_argument('--workers', nargs='?', type=int, default = 10)
     parser.add_argument('--race', action=argparse.BooleanOptionalAction)
     parser.add_argument('--savepasses', action=argparse.BooleanOptionalAction)
-    parser.add_argument('--output_path', nargs='?', default = './test/foo')
+    parser.add_argument('--output_path', nargs='?', default = './test/'+ time.strftime("%H%M%S"))
     
     args = parser.parse_args()
     test_names = args.test_names
